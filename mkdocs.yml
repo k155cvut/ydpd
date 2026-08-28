@@ -2,11 +2,19 @@ site_name: Vizualizace 3D modelů pomocí moderních technologií (155YV3D)
 nav:
   - Charakteristika předmětu: index.md
   - Cvičení:
-      - Základy 3D tisku: cviceni/cviceni1.md
-      - 3D tisk Open Street Map: cviceni/cviceni2.md
-      - Základy 3D v ArcGIS Pro: cviceni/cviceni3.md
-      - Webová rozšířená realita: cviceni/cviceni10.md
-      - Tvorba mobilní aplikace v Unity: cviceni/cviceni11.md
+      - Organizace předmětu, příprava dat a publikace do prostředí ArcGIS Online, správa a efektivní použití (Views).: cviceni/cviceni1.md
+      - Vector Tile Style Editor: cviceni/cviceni2.md
+      - Experience builder: cviceni/cviceni3.md
+      - Dashboard builder: cviceni/cviceni4.md
+      - Úvod do prompt cartography: cviceni/cviceni5.md
+      - Nástroje LLM pro webové mapy: cviceni/cviceni6.md
+      - SketchUp základy: cviceni/cviceni7.md
+      - Pokročilejší modelování: cviceni/cviceni8.md
+      - Základy HTML a vizualizace na webu: cviceni/cviceni9.md
+      - Pokročilejší vizualizace na webu: cviceni/cviceni10.md
+      - Úvod do Blenderu: cviceni/cviceni11.md
+      - AI v modelování: cviceni/cviceni12.md
+
 
 plugins:
   - search

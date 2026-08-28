@@ -1,4 +1,4 @@
 ---
 icon: material/numeric-5-box
-title: Cvičení 5
+title: Úvod do prompt cartography. Markdown, strukturování promptů, tvorba mapové aplikace.
 ---

@@ -1,4 +1,4 @@
 ---
 icon: material/numeric-8-box
-title: Cvičení 8
+title: Pokročilejší modelování, textury, rozšíření pro SketchUp.
 ---

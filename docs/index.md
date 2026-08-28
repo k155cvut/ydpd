@@ -1,9 +1,11 @@
 
-# Vizualizace 3D modelů pomocí moderních technologií {: .page_title}
+# Vizualizace a distribuce prostorových dat {: .page_title}
 
-Tento povinně-volitelný předmět představuje možnosti vizualizace trojrozměrných modelů pomocí moderních technologií.
+Předmět se zaměřuje na moderní metody vizualizace a distribuce prostorových dat prostřednictvím webových mapových aplikací, interaktivních 3D modelů a virtuálních prohlídek. Je koncipován do dvou výukových bloků.
+První blok je věnován pokročilým nástrojům pro tvorbu webových mapových aplikací. Studenti se seznámí s úpravou vektorových podkladových map a s pokročilými nástroji pro tvorbu webových mapových aplikací, zejména ArcGIS Experience Builder a ArcGIS Dashboards. Součástí bloku je rovněž úvod do prompt cartography a praktické využití velkých jazykových modelů (LLM) při návrhu a tvorbě webových mapových aplikací.
+Druhý blok představuje vybrané nástroje a pracovní postupy digitálního 3D modelování. Studenti si osvojí základy tvorby 3D modelů, jejich optimalizace a publikování ve webovém prostředí. Seznámí se také s principy tvorby virtuálních prohlídek a s možnostmi využití nástrojů umělé inteligence v procesu modelování a vizualizace.
 
-Postupně se představí několik různých způsobů zpracování a vizualizace 3D prostorových dat, a to fotogrammetrických, GIS či kartografických. První část předmětu se soustředí na představení herního enginu Unreal Engine, ve kterém lze vizualizovat fotogrammetrická data v prostředí virtuální reality. Následuje ukázka práce s 3D GIS daty v ArcGIS Pro a ArcGIS Online. Tyto znalosti budou rozvíjeny základy procedurálního modelování s využitím softwaru City Engine. Dále budou představeny možnosti 3D tisku prostorových GIS dat. Závěrem semestru se pak přesuneme k vizualizaci geodat v rozšířené realitě, a to jak ve webovém prohlížeči, tak s využitím dedikované mobilní aplikace vyvinuté pomocí herního enginu Unity.
+Výuka je založena především na praktických úlohách. Studenti v průběhu semestru vytvoří vlastní webové mapové aplikace a modely, na nichž si ověří celý pracovní postup od přípravy dat a návrhu vizuálního řešení až po prezentaci výsledků na webu. Hlavním výstupem předmětu bude semestrální práce, ve které studenti uplatní znalosti získané v průběhu semestru. Cílem bude vytvoření webové interaktivní aplikace sloužící pro prohlížení 2D a 3D prostorových dat. Studenti si téma semestrální práce mohou vybrat dle vlastního zájmu po dohodě s vyučujícím.
 
 
 <h2 style="text-align:center;">Naučíte se</h2>
@@ -11,117 +13,158 @@ Postupně se představí několik různých způsobů zpracování a vizualizace
 
 <div class="grid cards grid_icon_info smaller_padding" markdown> <!-- specificky format gridu (trida "grid_icon_info") na miru uvodni strance predmetu -->
 
--   :simple-unrealengine:{ .xl }
-
-    pracovat s __Unreal Engine__
-
--   :fontawesome-solid-vr-cardboard:{ .xl }
-
-    zobrazit data ve __virtuální realitě__
-
--   :fontawesome-solid-photo-film:{ .xl }
-
-    pokročilou tvorbu a editaci __fotogrammetrických__ modelů
-
--   :simple-materialdesignicons:{ .xl }
-
-    psát __CGA__ kód a generovat __procedurální__ krajinu nebo města
-
--   :material-printer-3d-nozzle:{ .xl }
-
-    připravit prostorová data pro __3D tisk__
-
-
--   :simple-unity:{ .xl }
-
-    vytvořit __mobilní aplikaci__ pomocí herního enginu __Unity__
-
 -   :simple-arcgis:{ .xl }
 
-    pracovat s __3D GIS__ daty v ArcGIS Pro a ArcGIS Online
+    vytvářet a editovat __podkladové mapy__ pomocí __Vector Tile Style Editor__
 
--   :material-augmented-reality:{ .xl }
+-   :simple-databricks:{ .xl }
 
-    vizualizovat prostorová data v prostředí __rozšířené reality__
+    tvorbu a editaci __komplexních webových mapových aplikací__
+
+-   :material-code-json:{ .xl }
+
+    ovládat nástroje __LLM pro webové mapy__
+
+-   :simple-sketchup:{ .xl }
+
+    připravovat detailní 3D modely v prostředí CADu __SketchUp__ 
+
+-   :material-rotate-3d:{ .xl }
+
+    zpracovat __virtuální prohlídky__ a ovládat nástroje pro __3D vizualizaci na webu__
+
+
+-   :simple-python:{ .xl }
+
+    využívat __umělou inteligenci__ pro 3D modelování
+
+
 
 
 </div>
 
 <div class="gallery_container" markdown>
-![](https://dev.epicgames.com/community/api/learning/image/182adf38-1d2d-4ae8-af7a-fe435a08649f?resizing_type=fit){: .no-filter }
-![](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTHoVA4sqB8tfISS6vEFdD52JOjhyuG-gwEug&s){: .no-filter }
-![](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSq8luRFuqJlHFOMrLaXhF8MEcgdvjHrGNqwQ&s){: .no-filter }
-![](https://www.esri.com/content/dam/esrisites/en-us/arcgis/products/city-engine/assets/overview-tls-urban-planning.jpg){: .no-filter }
-![](https://www.arcdata.cz/content/dam/distributor-share/arcdata-cz/arcgis/arcgis-cityengine/city-engine-tabcontent-5-steps-4-add-details.jpg){: .no-filter }
-![](https://reko3d.com/wp-content/uploads/2023/09/AR-plane-city-1920x1024.jpg){: .no-filter }
-![](https://images.ctfassets.net/26961o1141cc/4BIQBpSBwswwxyqEFdCrCy/1ab81641cd6118bfccd464929cf3781f/Plan_1.PNG?w=1626&h=914&fm=webp&q=100){: .no-filter }
+![](https://www.gim-international.com/cache/b/9/5/7/e/b957edfd3a730c2758967b38171e3962edb51354.jpeg){: .no-filter }
+![](https://i.ytimg.com/vi/N3MVIoCb47s/maxresdefault.jpg){: .no-filter }
+![](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSSy1LS_CgWuvFpqIRjcCdosanehj6qzT2M03sUtwLSPZRm__o1KTqNoBB2&s=10){: .no-filter }
+
+![](https://images.adsttc.com/media/images/5923/4023/e58e/ce27/a400/014a/large_jpg/Portada_Consejos_Sketch_Up.jpg?1495482389){: .no-filter }
+![](https://tabreturn.github.io/img/aqitbcc01/getting-started-blender.png){: .no-filter }
+![](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR7rc2lVO9eCMx2uo5ZBNs_n-rgGhNvmLwyNjBzjfAQaigcRtC5d6Z7uyY&s=10){: .no-filter }
 
 </div>
 
 
-## Přednášky {: style="margin-bottom:0;"}
-
-![](https://geomatics.fsv.cvut.cz/wp-content/uploads/2022/01/03-edit_export@0.5x-12.jpg){: .off-glb .no-filter style="height: 1.5em; vertical-align: -.4em; clip-path: circle();"}
-__[Ing. Karel Pavelka, Ph.D.](https://geomatics.fsv.cvut.cz/employees/karel-pavelka-ml/) [:fontawesome-solid-square-envelope:](mailto:karel.pavelka@cvut.cz "karel.pavelka@cvut.cz"){style="color:var(--md-default-fg-color);"}__{style="padding-right:1rem;"}
-{style="display:inline; white-space: nowrap; line-height:2;"}
-<!-- kvuli zobrazovani na mobilu -->
-
-![](https://geomatics.fsv.cvut.cz/wp-content/uploads/2022/01/03-edit_export@0.3x.jpg){: .off-glb .no-filter style="height: 1.5em; vertical-align: -.4em; clip-path: circle();"}
-__[Ing. Vojtěch Cehák](https://geomatics.fsv.cvut.cz/employees/vojtech-cehak/) [:fontawesome-solid-square-envelope:](mailto:vojtech.cehak@fsv.cvut.cz "vojtech.cehak@fsv.cvut.cz"){style="color:var(--md-default-fg-color);"}__{style="padding-right:1rem;"}
-{style="display:inline; white-space: nowrap; line-height:2;"}
-<!-- kvuli zobrazovani na mobilu -->
-
-![](https://geomatics.fsv.cvut.cz/wp-content/uploads/2022/01/03-edit_export@0.5x-15.jpg){: .off-glb .no-filter style="height: 1.5em; vertical-align: -.4em; clip-path: circle();"}
-__[Ing. Michal Janovský, PhD.](https://geomatics.fsv.cvut.cz/employees/michal-janovsky/) [:fontawesome-solid-square-envelope:](mailto:michal.janovsky@fsv.cvut.cz "michal.janovsky@fsv.cvut.cz"){style="color:var(--md-default-fg-color);"}__{style="padding-right:1rem;"}
-{style="display:inline; white-space: nowrap; line-height:2;"}
-<!-- kvuli zobrazovani na mobilu -->
+## Harmonogram {: style="margin-bottom:0;"}
 
 ![](https://geomatics.fsv.cvut.cz/wp-content/uploads/2022/01/03-edit_export@0.75x-4.jpg){: .off-glb .no-filter style="height: 1.5em; vertical-align: -.4em; clip-path: circle();"}
 __[Ing. František Mužík](https://geomatics.fsv.cvut.cz/employees/frantisek-muzik/) [:fontawesome-solid-square-envelope:](mailto:frantisek.muzik@fsv.cvut.cz "frantisek.muzik@fsv.cvut.cz"){style="color:var(--md-default-fg-color);"}__{style="padding-right:1rem;"}
 {style="display:inline; white-space: nowrap; line-height:2;"}
 <!-- kvuli zobrazovani na mobilu -->
 
+![](https://geomatics.fsv.cvut.cz/wp-content/uploads/2022/01/03-edit_export@0.5x-13.jpg){: .off-glb .no-filter style="height: 1.5em; vertical-align: -.4em; clip-path: circle();"}
+__[Ing. Josef Münzberger](https://geomatics.fsv.cvut.cz/employees/josef-munzberger/) [:fontawesome-solid-square-envelope:](mailto:josef.munzberger@fsv.cvut.cz "josef.munzberger@fsv.cvut.cz"){style="color:var(--md-default-fg-color);"}__{style="padding-right:1rem;"}
+{style="display:inline; white-space: nowrap; line-height:2;"}
+<!-- kvuli zobrazovani na mobilu -->
 
 
 
-
-
-jsou spíše formou workshopu a bezprostředně předcházejí cvičením, s nimiž se mnohdy prolínají
+Harmonogram je platný pro zimní semestr 2026/27.
 {: style="opacity:50%;margin-top:0;"}
 
-1. Představení možností vizualizace 3D prostorových dat moderními technologiemi. Základy 3D tisku. 
-2. 3D tisk prostorových dat. Ukázka pokročilejších možností 3D tisku včetně vícebarevného tisku.
-3. Práce s 3D GIS daty v ArcGIS Pro. Publikace a správa trojrozměrných dat na ArcGIS Online.
-4. Seznámení s procedurálním modelováním. Základy City Engine a psaní CGA kódu.
-5. Základy Unreal Engine. Seznámení s uživatelským prostředím.
-6. Představení virtuální reality. Příprava 3D modelů pro virtuální realitu.
-7. Pokročilé editace fotogtammetrických modelů. Moderní metody ve fotogrammetrii.
-8. Vizualizace 3D dat ve virtuální realitě.
-9. Pokročilejší vizualizace v UE.
-10. Představení rozšířené reality. WebXR, webové JS knihovny.
-11. Využití herního enginu Unity. Tvorba mobilní aplikace pro Android v Unity.
-
-
-
-## Harmonogram {: style="margin-bottom:0;"}
-Harmonogram je platný pro zimní semestr 2025/26.
+Výuka je vedena formou workshopu, přičemž přednášky bezprostředně předcházejí cvičením, s nimiž se mnohdy prolínají.
 {: style="opacity:50%;margin-top:0;"}
 
-| Datum       | Téma                                                                 |
-|-------------|----------------------------------------------------------------------|
-| 23.9.2025   | Základy 3D tisku                                                     |
-| 30.9.2025   | 3D tisk prostorových dat (projekt AMUSE – virtuální muzeum)          |
-| 7.10.2025   | Úvod do 3D GIS                                                       |
-| 14.10.2025  | Úvod do procedurálního modelování                                    |
-| 21.10.2025  | Práce s rastry, procedurální generování vegetace v Unreal Enginu (UE)|
-| 4.11.2025   | Příprava 3D modelů pro virtuální realitu                             |
-| 11.11.2025  | Tvorba virtuálního muzea v UE                                        |
-| 18.11.2025  | Pokročilé práce v UE                                                 |
-| 25.11.2025  | Pokročilé práce v UE                                                 |
-| 2.12.2025   | Webová rozšířená realita                                             |
-| 9.12.2025   | Tvorba mobilní aplikace v Unity                                      |
-| 16.12.2025  | Zkouška – 1. termín                                                  |
-
+<table style="border-collapse:collapse; width:100%; font-family:Arial,sans-serif; font-size:14px;">
+  <thead>
+    <tr style="background:#ebae20; color:#fff;">
+      <th style="padding:8px 12px; text-align:center;">Týden</th>
+      <th style="padding:8px 12px; text-align:center;">Datum</th>
+      <th style="padding:8px 12px;">Téma</th>
+      <th style="padding:8px 12px; text-align:center;">Vyučující</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr style="border-top:2px solid #aaa;">
+      <td style="text-align:center; font-weight:bold; padding:8px 12px;">1</td>
+      <td style="text-align:center; padding:8px 12px;">23.09.2026</td>
+      <td style="padding:8px 12px;">Organizace předmětu, příprava dat a publikace do prostředí ArcGIS Online, správa a efektivní použití (Views).</td>
+      <td style="text-align:center; padding:8px 12px;">Josef Münzberger</td>
+    </tr>
+    <tr style="border-top:2px solid #aaa;">
+      <td style="text-align:center; font-weight:bold; padding:8px 12px;">2</td>
+      <td style="text-align:center; padding:8px 12px;">30.09.2026</td>
+      <td style="padding:8px 12px;">Vector Tile Style Editor. Tvorba webové basemapy.</td>
+      <td style="text-align:center; padding:8px 12px;">Josef Münzberger</td>
+    </tr>
+    <tr style="border-top:2px solid #aaa;">
+      <td style="text-align:center; font-weight:bold; padding:8px 12px;">3</td>
+      <td style="text-align:center; padding:8px 12px;">07.10.2026</td>
+      <td style="padding:8px 12px;">Rekapitulace ESRI builderů, jejich porovnání, zaměření na Experience builder a tvorba mapové aplikace.</td>
+      <td style="text-align:center; padding:8px 12px;">Josef Münzberger</td>
+    </tr>
+    <tr style="border-top:2px solid #aaa;">
+      <td style="text-align:center; font-weight:bold; padding:8px 12px;">4</td>
+      <td style="text-align:center; padding:8px 12px;">14.10.2026</td>
+      <td style="padding:8px 12px;">Dashboard builder.</td>
+      <td style="text-align:center; padding:8px 12px;">Josef Münzberger</td>
+    </tr>
+    <tr style="border-top:2px solid #aaa;">
+      <td style="text-align:center; font-weight:bold; padding:8px 12px;">5</td>
+      <td style="text-align:center; padding:8px 12px;">21.10.2026</td>
+      <td style="padding:8px 12px;">Úvod do prompt cartography. Markdown, strukturování promptů, tvorba mapové aplikace.</td>
+      <td style="text-align:center; padding:8px 12px;">Josef Münzberger</td>
+    </tr>
+    <tr style="border-top:2px solid #aaa;">
+      <td style="text-align:center; font-weight:bold; padding:8px 12px;">6</td>
+      <td style="text-align:center; padding:8px 12px;">28.10.2026</td>
+      <td style="padding:8px 12px;">Nástroje LLM pro webové mapy. Návrh, ladění a publikace webové mapy s využitím správného promptování.</td>
+      <td style="text-align:center; padding:8px 12px;">Josef Münzberger</td>
+    </tr>
+    <tr style="border-top:2px solid #aaa;">
+      <td style="text-align:center; font-weight:bold; padding:8px 12px;">7</td>
+      <td style="text-align:center; padding:8px 12px;">04.11.2026</td>
+      <td style="padding:8px 12px;">SketchUp základy. Úvod do 3D modelování, datové formáty.</td>
+      <td style="text-align:center; padding:8px 12px;">František Mužík</td>
+    </tr>
+    <tr style="border-top:2px solid #aaa;">
+      <td style="text-align:center; font-weight:bold; padding:8px 12px;">8</td>
+      <td style="text-align:center; padding:8px 12px;">11.11.2026</td>
+      <td style="padding:8px 12px;">Pokročilejší modelování, textury, rozšíření pro SketchUp.</td>
+      <td style="text-align:center; padding:8px 12px;">František Mužík</td>
+    </tr>
+    <tr style="border-top:2px solid #aaa;">
+      <td style="text-align:center; font-weight:bold; padding:8px 12px;">9</td>
+      <td style="text-align:center; padding:8px 12px;">18.11.2026</td>
+      <td style="padding:8px 12px;">Základy HTML a vizualizace na webu. Ukázky JS knihoven a nástrojů pro vizualizaci 3D dat.</td>
+      <td style="text-align:center; padding:8px 12px;">František Mužík</td>
+    </tr>
+    <tr style="border-top:2px solid #aaa;">
+      <td style="text-align:center; font-weight:bold; padding:8px 12px;">10</td>
+      <td style="text-align:center; padding:8px 12px;">25.11.2026</td>
+      <td style="padding:8px 12px;">Pokročilejší vizualizace na webu, virtuální prohlídky.</td>
+      <td style="text-align:center; padding:8px 12px;">František Mužík</td>
+    </tr>
+    <tr style="border-top:2px solid #aaa;">
+      <td style="text-align:center; font-weight:bold; padding:8px 12px;">11</td>
+      <td style="text-align:center; padding:8px 12px;">02.12.2026</td>
+      <td style="padding:8px 12px;">Úvod do Blenderu.</td>
+      <td style="text-align:center; padding:8px 12px;">František Mužík</td>
+    </tr>
+    <tr style="border-top:2px solid #aaa;">
+      <td style="text-align:center; font-weight:bold; padding:8px 12px;">12</td>
+      <td style="text-align:center; padding:8px 12px;">9.12.2026</td>
+      <td style="padding:8px 12px;">AI v modelování.</td>
+      <td style="text-align:center; padding:8px 12px;">František Mužík</td>
+    </tr>
+    <tr style="border-top:2px solid #aaa; border-bottom:2px solid #aaa;">
+      <td style="text-align:center; font-weight:bold; padding:8px 12px;">13</td>
+      <td style="text-align:center; padding:8px 12px;">16.12.2026</td>
+      <td style="padding:8px 12px;">Zápočet</td>
+      <td style="text-align:center; padding:8px 12px;">František Mužík</td>
+    </tr>
+  </tbody>
+</table>
 
 <!--
 [![](./assets/index/schedule.svg#only-light){.off-glb .no-filter}](https://kos.cvut.cz/schedule/course/1551GIS/semester/B232){target="_blank"}
