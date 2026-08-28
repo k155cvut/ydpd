@@ -1,4 +1,4 @@
-site_name: Vizualizace 3D modelů pomocí moderních technologií (155YV3D)
+site_name: Vizualizace a distribuce prostorových dat (155YDPD)
 nav:
   - Charakteristika předmětu: index.md
   - Cvičení:
@@ -72,7 +72,7 @@ extra:
       link: https://www.facebook.com/geomatics.ctu
     - icon: fontawesome/brands/instagram
       link: https://www.instagram.com/geomatics.ctu
-copyright: <a href="https://geomatics.fsv.cvut.cz" target="_blank">Katedra geomatiky</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;2023-2025
+copyright: <a href="https://geomatics.fsv.cvut.cz" target="_blank">Katedra geomatiky</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;2023-2026
 extra_css:
   - stylesheets/extra.css
 markdown_extensions:
