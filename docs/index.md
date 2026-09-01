@@ -161,7 +161,7 @@ Výuka je vedena formou workshopu, přičemž přednášky bezprostředně před
       <td style="text-align:center; font-weight:bold; padding:8px 12px;">13</td>
       <td style="text-align:center; padding:8px 12px;">16.12.2026</td>
       <td style="padding:8px 12px;">Konzultace + rezerva.</td>
-      <td style="text-align:center; padding:8px 12px;">František Mužík</td>
+      <td style="text-align:center; padding:8px 12px;"></td>
     </tr>
   </tbody>
 </table>
