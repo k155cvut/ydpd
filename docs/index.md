@@ -94,32 +94,32 @@ Výuka je vedena formou workshopu, přičemž přednášky bezprostředně před
     <tr style="border-top:2px solid #aaa;">
       <td style="text-align:center; font-weight:bold; padding:8px 12px;">2</td>
       <td style="text-align:center; padding:8px 12px;">30.09.2026</td>
-      <td style="padding:8px 12px;">Vector Tile Style Editor. Tvorba webové basemapy.</td>
+      <td style="padding:8px 12px;">Vector Tile Style Editor. Tvorba webové basemapy. Rekapitulace ESRI builderů, jejich porovnání.</td>
       <td style="text-align:center; padding:8px 12px;">Josef Münzberger</td>
     </tr>
     <tr style="border-top:2px solid #aaa;">
       <td style="text-align:center; font-weight:bold; padding:8px 12px;">3</td>
       <td style="text-align:center; padding:8px 12px;">07.10.2026</td>
-      <td style="padding:8px 12px;">Rekapitulace ESRI builderů, jejich porovnání, zaměření na Experience builder a tvorba mapové aplikace.</td>
+      <td style="padding:8px 12px;">Experience a Dashboard builder. Tvorba mapové aplikace.</td>
       <td style="text-align:center; padding:8px 12px;">Josef Münzberger</td>
     </tr>
     <tr style="border-top:2px solid #aaa;">
       <td style="text-align:center; font-weight:bold; padding:8px 12px;">4</td>
       <td style="text-align:center; padding:8px 12px;">14.10.2026</td>
-      <td style="padding:8px 12px;">Dashboard builder.</td>
+      <td style="padding:8px 12px;">Úvod do prompt cartography. Markdown, strukturování promptů, tvorba mapové aplikace.</td>
       <td style="text-align:center; padding:8px 12px;">Josef Münzberger</td>
     </tr>
     <tr style="border-top:2px solid #aaa;">
       <td style="text-align:center; font-weight:bold; padding:8px 12px;">5</td>
       <td style="text-align:center; padding:8px 12px;">21.10.2026</td>
-      <td style="padding:8px 12px;">Úvod do prompt cartography. Markdown, strukturování promptů, tvorba mapové aplikace.</td>
+      <td style="padding:8px 12px;">Nástroje LLM pro webové mapy. Návrh, ladění a publikace webové mapy s využitím správného promptování.</td>
       <td style="text-align:center; padding:8px 12px;">Josef Münzberger</td>
     </tr>
     <tr style="border-top:2px solid #aaa;">
       <td style="text-align:center; font-weight:bold; padding:8px 12px;">6</td>
       <td style="text-align:center; padding:8px 12px;">28.10.2026</td>
-      <td style="padding:8px 12px;">Nástroje LLM pro webové mapy. Návrh, ladění a publikace webové mapy s využitím správného promptování.</td>
-      <td style="text-align:center; padding:8px 12px;">Josef Münzberger</td>
+      <td style="padding:8px 12px;">Státní svátek</td>
+      <td style="text-align:center; padding:8px 12px;"></td>
     </tr>
     <tr style="border-top:2px solid #aaa;">
       <td style="text-align:center; font-weight:bold; padding:8px 12px;">7</td>
@@ -160,7 +160,7 @@ Výuka je vedena formou workshopu, přičemž přednášky bezprostředně před
     <tr style="border-top:2px solid #aaa; border-bottom:2px solid #aaa;">
       <td style="text-align:center; font-weight:bold; padding:8px 12px;">13</td>
       <td style="text-align:center; padding:8px 12px;">16.12.2026</td>
-      <td style="padding:8px 12px;">Zápočet</td>
+      <td style="padding:8px 12px;">Konzultace + rezerva.</td>
       <td style="text-align:center; padding:8px 12px;">František Mužík</td>
     </tr>
   </tbody>
