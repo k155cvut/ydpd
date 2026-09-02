@@ -148,7 +148,7 @@ Výuka je vedena formou workshopu, přičemž přednášky bezprostředně před
     <tr style="border-top:2px solid #aaa;">
       <td style="text-align:center; font-weight:bold; padding:8px 12px;">11</td>
       <td style="text-align:center; padding:8px 12px;">02.12.2026</td>
-      <td style="padding:8px 12px;">Úvod do Blenderu.</td>
+      <td style="padding:8px 12px;">Úvod do Blenderu. Práce s prostorovými daty pomocí BlenderGIS.</td>
       <td style="text-align:center; padding:8px 12px;">František Mužík</td>
     </tr>
     <tr style="border-top:2px solid #aaa;">
