@@ -69,8 +69,8 @@ The general workflow follows the same logic as the Esri tutorial:
 ???+ note-fg-color "Resources"
     [Pop-ups: the essentials :material-open-in-new:](https://www.esri.com/arcgis-blog/products/arcgis-online/mapping/configure-pop-ups-basics){ .md-button .md-button--primary .button_smaller target="_blank" }
     [Pop-ups: Arcade essentials :material-open-in-new:](https://www.esri.com/arcgis-blog/products/arcgis-online/mapping/pop-ups-arcade-essentials){ .md-button .md-button--primary .button_smaller target="_blank" }
-    [Arcade – Popup profile :material-code-braces:](https://developers.arcgis.com/arcade/profiles/popup/){ .md-button .md-button--primary .button_smaller target="_blank" }
-    [Pop-ups: Adding color :material-code-braces:](https://www.esri.com/arcgis-blog/products/arcgis-online/mapping/beginner-steps-for-adding-color-to-pop-ups-with-html){ .md-button .md-button--primary .button_smaller target="_blank" }
+    [Arcade – Popup profile :material-open-in-new:](https://developers.arcgis.com/arcade/profiles/popup/){ .md-button .md-button--primary .button_smaller target="_blank" }
+    [Pop-ups: Adding color :material-open-in-new:](https://www.esri.com/arcgis-blog/products/arcgis-online/mapping/beginner-steps-for-adding-color-to-pop-ups-with-html){ .md-button .md-button--primary .button_smaller target="_blank" }
     {: .button_array style="justify-content:flex-start;"}
 
 ## Configure fields
