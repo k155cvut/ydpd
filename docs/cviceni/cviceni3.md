@@ -70,6 +70,7 @@ The general workflow follows the same logic as the Esri tutorial:
     [Pop-ups: the essentials :material-open-in-new:](https://www.esri.com/arcgis-blog/products/arcgis-online/mapping/configure-pop-ups-basics){ .md-button .md-button--primary .button_smaller target="_blank" }
     [Pop-ups: Arcade essentials :material-open-in-new:](https://www.esri.com/arcgis-blog/products/arcgis-online/mapping/pop-ups-arcade-essentials){ .md-button .md-button--primary .button_smaller target="_blank" }
     [Arcade – Popup profile :material-code-braces:](https://developers.arcgis.com/arcade/profiles/popup/){ .md-button .md-button--primary .button_smaller target="_blank" }
+    [Pop-ups: Adding color :material-code-braces:](https://www.esri.com/arcgis-blog/products/arcgis-online/mapping/beginner-steps-for-adding-color-to-pop-ups-with-html){ .md-button .md-button--primary .button_smaller target="_blank" }
     {: .button_array style="justify-content:flex-start;"}
 
 ## Configure fields
@@ -346,25 +347,6 @@ The dashboard will combine three perspectives:
 - **Event intensity** – magnitude, maximum tsunami water height and VEI.
 
 A **Year selector** will filter the entire dashboard.
-
-```text
-┌─────────────────────────────────────────────────────────────────────┐
-│ YEAR RANGE                                                         │
-├──────────────────┬──────────────────────────────┬───────────────────┤
-│ HUMAN IMPACT     │ EQ events │ TS events │ VE  │ EVENT INTENSITY   │
-│                  ├──────────────────────────────┤                   │
-│ Earthquakes      │                              │ Earthquakes       │
-│ D / M / I        │                              │ Magnitude class   │
-│                  │                              │                   │
-├──────────────────┤             MAP              ├───────────────────┤
-│ Tsunamis         │                              │ Tsunamis          │
-│ D / M / I        │                              │ Wave-height class │
-│                  │                              │                   │
-├──────────────────┤                              ├───────────────────┤
-│ Eruptions        │                              │ Eruptions         │
-│ D / M / I        │                              │ VEI – pie chart   │
-└──────────────────┴──────────────────────────────┴───────────────────┘
-```
 
 The interaction logic is:
 
