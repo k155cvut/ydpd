@@ -1,0 +1,1588 @@
+<!DOCTYPE html><html lang="cs" class="no-js"><head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../cviceni2/">
+      
+      
+        <link rel="next" href="../cviceni4/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Advanced Pop-ups, Instan Apps, StoryMaps. - Vizualizace a distribuce prostorových dat (155YDPD)</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+  
+  
+  
+  
+  <style>:root{--md-annotation-icon:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20d%3D%22M17%2013h-4v4h-2v-4H7v-2h4V7h2v4h4m-5-9A10%2010%200%200%200%202%2012a10%2010%200%200%200%2010%2010%2010%2010%200%200%200%2010-10A10%2010%200%200%200%2012%202%22/%3E%3C/svg%3E');}</style>
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+            .gscrollbar-fixer { padding-right: 15px; }
+            .gdesc-inner { font-size: 0.75rem; }
+            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color); }
+            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
+            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
+        </style></head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#advanced-pop-ups-and-arcgis-dashboards" class="md-skip">
+          Přeskočit obsah
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Záhlaví">
+    <a href="../.." title="Vizualizace a distribuce prostorových dat (155YDPD)" class="md-header__button md-logo" aria-label="Vizualizace a distribuce prostorových dat (155YDPD)" data-md-component="logo">
+      
+  <img src="../../assets/favicon.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Vizualizace a distribuce prostorových dat (155YDPD)
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Advanced Pop-ups, Instan Apps, StoryMaps.
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom" aria-label="Switch to dark mode" type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden="">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6m0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4M7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3"></path></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="custom" data-md-color-accent="custom" aria-label="Switch to light mode" type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden="">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3"></path></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Hledat" placeholder="Hledat" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required="">
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Vyhledávání">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Vyčistit" aria-label="Vyčistit" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix="">
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializace vyhledávání
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Karty" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Charakteristika předmětu
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../cviceni1/" class="md-tabs__link">
+          
+  
+  
+  Cvičení
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigace" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Vizualizace a distribuce prostorových dat (155YDPD)" class="md-nav__button md-logo" aria-label="Vizualizace a distribuce prostorových dat (155YDPD)" data-md-component="logo">
+      
+  <img src="../../assets/favicon.svg" alt="logo">
+
+    </a>
+    Vizualizace a distribuce prostorových dat (155YDPD)
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix="">
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Charakteristika předmětu
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked="">
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cvičení
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Cvičení
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cviceni1/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14 17h-2V9h-2V7h4m5-4H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2"></path></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Organizace předmětu, příprava dat a publikace do prostředí ArcGIS Online, správa a efektivní použití (Views).
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cviceni2/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15 11a2 2 0 0 1-2 2h-2v2h4v2H9v-4a2 2 0 0 1 2-2h2V9H9V7h4a2 2 0 0 1 2 2m4-6H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2"></path></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Vector Tile Style Editor. Tvorba webové basemapy. Rekapitulace ESRI builderů, jejich porovnání.
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15 10.5a1.5 1.5 0 0 1-1.5 1.5c.84 0 1.5.67 1.5 1.5V15c0 1.11-.89 2-2 2H9v-2h4v-2h-2v-2h2V9H9V7h4c1.11 0 2 .89 2 2m4-6H5c-1.09 0-2 .9-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2"></path></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Experience a Dashboard builder. Tvorba mapové aplikace.
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15 10.5a1.5 1.5 0 0 1-1.5 1.5c.84 0 1.5.67 1.5 1.5V15c0 1.11-.89 2-2 2H9v-2h4v-2h-2v-2h2V9H9V7h4c1.11 0 2 .89 2 2m4-6H5c-1.09 0-2 .9-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2"></path></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Experience a Dashboard builder. Tvorba mapové aplikace.
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Obsah">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Obsah
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+      
+        <li class="md-nav__item">
+  <a href="#arcgis-app-building-options" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ArcGIS app-building options
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cviceni4/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15 17h-2v-4H9V7h2v4h2V7h2m4-4H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2"></path></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Úvod do prompt cartography. Markdown, strukturování promptů, tvorba mapové aplikace.
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cviceni5/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15 9h-4v2h2a2 2 0 0 1 2 2v2a2 2 0 0 1-2 2H9v-2h4v-2H9V7h6m4-4H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2"></path></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Nástroje LLM pro webové mapy. Návrh, ladění a publikace webové mapy s využitím správného promptování.
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cviceni6/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15 9h-4v2h2a2 2 0 0 1 2 2v2a2 2 0 0 1-2 2h-2a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2h4m4-4H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2m-8 12h2v-2h-2z"></path></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Nástroje LLM pro webové mapy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cviceni7/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2zm-8 14 4-8V7H9v2h4l-4 8z"></path></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    SketchUp základy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cviceni8/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2zm-8 14h2a2 2 0 0 0 2-2v-1.5a1.5 1.5 0 0 0-1.5-1.5 1.5 1.5 0 0 0 1.5-1.5V9a2 2 0 0 0-2-2h-2a2 2 0 0 0-2 2v1.5a1.5 1.5 0 0 0 1.5 1.5A1.5 1.5 0 0 0 9 13.5V15a2 2 0 0 0 2 2m0-4h2v2h-2zm0-4h2v2h-2z"></path></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Pokročilejší modelování
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cviceni9/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2zm-6 8h-2V9h2zm0-4h-2a2 2 0 0 0-2 2v2a2 2 0 0 0 2 2h2v2H9v2h4a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2"></path></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Základy HTML a vizualizace na webu
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cviceni10/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14 9h2v6h-2zm7-4v14c0 1.11-.89 2-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2M10 7H6v2h2v8h2zm8 2a2 2 0 0 0-2-2h-2a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2c1.11 0 2-.89 2-2z"></path></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Pokročilejší vizualizace na webu
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cviceni11/" class="md-nav__link">
+        
+  
+  
+    <!--?xml version="1.0" encoding="UTF-8" standalone="no"?-->
+<svg viewBox="0 0 24 24" version="1.1" id="svg1" sodipodi:docname="numeric-10-box.svg" inkscape:version="1.3 (0e150ed6c4, 2023-07-21)" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
+  <defs id="defs1"></defs>
+  <sodipodi:namedview id="namedview1" pagecolor="#505050" bordercolor="#eeeeee" borderopacity="1" inkscape:showpageshadow="0" inkscape:pageopacity="0" inkscape:pagecheckerboard="0" inkscape:deskcolor="#d1d1d1" inkscape:current-layer="svg1"></sodipodi:namedview>
+  <path id="path2" d="M 5 3 A 2 2 0 0 0 3 5 L 3 19 A 2 2 0 0 0 5 21 L 19 21 C 20.109999 21 21 20.109999 21 19 L 21 5 C 21 3.9000011 20.109999 3 19 3 L 5 3 z M 7 7 L 11 7 L 11 17 L 9 17 L 9 9 L 7 9 L 7 7 z M 13 7 L 17 7 L 17 17 L 15 17 L 15 9 L 13 9 L 13 7 z "></path>
+</svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Úvod do Blenderu
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cviceni12/" class="md-nav__link">
+        
+  
+  
+    <!--?xml version="1.0" encoding="UTF-8" standalone="no"?-->
+<svg viewBox="0 0 24 24" version="1.1" id="svg1" sodipodi:docname="numeric-12-box.svg" inkscape:version="1.3 (0e150ed6c4, 2023-07-21)" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
+  <defs id="defs1"></defs>
+  <sodipodi:namedview id="namedview1" pagecolor="#505050" bordercolor="#eeeeee" borderopacity="1" inkscape:showpageshadow="0" inkscape:pageopacity="0" inkscape:pagecheckerboard="0" inkscape:deskcolor="#d1d1d1" inkscape:current-layer="svg1"></sodipodi:namedview>
+  <path id="path2" d="M 5 3 A 2 2 0 0 0 3 5 L 3 19 A 2 2 0 0 0 5 21 L 19 21 C 20.109998 21 21 20.109998 21 19 L 21 5 C 21 3.9000022 20.109998 3 19 3 L 5 3 z M 6 7 L 10 7 L 10 17 L 8 17 L 8 9 L 6 9 L 6 7 z M 12 7 L 16 7 A 2 2 0 0 1 18 9 L 18 11 C 18 12.109998 17.099998 13 16 13 L 14 13 L 14 15 L 18 15 L 18 17 L 12 17 L 12 13 C 12 11.890002 12.900002 11 14 11 L 16 11 L 16 9 L 12 9 L 12 7 z "></path>
+</svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    AI v modelování
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="advanced-pop-ups-and-arcgis-dashboards">Advanced pop-ups and ArcGIS Dashboards</h1>
+<p>In this practical, we will continue working with the NOAA natural hazard data and the Web Map created in the previous sessions.</p>
+<p>The practical has three parts:</p>
+<ul>
+<li>compare the main ArcGIS app-building options from <strong>no-code to high-code</strong>,</li>
+<li>improve the information design of the Web Map using <strong>HTML and Arcade pop-ups</strong>,</li>
+<li>create an interactive <strong>ArcGIS Dashboard</strong> in which maps, charts, indicators and selectors work together.</li>
+</ul>
+<h2 id="arcgis-app-building-options">ArcGIS app-building options</h2>
+<p>ArcGIS offers several ways to turn maps and data into web applications. The appropriate tool depends on the purpose of the application, the required level of customisation and whether coding is needed.</p>
+<p>The table is ordered approximately from <strong>no-code</strong> to <strong>high-code</strong>. Tools within the no-code group are not ranked; they are designed for different purposes.</p>
+<table>
+<thead>
+<tr>
+<th>Tool</th>
+<th>Coding level</th>
+<th>Best suited for</th>
+<th>Typical strengths</th>
+<th>Main limitation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>ArcGIS Instant Apps</strong></td>
+<td><strong>No-code</strong></td>
+<td>Focused, purpose-driven map applications</td>
+<td>Very fast deployment, predefined templates, simple configuration</td>
+<td>Layout and functionality are largely defined by the selected template</td>
+</tr>
+<tr>
+<td><strong>ArcGIS StoryMaps</strong></td>
+<td><strong>No-code</strong></td>
+<td>Narrative cartography and scrollytelling</td>
+<td>Maps, text, media, map tours and immersive storytelling</td>
+<td>Not intended as a general-purpose analytical application</td>
+</tr>
+<tr>
+<td><strong>ArcGIS Dashboards</strong></td>
+<td><strong>No-code</strong></td>
+<td>Monitoring, overview and analytical summaries</td>
+<td>Maps, indicators, charts, lists and selectors coordinated on one screen</td>
+<td>Less flexible page layout than Experience Builder</td>
+</tr>
+<tr>
+<td><strong>ArcGIS Experience Builder</strong></td>
+<td><strong>No-code → low-code</strong></td>
+<td>Flexible, responsive web applications</td>
+<td>Custom layouts, pages, widgets, data sources, messages and actions</td>
+<td>More configuration and design decisions are required</td>
+</tr>
+<tr>
+<td><strong>ArcGIS Maps SDK for JavaScript</strong></td>
+<td><strong>High-code</strong></td>
+<td>Fully custom web mapping applications</td>
+<td>Maximum control over maps, interface, interactions and application logic</td>
+<td>Requires JavaScript development</td>
+</tr>
+</tbody>
+</table>
+<details class="note-fg-color" open="open">
+<summary>Builder or SDK?</summary>
+<p><strong>Instant Apps, StoryMaps, Dashboards and Experience Builder</strong> are configurable app builders and can all be used without writing code.</p>
+<p><strong>ArcGIS Maps SDK for JavaScript</strong> is not a builder. It is a development SDK for creating custom web applications in JavaScript.</p>
+<p>Experience Builder sits between both worlds: the standard builder is no-code, while <strong>Experience Builder Developer Edition</strong> can be extended with custom widgets, themes and actions.</p>
+</details>
+<details class="note-fg-color" open="open">
+<summary>Choosing the right tool</summary>
+<p>A useful first question is not <em>Which builder is the most powerful?</em>, but <strong>What should the user be able to do?</strong></p>
+<ul>
+<li>communicate a spatial story → <strong>StoryMaps</strong></li>
+<li>quickly expose one focused map workflow → <strong>Instant Apps</strong></li>
+<li>monitor and compare indicators → <strong>Dashboards</strong></li>
+<li>combine several maps, widgets and workflows in a custom interface → <strong>Experience Builder</strong></li>
+<li>build functionality that the builders cannot provide → <strong>ArcGIS Maps SDK for JavaScript</strong></li>
+</ul>
+</details>
+<hr>
+<h1 id="advanced-pop-ups">Advanced pop-ups</h1>
+<p>A pop-up is part of the <strong>information design of a map</strong>, not merely a table of attributes. A well-designed pop-up should select, structure and format information so that the user can understand the selected feature quickly.</p>
+<p>Compare a default attribute list with a configured pop-up:</p>
+<p align="center"><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="https://www.esri.com/arcgis-blog/app/uploads/2024/03/pute-2.png" data-desc-position="bottom"><img alt="" src="https://www.esri.com/arcgis-blog/app/uploads/2024/03/pute-2.png" width="900px"></a></p>
+<p><em>Example from Esri ArcGIS Blog: a default pop-up compared with a configured information display.</em></p>
+<p>The general workflow follows the same logic as the Esri tutorial:</p>
+<ol>
+<li>configure fields,</li>
+<li>create a meaningful title,</li>
+<li>organise pop-up content,</li>
+<li>add charts or formatted text,</li>
+<li>use <strong>HTML</strong> for greater control over layout,</li>
+<li>use <strong>Arcade</strong> when information must be calculated, reformatted or displayed conditionally.</li>
+</ol>
+<details class="note-fg-color" open="open">
+<summary>Resources</summary>
+<p class="button_array" style="justify-content:flex-start;"><a class="md-button md-button--primary button_smaller" href="https://www.esri.com/arcgis-blog/products/arcgis-online/mapping/configure-pop-ups-basics" target="_blank">Pop-ups: the essentials <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3m-2 16H5V5h7V3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7h-2z"></path></svg></span></a>
+<a class="md-button md-button--primary button_smaller" href="https://www.esri.com/arcgis-blog/products/arcgis-online/mapping/pop-ups-arcade-essentials" target="_blank">Pop-ups: Arcade essentials <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3m-2 16H5V5h7V3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7h-2z"></path></svg></span></a>
+<a class="md-button md-button--primary button_smaller" href="https://developers.arcgis.com/arcade/profiles/popup/" target="_blank">Arcade – Popup profile <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3m-2 16H5V5h7V3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7h-2z"></path></svg></span></a>
+<a class="md-button md-button--primary button_smaller" href="https://www.esri.com/arcgis-blog/products/arcgis-online/mapping/beginner-steps-for-adding-color-to-pop-ups-with-html" target="_blank">Pop-ups: Adding color <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3m-2 16H5V5h7V3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7h-2z"></path></svg></span></a></p>
+</details>
+<h2 id="configure-fields">Configure fields</h2>
+<p>You already know how to enable pop-ups and display a field list. Before adding more advanced content, review the fields in each event layer and improve their presentation:</p>
+<ul>
+<li>hide fields that are unnecessary for the user,</li>
+<li>use readable <strong>display names / aliases</strong>,</li>
+<li>set appropriate number formatting,</li>
+<li>order the fields logically rather than following the source-table order.</li>
+</ul>
+<p>For the NOAA datasets, for example:</p>
+<ul>
+<li>earthquake magnitude → <strong>1 decimal place</strong>,</li>
+<li>tsunami maximum water height → <strong>1 decimal place</strong>,</li>
+<li>VEI → <strong>0 decimal places</strong>,</li>
+<li>deaths, missing persons and injuries → <strong>0 decimal places</strong> with thousands separators where appropriate.</li>
+</ul>
+<details class="warning" open="open">
+<summary>A chart needs numeric fields</summary>
+<p>Pop-up charts can only use numeric attributes. If a field such as <code>Deaths</code>, <code>Missing</code> or <code>Injuries</code> was imported as text, correct the data schema before using it in charts or analytical applications.</p>
+</details>
+<h2 id="create-a-meaningful-pop-up-title">Create a meaningful pop-up title</h2>
+<p>The title should identify the feature immediately. It can combine static text and one or more fields.</p>
+<p>For <strong>Tsunami Events</strong>, build a title from:</p>
+<p><strong>Location Name + Maximum Water Height + <code>m</code></strong></p>
+<p>For example:</p>
+<blockquote>
+<p><strong>TOHOKU, JAPAN — 38.9 m</strong></p>
+</blockquote>
+<p>Use the <strong>Fields</strong> selector in the title editor rather than typing field tokens manually.</p>
+<details class="note-fg-color" open="open">
+<summary>Think about missing values</summary>
+<p>A simple title works well when all required attributes are available. But what happens when <code>Maximum Water Height (m)</code> is empty?</p>
+<p>Later we will use <strong>Arcade</strong> to display the height only when a value exists.</p>
+</details>
+<h2 id="organise-pop-up-content">Organise pop-up content</h2>
+<p>A pop-up can contain several independent content elements. The most useful for our datasets are:</p>
+<ul>
+<li><strong>Fields list</strong> – selected attributes in a structured table,</li>
+<li><strong>Text</strong> – a combination of static text and field values,</li>
+<li><strong>Chart</strong> – a graphical comparison of numeric fields,</li>
+<li><strong>Arcade</strong> – dynamically generated content.</li>
+</ul>
+<p>For <code>Tsunami Events</code>, add a <strong>bar chart</strong> called <strong>Human impact</strong> using:</p>
+<ul>
+<li><code>Deaths</code></li>
+<li><code>Missing</code></li>
+<li><code>Injuries</code></li>
+</ul>
+<p>These values are directly comparable because all three are counts of people.</p>
+<details class="note-fg-color" open="open">
+<summary>Use charts selectively</summary>
+<p>A pop-up chart should compare values that are meaningful together. Avoid combining attributes only because they are numeric. For example, earthquake magnitude, number of deaths and financial damage use different units and should not be presented as one comparable scale.</p>
+</details>
+<h2 id="html-in-pop-ups">HTML in pop-ups</h2>
+<p>The <strong>Text</strong> content element can use HTML to structure information more precisely than the default field list.</p>
+<p>For example, create a compact summary table for <code>Tsunami Events</code>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="p">&lt;</span><span class="nt">table</span> <span class="na">style</span><span class="o">=</span><span class="s">"width:100%; border-collapse:collapse;"</span><span class="p">&gt;</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>  <span class="p">&lt;</span><span class="nt">tr</span><span class="p">&gt;</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>    <span class="p">&lt;</span><span class="nt">td</span><span class="p">&gt;&lt;</span><span class="nt">strong</span><span class="p">&gt;</span>Year<span class="p">&lt;/</span><span class="nt">strong</span><span class="p">&gt;&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>    <span class="p">&lt;</span><span class="nt">td</span><span class="p">&gt;</span>{Year}<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>  <span class="p">&lt;/</span><span class="nt">tr</span><span class="p">&gt;</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>  <span class="p">&lt;</span><span class="nt">tr</span><span class="p">&gt;</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>    <span class="p">&lt;</span><span class="nt">td</span><span class="p">&gt;&lt;</span><span class="nt">strong</span><span class="p">&gt;</span>Country<span class="p">&lt;/</span><span class="nt">strong</span><span class="p">&gt;&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>    <span class="p">&lt;</span><span class="nt">td</span><span class="p">&gt;</span>{Country}<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>  <span class="p">&lt;/</span><span class="nt">tr</span><span class="p">&gt;</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>  <span class="p">&lt;</span><span class="nt">tr</span><span class="p">&gt;</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>    <span class="p">&lt;</span><span class="nt">td</span><span class="p">&gt;&lt;</span><span class="nt">strong</span><span class="p">&gt;</span>Deaths<span class="p">&lt;/</span><span class="nt">strong</span><span class="p">&gt;&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>    <span class="p">&lt;</span><span class="nt">td</span><span class="p">&gt;</span>{Deaths}<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>  <span class="p">&lt;/</span><span class="nt">tr</span><span class="p">&gt;</span>
+<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>  <span class="p">&lt;</span><span class="nt">tr</span><span class="p">&gt;</span>
+<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>    <span class="p">&lt;</span><span class="nt">td</span><span class="p">&gt;&lt;</span><span class="nt">strong</span><span class="p">&gt;</span>Missing<span class="p">&lt;/</span><span class="nt">strong</span><span class="p">&gt;&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>    <span class="p">&lt;</span><span class="nt">td</span><span class="p">&gt;</span>{Missing}<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+<a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>  <span class="p">&lt;/</span><span class="nt">tr</span><span class="p">&gt;</span>
+<a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a>  <span class="p">&lt;</span><span class="nt">tr</span><span class="p">&gt;</span>
+<a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a>    <span class="p">&lt;</span><span class="nt">td</span><span class="p">&gt;&lt;</span><span class="nt">strong</span><span class="p">&gt;</span>Injuries<span class="p">&lt;/</span><span class="nt">strong</span><span class="p">&gt;&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+<a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a>    <span class="p">&lt;</span><span class="nt">td</span><span class="p">&gt;</span>{Injuries}<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
+<a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a>  <span class="p">&lt;/</span><span class="nt">tr</span><span class="p">&gt;</span>
+<a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a><span class="p">&lt;/</span><span class="nt">table</span><span class="p">&gt;</span>
+</code></pre></div>
+<p>To add attributes whose original names contain spaces or special characters, use the <strong>Fields</strong> tool in the editor. ArcGIS will insert the correct field token.</p>
+<p>HTML is useful for:</p>
+<ul>
+<li>organising attributes into tables,</li>
+<li>adding visual hierarchy,</li>
+<li>emphasising important values,</li>
+<li>combining explanatory text and attributes,</li>
+<li>adding supported links and web content.</li>
+</ul>
+<details class="warning" open="open">
+<summary>Do not overdesign the pop-up</summary>
+<p>HTML gives more control, but the goal is still information hierarchy and readability. A pop-up should remain compact and usable on smaller screens.</p>
+</details>
+<h2 id="arcade-in-pop-ups">Arcade in pop-ups</h2>
+<p><a class="color_def underlined_dotted external_link_icon" href="https://developers.arcgis.com/arcade/" target="_blank"><strong>Arcade</strong></a> is an expression language used across ArcGIS. In pop-ups it is especially useful when a value needs to be <strong>calculated, reformatted, interpreted or displayed conditionally</strong> without modifying the source data.</p>
+<p>Arcade can be used in two main ways:</p>
+<ol>
+<li><strong>Attribute expression</strong> – returns a single text or numeric value that can be used like another attribute.</li>
+<li><strong>Arcade content element</strong> – returns an entire dynamically generated pop-up block.</li>
+</ol>
+<details class="note-fg-color" open="open">
+<summary>Attribute expression vs. Arcade content</summary>
+<p><strong>Attribute expression = calculate a value.</strong></p>
+<p><strong>Arcade content = build part of the pop-up.</strong></p>
+</details>
+<h3 id="simple-text-formatting">Simple text formatting</h3>
+<p>The NOAA data contain some country names in uppercase. An attribute expression can reformat them without modifying the source data:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>return Proper($feature.Country);
+</code></pre></div>
+<p>For example:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>GREECE → Greece
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>NEW ZEALAND → New Zealand
+</code></pre></div>
+<p><code>Proper()</code> is useful for ordinary names, but remember that abbreviations such as <code>USA</code> would become <code>Usa</code>.</p>
+<h3 id="format-an-incomplete-event-date">Format an incomplete event date</h3>
+<p>The NOAA datasets store <code>Year</code>, <code>Mo</code> and <code>Dy</code> in separate fields, and month or day may be missing. Instead of displaying three separate values, create one human-readable date.</p>
+<p>Open <strong>Pop-ups → Attribute expressions → Add expression</strong> and enter:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>var y = $feature.Year;
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>var m = $feature.Mo;
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>var d = $feature.Dy;
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>if (IsEmpty(m)) {
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>    return Text(y);
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>}
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>if (IsEmpty(d)) {
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>    return Text(y) + "-" + Text(m, "00");
+<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>}
+<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>
+<a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a>return Text(y) + "-" + Text(m, "00") + "-" + Text(d, "00");
+</code></pre></div>
+<p>Depending on the available attributes, the expression can return:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>2011-03-11
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>1755-11
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>-1610
+</code></pre></div>
+<p>Give the expression a meaningful name such as:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>Event date
+</code></pre></div>
+<p>The expression can then be inserted into a Text element like a normal field.</p>
+<h3 id="improve-the-tsunami-title">Improve the tsunami title</h3>
+<p>Improve the earlier tsunami title so that the water height is shown only when the value is available.</p>
+<p>Use the exact field names suggested by the Arcade editor for your layer:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>var place = $feature.Location_Name;
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>var height = $feature.Maximum_Water_Height_m;
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>if (IsEmpty(height)) {
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>    return place;
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>}
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>
+<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>return place + " — " + Text(height, "0.0") + " m";
+</code></pre></div>
+<details class="note-fg-color" open="open">
+<summary>Field names in Arcade</summary>
+<p>The internal field names in your Hosted Feature Layer may differ from the display aliases shown in the map.</p>
+<p>Use <strong>Profile variables → <code>$feature</code></strong> or editor autocomplete to insert the correct field names instead of guessing them.</p>
+</details>
+<h2 id="arcade-content-element">Arcade content element</h2>
+<p>An Arcade <strong>content element</strong> can generate a complete block of pop-up content. This is useful when the structure itself should change according to the available data.</p>
+<p>For example, create a <strong>Human impact</strong> element that displays only casualty attributes for which NOAA contains a value:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>var items = [];
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>if (!IsEmpty($feature.Deaths)) {
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>    Push(items, "&lt;strong&gt;Deaths:&lt;/strong&gt; " + Text($feature.Deaths, "#,###"));
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>}
+<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>
+<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a>if (!IsEmpty($feature.Missing)) {
+<a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a>    Push(items, "&lt;strong&gt;Missing:&lt;/strong&gt; " + Text($feature.Missing, "#,###"));
+<a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a>}
+<a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a>
+<a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a>if (!IsEmpty($feature.Injuries)) {
+<a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a>    Push(items, "&lt;strong&gt;Injuries:&lt;/strong&gt; " + Text($feature.Injuries, "#,###"));
+<a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a>}
+<a id="__codelineno-7-14" name="__codelineno-7-14" href="#__codelineno-7-14"></a>
+<a id="__codelineno-7-15" name="__codelineno-7-15" href="#__codelineno-7-15"></a>var content = "";
+<a id="__codelineno-7-16" name="__codelineno-7-16" href="#__codelineno-7-16"></a>
+<a id="__codelineno-7-17" name="__codelineno-7-17" href="#__codelineno-7-17"></a>if (Count(items) == 0) {
+<a id="__codelineno-7-18" name="__codelineno-7-18" href="#__codelineno-7-18"></a>    content = "No casualty values are reported for this event in the database.";
+<a id="__codelineno-7-19" name="__codelineno-7-19" href="#__codelineno-7-19"></a>} else {
+<a id="__codelineno-7-20" name="__codelineno-7-20" href="#__codelineno-7-20"></a>    content = Concatenate(items, "&lt;br&gt;");
+<a id="__codelineno-7-21" name="__codelineno-7-21" href="#__codelineno-7-21"></a>}
+<a id="__codelineno-7-22" name="__codelineno-7-22" href="#__codelineno-7-22"></a>
+<a id="__codelineno-7-23" name="__codelineno-7-23" href="#__codelineno-7-23"></a>return {
+<a id="__codelineno-7-24" name="__codelineno-7-24" href="#__codelineno-7-24"></a>    type: "text",
+<a id="__codelineno-7-25" name="__codelineno-7-25" href="#__codelineno-7-25"></a>    text: "&lt;div&gt;&lt;strong&gt;Human impact&lt;/strong&gt;&lt;br&gt;" + content + "&lt;/div&gt;"
+<a id="__codelineno-7-26" name="__codelineno-7-26" href="#__codelineno-7-26"></a>};
+</code></pre></div>
+<p>This differs from replacing missing values with zero. The expression preserves the distinction between:</p>
+<ul>
+<li><strong>0</strong> – a reported value of zero,</li>
+<li><strong>null / empty</strong> – no value is available in the database.</li>
+</ul>
+<h2 id="pop-ups-in-applications">Pop-ups in applications</h2>
+<p>Pop-up configurations saved with a Web Map can be reused by ArcGIS applications such as Instant Apps, StoryMaps, Dashboards and Experience Builder.</p>
+<p>The essential configuration usually persists, but individual applications may render content slightly differently. Always test the final pop-up in the application for which the Web Map is intended.</p>
+<div class="admonition abstract">
+<p class="admonition-title">Pop-up task</p>
+<p>Improve the pop-ups of the three NOAA event layers in your Web Map.</p>
+<p>Your final map should demonstrate:</p>
+<ul>
+<li>meaningful titles,</li>
+<li>carefully selected and formatted fields,</li>
+<li>at least one pop-up chart,</li>
+<li>at least one HTML-formatted Text element,</li>
+<li>at least one Arcade attribute expression,</li>
+<li>at least one Arcade content element.</li>
+</ul>
+<p>You do not need to configure all three layers identically. Choose the pop-up design according to the attributes and purpose of each dataset.</p>
+</div>
+<hr>
+<h1 id="arcgis-dashboards">ArcGIS Dashboards</h1>
+<p>We will now use the same Web Map to create an interactive <strong>ArcGIS Dashboard</strong>. The aim is not to add as many elements as possible, but to build a <strong>coordinated interface</strong> in which the map, charts, indicators and selectors respond to each other.</p>
+<details class="note-fg-color" open="open">
+<summary>Resources</summary>
+<p class="button_array" style="justify-content:flex-start;"><a class="md-button md-button--primary button_smaller" href="https://doc.arcgis.com/en/dashboards/" target="_blank">ArcGIS Dashboards documentation <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3m-2 16H5V5h7V3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7h-2z"></path></svg></span></a>
+<a class="md-button md-button--primary button_smaller" href="https://doc.arcgis.com/en/dashboards/latest/create-and-share/configuring-actions-on-dashboard-elements.htm" target="_blank">Configure actions <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10.76 8.69a.76.76 0 0 0-.76.76V20.9c0 .42.34.76.76.76.19 0 .35-.06.48-.16l1.91-1.55 1.66 3.62c.13.27.4.43.69.43.11 0 .22 0 .33-.08l2.76-1.28c.38-.18.56-.64.36-1.01L17.28 18l2.41-.45a.9.9 0 0 0 .43-.26c.27-.32.23-.79-.12-1.08l-8.74-7.35-.01.01a.76.76 0 0 0-.49-.18M15 10V8h5v2zm-1.17-5.24 2.83-2.83 1.41 1.41-2.83 2.83zM10 0h2v5h-2zM3.93 14.66l2.83-2.83 1.41 1.41-2.83 2.83zm0-11.32 1.41-1.41 2.83 2.83-1.41 1.41zM7 10H2V8h5z"></path></svg></span></a>
+<a class="md-button md-button--primary button_smaller" href="https://doc.arcgis.com/en/dashboards/latest/create-and-share/selectors.htm" target="_blank">Use selectors <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 17v2h6v-2zM3 5v2h10V5zm10 16v-2h8v-2h-8v-2h-2v6zM7 9v2H3v2h4v2h2V9zm14 4v-2H11v2zm-6-4h2V7h4V5h-4V3h-2z"></path></svg></span></a></p>
+</details>
+<h2 id="dashboard-design">Dashboard design</h2>
+<p>The dashboard will combine three perspectives:</p>
+<ul>
+<li><strong>Human impact</strong> – aggregated deaths, missing persons and injuries,</li>
+<li><strong>Map</strong> – spatial distribution and current map extent,</li>
+<li><strong>Event intensity</strong> – magnitude, maximum tsunami water height and VEI.</li>
+</ul>
+<p>A <strong>Year selector</strong> will filter the entire dashboard.</p>
+<p>The interaction logic is:</p>
+<ul>
+<li><strong>Year range</strong> → filters all three event types and analytical elements,</li>
+<li><strong>Map extent</strong> → filters Human impact charts and event-count indicators,</li>
+<li><strong>Intensity selection</strong> → filters the corresponding map layer, Human impact chart and indicator.</li>
+</ul>
+<p>This allows several conditions to be combined.</p>
+<h2 id="add-the-web-map">Add the Web Map</h2>
+<p>Create a new <strong>ArcGIS Dashboard</strong> and add the Web Map prepared in the previous practical.</p>
+<p>Arrange the main dashboard into three vertical areas:</p>
+<ul>
+<li>left panel – Human impact,</li>
+<li>centre – Map,</li>
+<li>right panel – Event intensity.</li>
+</ul>
+<p>The map should occupy most of the available width.</p>
+<h2 id="human-impact-charts">Human impact charts</h2>
+<p>Create three <strong>Serial Chart</strong> elements, one for each event layer.</p>
+<h3 id="earthquakes">Earthquakes</h3>
+<p>Use:</p>
+<ul>
+<li><strong>Data source:</strong> Web Map → Earthquake Events</li>
+<li><strong>Categories:</strong> Fields</li>
+<li><strong>Fields:</strong> <code>Deaths</code>, <code>Missing</code>, <code>Injuries</code></li>
+<li><strong>Statistic:</strong> Sum</li>
+<li><strong>Title:</strong> <code>Earthquakes — Human impact</code></li>
+</ul>
+<h3 id="tsunamis">Tsunamis</h3>
+<p>Use:</p>
+<ul>
+<li><strong>Data source:</strong> Web Map → Tsunami Events</li>
+<li><strong>Categories:</strong> Fields</li>
+<li><strong>Fields:</strong> <code>Deaths</code>, <code>Missing</code>, <code>Injuries</code></li>
+<li><strong>Statistic:</strong> Sum</li>
+<li><strong>Title:</strong> <code>Tsunamis — Human impact</code></li>
+</ul>
+<h3 id="volcanic-eruptions">Volcanic eruptions</h3>
+<p>Use:</p>
+<ul>
+<li><strong>Data source:</strong> Web Map → Volcano Events</li>
+<li><strong>Categories:</strong> Fields</li>
+<li><strong>Fields:</strong> <code>Deaths</code>, <code>Missing</code>, <code>Injuries</code></li>
+<li><strong>Statistic:</strong> Sum</li>
+<li><strong>Title:</strong> <code>Volcanic eruptions — Human impact</code></li>
+</ul>
+<details class="warning" open="open">
+<summary>Numeric fields are required</summary>
+<p>The <code>Deaths</code>, <code>Missing</code> and <code>Injuries</code> attributes must be numeric. If they were imported as text, they cannot be aggregated correctly in the chart.</p>
+</details>
+<h2 id="filter-human-impact-by-the-current-map-extent">Filter Human impact by the current map extent</h2>
+<p>Configure the <strong>Map</strong> element:</p>
+<p><strong>Map actions → Filter</strong></p>
+<p>Use the three Human impact charts as targets.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>MAP EXTENT CHANGE
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>       │
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>       ├── Filter → Earthquakes — Human impact
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>       ├── Filter → Tsunamis — Human impact
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>       └── Filter → Volcanic eruptions — Human impact
+</code></pre></div>
+<p>When you zoom or pan the map, the three charts are recalculated using only events inside the current visible extent.</p>
+<details class="note-fg-color" open="open">
+<summary>Categories from fields</summary>
+<p>The Human impact charts use <strong>Categories from fields</strong>. The bars represent several statistics calculated over the same set of features.</p>
+<p>This chart type can be used as a <strong>target</strong> of a filter action, but it does not support selection-change events and therefore cannot act as the interactive source of our map filtering.</p>
+</details>
+<hr>
+<h1 id="event-intensity-charts">Event intensity charts</h1>
+<p>The right side of the dashboard will contain three charts that classify events by intensity.</p>
+<p>These charts use <strong>Grouped values</strong>. Each bar or pie slice therefore represents a real group of features and can be used as a source of actions.</p>
+<h2 id="prepare-classification-fields">Prepare classification fields</h2>
+<p>For earthquake magnitude and tsunami water height, first create real classification fields in the <strong>source Hosted Feature Layers</strong>. A pop-up Attribute Expression is not sufficient because it is only part of the Web Map's pop-up configuration.</p>
+<p>If your Web Map uses a Hosted Feature Layer View with a restricted field definition, make sure the newly created field is also exposed by the View.</p>
+<h3 id="earthquake-magnitude-classes">Earthquake magnitude classes</h3>
+<p>Create a new text field:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>Magnitude_Class
+</code></pre></div>
+<p>Calculate it using Arcade:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>var m = $feature.Mag;
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>if (IsEmpty(m)) return null;
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>if (m &lt; 5) return "A — &lt; 5.0";
+<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>if (m &lt; 6) return "B — 5.0–5.9";
+<a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a>if (m &lt; 7) return "C — 6.0–6.9";
+<a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a>if (m &lt; 8) return "D — 7.0–7.9";
+<a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a>
+<a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a>return "E — ≥ 8.0";
+</code></pre></div>
+<h3 id="tsunami-water-height-classes">Tsunami water-height classes</h3>
+<p>Create another text field:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>Wave_Class
+</code></pre></div>
+<p>Calculate it using Arcade:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>var h = $feature["Maximum Water Height (m)"];
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>
+<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>if (IsEmpty(h)) return null;
+<a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a>if (h &lt; 1) return "A — &lt; 1 m";
+<a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a>if (h &lt; 3) return "B — 1–2.9 m";
+<a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a>if (h &lt; 10) return "C — 3–9.9 m";
+<a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a>if (h &lt; 30) return "D — 10–29.9 m";
+<a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a>
+<a id="__codelineno-12-9" name="__codelineno-12-9" href="#__codelineno-12-9"></a>return "E — ≥ 30 m";
+</code></pre></div>
+<details class="note-fg-color" open="open">
+<summary>Why real fields?</summary>
+<p>A pop-up <strong>Attribute Expression</strong> behaves like a calculated value for presentation in the Web Map. It does not automatically become a field that Dashboard can use for <strong>Grouped values</strong>.</p>
+<p>For this exercise, storing the classes in real fields keeps the Dashboard configuration transparent and reusable.</p>
+</details>
+<h2 id="earthquakes-by-magnitude">Earthquakes by magnitude</h2>
+<p>Create a <strong>Serial Chart</strong>:</p>
+<ul>
+<li><strong>Data source:</strong> Web Map → Earthquake Events</li>
+<li><strong>Categories:</strong> Grouped values</li>
+<li><strong>Category field:</strong> <code>Magnitude_Class</code></li>
+<li><strong>Statistic:</strong> Count</li>
+<li><strong>Title:</strong> <code>Earthquakes by magnitude</code></li>
+</ul>
+<p>Set:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>Sort by → Magnitude_Class
+<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>Order → Ascending
+</code></pre></div>
+<p>The categories should appear as:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>A — &lt; 5.0
+<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>B — 5.0–5.9
+<a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>C — 6.0–6.9
+<a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a>D — 7.0–7.9
+<a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a>E — ≥ 8.0
+</code></pre></div>
+<h2 id="tsunamis-by-maximum-water-height">Tsunamis by maximum water height</h2>
+<p>Create another <strong>Serial Chart</strong>:</p>
+<ul>
+<li><strong>Data source:</strong> Web Map → Tsunami Events</li>
+<li><strong>Categories:</strong> Grouped values</li>
+<li><strong>Category field:</strong> <code>Wave_Class</code></li>
+<li><strong>Statistic:</strong> Count</li>
+<li><strong>Title:</strong> <code>Tsunamis by maximum water height</code></li>
+</ul>
+<p>Set:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>Sort by → Wave_Class
+<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>Order → Ascending
+</code></pre></div>
+<details class="note-fg-color" open="open">
+<summary>Why use A–E prefixes?</summary>
+<p>Dashboard can sort grouped categories by the category field itself. Prefixing labels with <code>A–E</code> gives the classes a stable logical order when <strong>Sort by → class field → Ascending</strong> is used.</p>
+<p>Sorting by <code>Count</code> would instead order the classes by frequency.</p>
+</details>
+<h2 id="volcanic-eruptions-by-vei">Volcanic eruptions by VEI</h2>
+<p>Use a <strong>Pie Chart</strong> for the third intensity view. This demonstrates that the same interaction logic is not limited to bar charts.</p>
+<p>Configure:</p>
+<ul>
+<li><strong>Data source:</strong> Web Map → Volcano Events</li>
+<li><strong>Categories:</strong> Grouped values</li>
+<li><strong>Category field:</strong> <code>VEI</code></li>
+<li><strong>Statistic:</strong> Count</li>
+<li><strong>Title:</strong> <code>Eruptions by VEI</code></li>
+</ul>
+<p>Use the chart to show the <strong>composition</strong> of recorded eruptions by VEI category.</p>
+<details class="note-fg-color" open="open">
+<summary>Bar chart or pie chart?</summary>
+<p>A bar chart is generally better for precise comparison of category frequencies.</p>
+<p>Here we deliberately use a pie chart to demonstrate a second interactive chart type and to emphasise the relative composition of the eruption dataset.</p>
+</details>
+<hr>
+<h1 id="use-intensity-charts-to-control-the-dashboard">Use intensity charts to control the dashboard</h1>
+<p>For each right-side intensity chart, configure <strong>Filter</strong> actions.</p>
+<p>Each chart should filter:</p>
+<ol>
+<li>its corresponding event layer in the map,</li>
+<li>its corresponding Human impact chart,</li>
+<li>its corresponding event-count Indicator.</li>
+</ol>
+<p>For example:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>Earthquakes by magnitude
+<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>          │
+<a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a>          ├── Filter → Earthquake Events in the map
+<a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a>          ├── Filter → Earthquakes — Human impact
+<a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a>          └── Filter → Earthquake Events indicator
+</code></pre></div>
+<p>Apply the same logic to <code>Wave_Class</code> and <code>VEI</code>.</p>
+<p>The Human impact chart therefore combines two conditions:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>CURRENT MAP EXTENT
+<a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>        │
+<a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a>        ↓
+<a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a>Human impact chart
+<a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a>        ↑
+<a id="__codelineno-17-6" name="__codelineno-17-6" href="#__codelineno-17-6"></a>        │
+<a id="__codelineno-17-7" name="__codelineno-17-7" href="#__codelineno-17-7"></a>SELECTED INTENSITY CLASS
+</code></pre></div>
+<p>For example:</p>
+<blockquote>
+<p>Zoom to Japan → select <code>E — ≥ 8.0</code> → inspect the deaths, missing persons and injuries for earthquakes of magnitude 8 or greater inside the current extent.</p>
+</blockquote>
+<details class="note-fg-color" open="open">
+<summary>Coordinated multiple views</summary>
+<p>The map and charts are not independent visualisations. A user action in one element changes the data displayed in other elements.</p>
+<p>This principle is often described as <strong>coordinated multiple views</strong>: the same data are explored through spatial, categorical and quantitative representations that remain linked.</p>
+</details>
+<hr>
+<h1 id="event-count-indicators">Event-count indicators</h1>
+<p>Add three <strong>Indicator</strong> elements above the map:</p>
+<ul>
+<li><code>Earthquake Events</code></li>
+<li><code>Tsunami Events</code></li>
+<li><code>Volcano Events</code></li>
+</ul>
+<p>For each Indicator:</p>
+<ul>
+<li>use the corresponding event layer as the data source,</li>
+<li>calculate <strong>Count</strong>,</li>
+<li>use a clear title and a large numeric value.</li>
+</ul>
+<p>Extend the Map extent action so that the indicators are also filtered by the current visible extent:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>MAP EXTENT CHANGE
+<a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a>       │
+<a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a>       ├── Human impact charts
+<a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a>       └── Event-count indicators
+</code></pre></div>
+<p>Also target the corresponding Indicator from each intensity chart.</p>
+<p>For example, selecting <code>Wave_Class = D</code> should update:</p>
+<ul>
+<li>the Tsunami Events layer in the map,</li>
+<li><code>Tsunamis — Human impact</code>,</li>
+<li>the Tsunami Events Indicator.</li>
+</ul>
+<hr>
+<h1 id="filter-the-dashboard-by-year">Filter the dashboard by year</h1>
+<p>The NOAA datasets contain a numeric <code>Year</code> field, while month and day may be missing. We will therefore use a <strong>Number selector</strong> rather than a Date selector.</p>
+<h2 id="add-the-number-selector">Add the Number selector</h2>
+<p>Selectors are not added as ordinary dashboard elements.</p>
+<ol>
+<li>Add a <strong>Header</strong> or <strong>Sidebar</strong> to the desktop view.</li>
+<li>On the action bar, click <strong>View</strong>.</li>
+<li>In the View pane, open <strong>Header</strong> or <strong>Sidebar</strong>.</li>
+<li>Click <strong>Add selector</strong>.</li>
+<li>Choose <strong>Number selector</strong>.</li>
+</ol>
+<p>Configure the selector, for example:</p>
+<ul>
+<li><strong>Label:</strong> <code>Year</code></li>
+<li><strong>Presentation mode:</strong> <code>Dropdown</code> or <code>Inline</code></li>
+<li><strong>Display type:</strong> <code>Slider</code> or <code>Combination</code></li>
+<li><strong>Input type:</strong> <code>Range</code></li>
+<li><strong>Limits from:</strong> <code>Defined values</code></li>
+<li><strong>Minimum:</strong> <code>1900</code></li>
+<li><strong>Maximum:</strong> <code>2026</code></li>
+<li><strong>Increment:</strong> <code>1</code></li>
+<li><strong>Precision:</strong> <code>0</code></li>
+</ul>
+<p>The selector itself is a generic numeric control. It is <strong>not linked to the <code>Year</code> attribute on the Selector tab</strong>.</p>
+<h2 id="connect-the-selector-to-the-data">Connect the selector to the data</h2>
+<p>Open:</p>
+<p><strong>Number selector → Actions → Filter</strong></p>
+<p>For every target, map the selector values to the appropriate numeric <code>Year</code> field.</p>
+<p>Configure the selector to filter:</p>
+<ul>
+<li>Earthquake Events map layer → <code>Year</code></li>
+<li>Tsunami Events map layer → <code>Year</code></li>
+<li>Volcano Events map layer → <code>Year</code></li>
+<li>all three Human impact charts,</li>
+<li>all three intensity charts,</li>
+<li>all three event-count indicators.</li>
+</ul>
+<details class="note-fg-color" open="open">
+<summary>Selector value vs. target field</summary>
+<p>The Number selector only produces a number or numeric range.</p>
+<p>The connection to a real attribute is defined later in <strong>Actions</strong>, where each target is linked to its <code>Year</code> field.</p>
+<p>One selector can therefore apply the same numeric range to several independent layers.</p>
+</details>
+<p>The final Dashboard combines three analytical dimensions:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>YEAR RANGE
+<a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a>    │
+<a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a>    ↓
+<a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a>all event types and dashboard elements
+<a id="__codelineno-19-5" name="__codelineno-19-5" href="#__codelineno-19-5"></a>
+<a id="__codelineno-19-6" name="__codelineno-19-6" href="#__codelineno-19-6"></a>MAP EXTENT
+<a id="__codelineno-19-7" name="__codelineno-19-7" href="#__codelineno-19-7"></a>    │
+<a id="__codelineno-19-8" name="__codelineno-19-8" href="#__codelineno-19-8"></a>    ↓
+<a id="__codelineno-19-9" name="__codelineno-19-9" href="#__codelineno-19-9"></a>Human impact + event counts
+<a id="__codelineno-19-10" name="__codelineno-19-10" href="#__codelineno-19-10"></a>
+<a id="__codelineno-19-11" name="__codelineno-19-11" href="#__codelineno-19-11"></a>INTENSITY CLASS
+<a id="__codelineno-19-12" name="__codelineno-19-12" href="#__codelineno-19-12"></a>    │
+<a id="__codelineno-19-13" name="__codelineno-19-13" href="#__codelineno-19-13"></a>    ├── corresponding map layer
+<a id="__codelineno-19-14" name="__codelineno-19-14" href="#__codelineno-19-14"></a>    ├── Human impact
+<a id="__codelineno-19-15" name="__codelineno-19-15" href="#__codelineno-19-15"></a>    └── event count
+</code></pre></div>
+<p>For example:</p>
+<blockquote>
+<p><strong>2000–2026 → zoom to Japan → select earthquakes <code>E — ≥ 8.0</code></strong></p>
+</blockquote>
+<p>The map, Indicator and Human impact chart will update according to the combined filters.</p>
+<div class="admonition abstract">
+<p class="admonition-title">Dashboard task</p>
+<p>Create a coordinated Dashboard using the NOAA event layers.</p>
+<p>Your final Dashboard should contain:</p>
+<ul>
+<li>the Web Map,</li>
+<li>three Human impact Serial Charts,</li>
+<li>two intensity Serial Charts,</li>
+<li>one VEI Pie Chart,</li>
+<li>three event-count Indicators,</li>
+<li>a Year range Number selector,</li>
+<li>Map extent actions that dynamically update analytical elements,</li>
+<li>intensity-chart actions that filter the corresponding map layer, Human impact chart and Indicator.</li>
+</ul>
+<p>Test several combinations of <strong>time, map extent and event intensity</strong> and verify that the dashboard elements respond consistently.</p>
+</div>
+<h2 id="what-have-we-built">What have we built?</h2>
+<p>The workflow in this practical progresses from <strong>information design</strong> to <strong>interactive analytical design</strong>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>Web Map
+<a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a>   │
+<a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a>   ├── Pop-ups
+<a id="__codelineno-20-4" name="__codelineno-20-4" href="#__codelineno-20-4"></a>   │     ├── field formatting
+<a id="__codelineno-20-5" name="__codelineno-20-5" href="#__codelineno-20-5"></a>   │     ├── HTML
+<a id="__codelineno-20-6" name="__codelineno-20-6" href="#__codelineno-20-6"></a>   │     └── Arcade
+<a id="__codelineno-20-7" name="__codelineno-20-7" href="#__codelineno-20-7"></a>   │
+<a id="__codelineno-20-8" name="__codelineno-20-8" href="#__codelineno-20-8"></a>   └── ArcGIS Dashboard
+<a id="__codelineno-20-9" name="__codelineno-20-9" href="#__codelineno-20-9"></a>         ├── Map
+<a id="__codelineno-20-10" name="__codelineno-20-10" href="#__codelineno-20-10"></a>         ├── Charts
+<a id="__codelineno-20-11" name="__codelineno-20-11" href="#__codelineno-20-11"></a>         ├── Indicators
+<a id="__codelineno-20-12" name="__codelineno-20-12" href="#__codelineno-20-12"></a>         ├── Selector
+<a id="__codelineno-20-13" name="__codelineno-20-13" href="#__codelineno-20-13"></a>         └── Actions
+</code></pre></div>
+<p>The important principle is that a web mapping application is not only a collection of visual elements. The elements should be selected and connected according to the <strong>questions the user needs to answer</strong>.</p>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden="">
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"></path></svg>
+  Zpět na začátek
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      <a href="https://geomatics.fsv.cvut.cz" target="_blank">Katedra geomatiky</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;2023-2026
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://twitter.com/CTUGeomatics" target="_blank" rel="noopener" title="twitter.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M459.4 151.7c.3 4.5.3 9.1.3 13.6 0 138.7-105.6 298.6-298.6 298.6-59.5 0-114.7-17.2-161.1-47.1 8.4 1 16.6 1.3 25.3 1.3 49.1 0 94.2-16.6 130.3-44.8-46.1-1-84.8-31.2-98.1-72.8 6.5 1 13 1.6 19.8 1.6 9.4 0 18.8-1.3 27.6-3.6-48.1-9.7-84.1-52-84.1-103v-1.3c14 7.8 30.2 12.7 47.4 13.3-28.3-18.8-46.8-51-46.8-87.4 0-19.5 5.2-37.4 14.3-53C87.4 130.8 165 172.4 252.1 176.9c-1.6-7.8-2.6-15.9-2.6-24C249.5 95.1 296.3 48 354.4 48c30.2 0 57.5 12.7 76.7 33.1 23.7-4.5 46.5-13.3 66.6-25.3-7.8 24.4-24.4 44.8-46.1 57.8 21.1-2.3 41.6-8.1 60.4-16.2-14.3 20.8-32.2 39.3-52.6 54.3"></path></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://www.facebook.com/geomatics.ctu" target="_blank" rel="noopener" title="www.facebook.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M512 256C512 114.6 397.4 0 256 0S0 114.6 0 256c0 120 82.7 220.8 194.2 248.5V334.2h-52.8V256h52.8v-33.7c0-87.1 39.4-127.5 125-127.5 16.2 0 44.2 3.2 55.7 6.4V172c-6-.6-16.5-1-29.6-1-42 0-58.2 15.9-58.2 57.2V256h83.6l-14.4 78.2H287v175.9C413.8 494.8 512 386.9 512 256"></path></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://www.instagram.com/geomatics.ctu" target="_blank" rel="noopener" title="www.instagram.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M224.3 141a115 115 0 1 0-.6 230 115 115 0 1 0 .6-230m-.6 40.4a74.6 74.6 0 1 1 .6 149.2 74.6 74.6 0 1 1-.6-149.2m93.4-45.1a26.8 26.8 0 1 1 53.6 0 26.8 26.8 0 1 1-53.6 0m129.7 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8M399 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1"></path></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.sections", "toc.integrate", "navigation.top", "search.suggest", "search.highlight", "content.tabs.link", "content.code.annotation", "content.code.copy", "content.tooltips"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Zkop\u00edrov\u00e1no do schr\u00e1nky", "clipboard.copy": "Kop\u00edrovat do schr\u00e1nky", "search.result.more.one": "1 dal\u0161\u00ed na t\u00e9to str\u00e1nce", "search.result.more.other": "# v\u00edce na t\u00e9to str\u00e1nce", "search.result.none": "Nenalezeny \u017e\u00e1dn\u00e9 dokumenty", "search.result.one": "Nalezen\u00fd dokument: 1", "search.result.other": "Nalezen\u00e9 dokumenty: #", "search.result.placeholder": "Pi\u0161te co se m\u00e1 vyhledat", "search.result.term.missing": "Chyb\u011bj\u00edc\u00ed", "select.version": "Vyberte verzi"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  
+<script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(()=>{ lightbox.reload(); });
+</script></body></html>
