@@ -38,7 +38,7 @@ The first task is intentionally underspecified.
 
     > **What did the model decide for me?**
 
-[<span>ArcGIS Survey123</span><br>Upload your result](https://arcg.is/1XrH9a3){ .md-button .md-button--primary .server_name .external_link_icon_small target="_blank"}
+[<span>ArcGIS Survey123</span><br>Upload your result](https://arcg.is/14CbWW1){ .md-button .md-button--primary .server_name .external_link_icon_small target="_blank"}
 {: .button_array}
 
 Do not evaluate the result only by asking whether the map looks attractive. Look for decisions that were never explicitly specified in your prompt, for example:
