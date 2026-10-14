@@ -3,6 +3,8 @@ icon: material/numeric-5-box
 title: Úvod do prompt cartography. Markdown, strukturování promptů, experiment.
 ---
 
+# Prompt Cartography
+
 In this practical, we will explore **prompt cartography** as a structured way of directing map design through natural language.
 
 The aim is not simply to ask an AI system to *make a map*. Instead, we will compare casual prompting with a more deliberate, iterative workflow in which the cartographer explicitly defines purpose, audience, constraints, critique and revision.
@@ -37,9 +39,6 @@ The first task is intentionally underspecified.
     After the map is generated, write one sentence answering:
 
     > **What did the model decide for me?**
-
-[<span>ArcGIS Survey123</span><br>Upload your result](https://arcg.is/14CbWW1){ .md-button .md-button--primary .server_name .external_link_icon_small target="_blank"}
-{: .button_array}
 
 Do not evaluate the result only by asking whether the map looks attractive. Look for decisions that were never explicitly specified in your prompt, for example:
 
@@ -220,9 +219,47 @@ These observations will become the basis for the next step.
 
 Keep the **topic, audience and purpose unchanged**.
 
-In the next version, we will add a small number of explicit constraints — **guardrails** — and observe which of them changes the result most.
+In the next version, add approximately **five guardrails**: clear constraints that address potential problems you noticed in the earlier output. Focus on decisions that matter for accuracy, interpretation, and cartographic design.
 
-As before, use a **new chat** so that the only methodological change is the wording of the prompt.
+As before, use a **new chat** so that the model does not rely on the previous map or conversation history.
+
+## Prompt 3 — copy Prompt 2 and add guardrails
+
+Copy the **topic, audience and purpose** from Prompt 2. Then add your own guardrails as bullet points and finish with the instructions below.
+
+```text
+I want to create a static map about earthquakes in the Pacific
+for a general audience with no specialist knowledge of seismology.
+
+The purpose of the map is to show where the strongest recorded
+earthquakes occurred and help readers compare their magnitude and date.
+
+Guardrails:
+
+- [Guardrail 1]
+- [Guardrail 2]
+- [Guardrail 3]
+- [Guardrail 4]
+- [Guardrail 5]
+
+Recommend the map concept, key layers, interaction ideas, and the one thing users should remember.
+Do not write code.
+```
+
+???+ note-fg-color "What makes a useful guardrail?"
+    Each guardrail should address a **specific risk or unwanted design decision**, such as an unverifiable data claim, misleading classification, unnecessary map content, or missing uncertainty information.
+
+    Do not simply ask for a "better" or "more professional" map. And do not copy the example guardrails from another student without considering your own output.
+
+    The closing instructions follow the original web-map lab. Because **our task focuses on a static map**, interaction ideas may not be applicable; the important output here is a **written map concept**, not code or a finished map.
+
+## Evaluate the response
+
+- **Which guardrail changed the answer most?**
+- **Did the model respect all constraints or quietly drift?**
+- **What responsibility still belongs to you, even if the answer improved?**
+
+Save your full Prompt 3 and the model's response. You will use them in the final Prompt Director Brief.
 
 ---
 
@@ -234,27 +271,50 @@ After comparing the three versions, summarize what you have learned from them an
 
 Do not simply copy the wording of Prompt 2 or Prompt 3. Use the previous outputs as evidence: decide which assumptions were useful, which decisions should remain under your control, and which constraints are important enough to state explicitly.
 
-```text
-Prompt Director Brief
+## Prompt 4 — Prompt Director Brief (Markdown template)
 
-Topic:
+First, complete the brief using **your own cartographic decisions** informed by Prompts 1–3. Keep each section concise and specific; write approximately five guardrails as bullet points.
 
-Audience:
+Copy the Markdown template below into a **new chat**, fill in all sections, and use the opening instruction to request a static map based on the completed brief.
 
-Purpose:
+```markdown
+Using the following Prompt Director Brief, create a static map that follows the specified purpose, audience, emphasis and guardrails.
 
-What users should remember:
+# Prompt Director Brief
 
-What the map should emphasize:
+## Topic
+[Map topic and scope]
 
-What the map should omit or downplay:
+## Audience
+[Who is this map for?]
 
-Guardrails:
+## Purpose
+[What should the map help its audience understand or compare?]
 
-One risk or uncertainty:
+## What users should remember
+[The main takeaway]
 
-One thing I would check before trusting the output:
+## What the map should emphasize
+[Essential information and cartographic priorities]
+
+## What the map should omit or downplay
+[Unnecessary or distracting information]
+
+## Guardrails
+- [Constraint 1]
+- [Constraint 2]
+- [Constraint 3]
+- [Constraint 4]
+- [Constraint 5]
+
+## One risk or uncertainty
+[An important limitation or potential misinterpretation]
+
+## One thing I would check before trusting the output
+[One concrete human verification task]
 ```
+
+The **Director Brief itself** is the final synthesis of [Lab 1](https://www.promptcartography.com/labs/private2/1/). The opening instruction asking the LLM to **create a static map** is our own extension: it moves from directing a map to testing the brief in production. Preserve both the completed brief and the resulting map for your StoryMap documentation.
 
 ???+ note-fg-color "Work independently"
     Your brief should reflect **your own cartographic judgment**.

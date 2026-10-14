@@ -2,12 +2,12 @@ site_name: Vizualizace a distribuce prostorových dat (155YDPD)
 nav:
   - Charakteristika předmětu: index.md
   - Cvičení:
-      - Organizace předmětu, příprava dat a publikace do prostředí ArcGIS Online, správa a efektivní použití (Views).: cviceni/cviceni1.md
-      - Vector Tile Style Editor. Tvorba webové basemapy. Rekapitulace ESRI builderů, jejich porovnání.: cviceni/cviceni2.md
-      - Experience a Dashboard builder. Tvorba mapové aplikace.: cviceni/cviceni3.md
-      - Úvod do prompt cartography. Markdown, strukturování promptů, tvorba mapové aplikace.: cviceni/cviceni4.md
-      - Nástroje LLM pro webové mapy. Návrh, ladění a publikace webové mapy s využitím správného promptování.: cviceni/cviceni5.md
-      - Nástroje LLM pro webové mapy: cviceni/cviceni6.md
+      - Organizace předmětu, příprava dat a publikace do prostředí ArcGIS Online: cviceni/cviceni1.md
+      - VTSE, tvorba webové basemapy: cviceni/cviceni2.md
+      - Advanced Pop-ups, Instan Apps, StoryMaps: cviceni/cviceni3.md
+      - Experience builder: cviceni/cviceni4.md
+      - Úvod do prompt cartography: cviceni/cviceni5.md
+      - Využití LLM pro tvorbu webové mapové aplikace: cviceni/cviceni6.md
       - SketchUp základy: cviceni/cviceni7.md
       - Pokročilejší modelování: cviceni/cviceni8.md
       - Základy HTML a vizualizace na webu: cviceni/cviceni9.md

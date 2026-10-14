@@ -94,25 +94,25 @@ Výuka je vedena formou workshopu, přičemž přednášky bezprostředně před
     <tr style="border-top:2px solid #aaa;">
       <td style="text-align:center; font-weight:bold; padding:8px 12px;">2</td>
       <td style="text-align:center; padding:8px 12px;">30.09.2026</td>
-      <td style="padding:8px 12px;">Vector Tile Style Editor. Tvorba webové basemapy. Rekapitulace ESRI builderů, jejich porovnání.</td>
+      <td style="padding:8px 12px;">Vector Tile Style Editor. Tvorba webové basemapy.</td>
       <td style="text-align:center; padding:8px 12px;">Josef Münzberger</td>
     </tr>
     <tr style="border-top:2px solid #aaa;">
       <td style="text-align:center; font-weight:bold; padding:8px 12px;">3</td>
       <td style="text-align:center; padding:8px 12px;">07.10.2026</td>
-      <td style="padding:8px 12px;">Experience a Dashboard builder. Tvorba mapové aplikace.</td>
+      <td style="padding:8px 12px;">Advanced Pop-ups, Instan Apps, StoryMaps.</td>
       <td style="text-align:center; padding:8px 12px;">Josef Münzberger</td>
     </tr>
     <tr style="border-top:2px solid #aaa;">
       <td style="text-align:center; font-weight:bold; padding:8px 12px;">4</td>
       <td style="text-align:center; padding:8px 12px;">14.10.2026</td>
-      <td style="padding:8px 12px;">Úvod do prompt cartography. Markdown, strukturování promptů, tvorba mapové aplikace.</td>
+      <td style="padding:8px 12px;">Experience builder</td>
       <td style="text-align:center; padding:8px 12px;">Josef Münzberger</td>
     </tr>
     <tr style="border-top:2px solid #aaa;">
       <td style="text-align:center; font-weight:bold; padding:8px 12px;">5</td>
       <td style="text-align:center; padding:8px 12px;">21.10.2026</td>
-      <td style="padding:8px 12px;">Nástroje LLM pro webové mapy. Návrh, ladění a publikace webové mapy s využitím správného promptování.</td>
+      <td style="padding:8px 12px;">Úvod do prompt cartography.</td>
       <td style="text-align:center; padding:8px 12px;">Josef Münzberger</td>
     </tr>
     <tr style="border-top:2px solid #aaa;">
