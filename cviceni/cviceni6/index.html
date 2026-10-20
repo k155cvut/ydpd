@@ -1,0 +1,1357 @@
+<!DOCTYPE html><html lang="cs" class="no-js"><head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../cviceni5/">
+      
+      
+        <link rel="next" href="../cviceni7/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Využití LLM pro tvorbu webové mapy. Návrh, ladění a publikace webové mapy. - Vizualizace a distribuce prostorových dat (155YDPD)</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+  
+  
+  
+  
+  <style>:root{--md-annotation-icon:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20d%3D%22M17%2013h-4v4h-2v-4H7v-2h4V7h2v4h4m-5-9A10%2010%200%200%200%202%2012a10%2010%200%200%200%2010%2010%2010%2010%200%200%200%2010-10A10%2010%200%200%200%2012%202%22/%3E%3C/svg%3E');}</style>
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+            .gscrollbar-fixer { padding-right: 15px; }
+            .gdesc-inner { font-size: 0.75rem; }
+            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color); }
+            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
+            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
+        </style></head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#prompt-cartography-from-prompt-to-web-map" class="md-skip">
+          Přeskočit obsah
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Záhlaví">
+    <a href="../.." title="Vizualizace a distribuce prostorových dat (155YDPD)" class="md-header__button md-logo" aria-label="Vizualizace a distribuce prostorových dat (155YDPD)" data-md-component="logo">
+      
+  <img src="../../assets/favicon.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Vizualizace a distribuce prostorových dat (155YDPD)
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Využití LLM pro tvorbu webové mapy. Návrh, ladění a publikace webové mapy.
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom" aria-label="Switch to dark mode" type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6m0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4M7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3"></path></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="custom" data-md-color-accent="custom" aria-label="Switch to light mode" type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3"></path></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Hledat" placeholder="Hledat" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Vyhledávání">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Vyčistit" aria-label="Vyčistit" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializace vyhledávání
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Karty" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Charakteristika předmětu
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../cviceni1/" class="md-tabs__link">
+          
+  
+  
+  Cvičení
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigace" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Vizualizace a distribuce prostorových dat (155YDPD)" class="md-nav__button md-logo" aria-label="Vizualizace a distribuce prostorových dat (155YDPD)" data-md-component="logo">
+      
+  <img src="../../assets/favicon.svg" alt="logo">
+
+    </a>
+    Vizualizace a distribuce prostorových dat (155YDPD)
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Charakteristika předmětu
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cvičení
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Cvičení
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cviceni1/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14 17h-2V9h-2V7h4m5-4H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2"></path></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Organizace předmětu, příprava dat a publikace do prostředí ArcGIS Online
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cviceni2/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15 11a2 2 0 0 1-2 2h-2v2h4v2H9v-4a2 2 0 0 1 2-2h2V9H9V7h4a2 2 0 0 1 2 2m4-6H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2"></path></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    VTSE, tvorba webové basemapy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cviceni3/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15 10.5a1.5 1.5 0 0 1-1.5 1.5c.84 0 1.5.67 1.5 1.5V15c0 1.11-.89 2-2 2H9v-2h4v-2h-2v-2h2V9H9V7h4c1.11 0 2 .89 2 2m4-6H5c-1.09 0-2 .9-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2"></path></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Advanced Pop-ups, Instan Apps, StoryMaps
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cviceni4/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15 17h-2v-4H9V7h2v4h2V7h2m4-4H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2"></path></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Experience builder
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cviceni5/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15 9h-4v2h2a2 2 0 0 1 2 2v2a2 2 0 0 1-2 2H9v-2h4v-2H9V7h6m4-4H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2"></path></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Úvod do prompt cartography
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15 9h-4v2h2a2 2 0 0 1 2 2v2a2 2 0 0 1-2 2h-2a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2h4m4-4H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2m-8 12h2v-2h-2z"></path></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Využití LLM pro tvorbu webové mapy
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15 9h-4v2h2a2 2 0 0 1 2 2v2a2 2 0 0 1-2 2h-2a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2h4m4-4H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2m-8 12h2v-2h-2z"></path></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Využití LLM pro tvorbu webové mapy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Obsah">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Obsah
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#learning-objectives" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Learning objectives
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cviceni7/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2zm-8 14 4-8V7H9v2h4l-4 8z"></path></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Využití LLM pro tvorbu webové mapové aplikace
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cviceni8/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2zm-8 14h2a2 2 0 0 0 2-2v-1.5a1.5 1.5 0 0 0-1.5-1.5 1.5 1.5 0 0 0 1.5-1.5V9a2 2 0 0 0-2-2h-2a2 2 0 0 0-2 2v1.5a1.5 1.5 0 0 0 1.5 1.5A1.5 1.5 0 0 0 9 13.5V15a2 2 0 0 0 2 2m0-4h2v2h-2zm0-4h2v2h-2z"></path></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    SketchUp základy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cviceni9/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2zm-6 8h-2V9h2zm0-4h-2a2 2 0 0 0-2 2v2a2 2 0 0 0 2 2h2v2H9v2h4a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2"></path></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Základy HTML a vizualizace na webu
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cviceni10/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14 9h2v6h-2zm7-4v14c0 1.11-.89 2-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2M10 7H6v2h2v8h2zm8 2a2 2 0 0 0-2-2h-2a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2c1.11 0 2-.89 2-2z"></path></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Pokročilejší vizualizace na webu
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cviceni11/" class="md-nav__link">
+        
+  
+  
+    <!--?xml version="1.0" encoding="UTF-8" standalone="no"?-->
+<svg viewBox="0 0 24 24" version="1.1" id="svg1" sodipodi:docname="numeric-10-box.svg" inkscape:version="1.3 (0e150ed6c4, 2023-07-21)" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
+  <defs id="defs1"></defs>
+  <sodipodi:namedview id="namedview1" pagecolor="#505050" bordercolor="#eeeeee" borderopacity="1" inkscape:showpageshadow="0" inkscape:pageopacity="0" inkscape:pagecheckerboard="0" inkscape:deskcolor="#d1d1d1" inkscape:current-layer="svg1"></sodipodi:namedview>
+  <path id="path2" d="M 5 3 A 2 2 0 0 0 3 5 L 3 19 A 2 2 0 0 0 5 21 L 19 21 C 20.109999 21 21 20.109999 21 19 L 21 5 C 21 3.9000011 20.109999 3 19 3 L 5 3 z M 7 7 L 11 7 L 11 17 L 9 17 L 9 9 L 7 9 L 7 7 z M 13 7 L 17 7 L 17 17 L 15 17 L 15 9 L 13 9 L 13 7 z "></path>
+</svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Úvod do Blenderu
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cviceni12/" class="md-nav__link">
+        
+  
+  
+    <!--?xml version="1.0" encoding="UTF-8" standalone="no"?-->
+<svg viewBox="0 0 24 24" version="1.1" id="svg1" sodipodi:docname="numeric-12-box.svg" inkscape:version="1.3 (0e150ed6c4, 2023-07-21)" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
+  <defs id="defs1"></defs>
+  <sodipodi:namedview id="namedview1" pagecolor="#505050" bordercolor="#eeeeee" borderopacity="1" inkscape:showpageshadow="0" inkscape:pageopacity="0" inkscape:pagecheckerboard="0" inkscape:deskcolor="#d1d1d1" inkscape:current-layer="svg1"></sodipodi:namedview>
+  <path id="path2" d="M 5 3 A 2 2 0 0 0 3 5 L 3 19 A 2 2 0 0 0 5 21 L 19 21 C 20.109998 21 21 20.109998 21 19 L 21 5 C 21 3.9000022 20.109998 3 19 3 L 5 3 z M 6 7 L 10 7 L 10 17 L 8 17 L 8 9 L 6 9 L 6 7 z M 12 7 L 16 7 A 2 2 0 0 1 18 9 L 18 11 C 18 12.109998 17.099998 13 16 13 L 14 13 L 14 15 L 18 15 L 18 17 L 12 17 L 12 13 C 12 11.890002 12.900002 11 14 11 L 16 11 L 16 9 L 12 9 L 12 7 z "></path>
+</svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    AI v modelování
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="prompt-cartography-from-prompt-to-web-map">Prompt Cartography: From Prompt to Web Map</h1>
+<p>In the previous practical, we learned to act as <strong>map directors</strong>: define the purpose, audience, and guardrails before asking an LLM to create a map.</p>
+<p>Today, we will go from a design brief to a <strong>working interactive web map</strong>. Rather than configuring an ArcGIS builder, we will use a coding-capable LLM to create a browser-based application with <strong>HTML, CSS, and JavaScript</strong>.</p>
+<p>The challenge is familiar: recreate the <strong>content and cartographic logic</strong> of the natural hazard web map made earlier in ArcGIS Online, then improve it through targeted prompting. We will reuse the <strong>existing NOAA datasets</strong> rather than search for or prepare new data.</p>
+<details class="note-fg-color" open="open">
+<summary>Resources</summary>
+<p class="button_array" style="justify-content:flex-start;"><a class="md-button md-button--primary button_smaller" href="https://www.promptcartography.com/prompts/" target="_blank">One-Shot Interactive Web Map template <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16c0 1.11.89 2 2 2h12c1.11 0 2-.89 2-2V8zm4 18H6V4h7v5h5zm-8.46-4.35 2.09 2.09L10.35 19 7 15.65l3.35-3.35 1.28 1.26zm7.46 0L13.65 19l-1.27-1.26 2.09-2.09-2.09-2.09 1.27-1.26z"></path></svg></span></a>
+<a class="md-button md-button--primary button_smaller" href="https://www.promptcartography.com/workflow/" target="_blank">Prompt Cartography workflow <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 15a3 3 0 0 1 3 3 3 3 0 0 1-3 3 2.99 2.99 0 0 1-2.83-2H14v-2h1.17c.41-1.17 1.52-2 2.83-2m0 2a1 1 0 0 0-1 1 1 1 0 0 0 1 1 1 1 0 0 0 1-1 1 1 0 0 0-1-1m0-9a1.43 1.43 0 0 0 1.43-1.43 1.43 1.43 0 1 0-2.86 0A1.43 1.43 0 0 0 18 8m0-5.43a4 4 0 0 1 4 4C22 9.56 18 14 18 14s-4-4.44-4-7.43a4 4 0 0 1 4-4M8.83 17H10v2H8.83A2.99 2.99 0 0 1 6 21a3 3 0 0 1-3-3c0-1.31.83-2.42 2-2.83V14h2v1.17c.85.3 1.53.98 1.83 1.83M6 17a1 1 0 0 0-1 1 1 1 0 0 0 1 1 1 1 0 0 0 1-1 1 1 0 0 0-1-1M6 3a3 3 0 0 1 3 3c0 1.31-.83 2.42-2 2.83V10H5V8.83A2.99 2.99 0 0 1 3 6a3 3 0 0 1 3-3m0 2a1 1 0 0 0-1 1 1 1 0 0 0 1 1 1 1 0 0 0 1-1 1 1 0 0 0-1-1m5 14v-2h2v2zm-4-6H5v-2h2z"></path></svg></span></a>
+<a class="md-button md-button--primary button_smaller" href="https://www.ngdc.noaa.gov/hazel/view/about" target="_blank">NOAA HazEL <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 3C7.58 3 4 4.79 4 7s3.58 4 8 4 8-1.79 8-4-3.58-4-8-4M4 9v3c0 2.21 3.58 4 8 4s8-1.79 8-4V9c0 2.21-3.58 4-8 4s-8-1.79-8-4m0 5v3c0 2.21 3.58 4 8 4s8-1.79 8-4v-3c0 2.21-3.58 4-8 4s-8-1.79-8-4"></path></svg></span></a>
+<a class="md-button md-button--primary button_smaller" href="https://www.webmapgpt.com/" target="_blank">WebMapGPT tools <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m21.71 20.29-1.42 1.42a1 1 0 0 1-1.41 0L7 9.85A3.8 3.8 0 0 1 6 10a4 4 0 0 1-3.78-5.3l2.54 2.54.53-.53 1.42-1.42.53-.53L4.7 2.22A4 4 0 0 1 10 6a3.8 3.8 0 0 1-.15 1l11.86 11.88a1 1 0 0 1 0 1.41M2.29 18.88a1 1 0 0 0 0 1.41l1.42 1.42a1 1 0 0 0 1.41 0l5.47-5.46-2.83-2.83M20 2l-4 2v2l-2.17 2.17 2 2L18 8h2l2-4Z"></path></svg></span></a></p>
+</details>
+<h2 id="learning-objectives">Learning objectives</h2>
+<p>By the end of this practical, you should be able to:</p>
+<ul>
+<li>turn a cartographic intent into a structured prompt for an interactive map;</li>
+<li>connect a generated web map to <strong>real ArcGIS Online Feature Layers</strong> through their REST URLs;</li>
+<li>evaluate and refine basemap design, symbolisation, legend, and pop-ups;</li>
+<li>make targeted revisions to an existing application without rebuilding everything;</li>
+<li>run the generated <code>index.html</code> locally and understand how it can later be published.</li>
+</ul>
+<details class="note-fg-color" open="open">
+<summary>Suggested pace — 3 hours</summary>
+<table>
+<thead>
+<tr>
+<th>Activity</th>
+<th style="text-align: right;">Time</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Critical discussion</td>
+<td style="text-align: right;">15 min</td>
+</tr>
+<tr>
+<td>Cartographic intent and REST data</td>
+<td style="text-align: right;">30 min</td>
+</tr>
+<tr>
+<td>One-shot prompt and first prototype</td>
+<td style="text-align: right;">50 min</td>
+</tr>
+<tr>
+<td>Break</td>
+<td style="text-align: right;">10 min</td>
+</tr>
+<tr>
+<td>Targeted revisions and testing</td>
+<td style="text-align: right;">50 min</td>
+</tr>
+<tr>
+<td>Run locally and reflect</td>
+<td style="text-align: right;">25 min</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Total: 180 minutes.</strong> GitHub Pages and the optional Year filter can be completed later.</p>
+</details>
+<hr>
+<h1 id="before-we-start-ai-criticism-and-cartographic-responsibility">Before we start: AI, criticism, and cartographic responsibility</h1>
+<p>In his EuroCarto 2026 keynote, <strong>Kenneth Field</strong> reflects on how cartography has repeatedly changed through new production technologies, from manual methods to GIS and the web. He places generative AI in this longer history, while acknowledging the professional concerns surrounding it.</p>
+<p>Field and Ian Muehlenhaus have been experimenting with AI-generated maps through the ICA Map Design Commission's <strong>#365DaysOfMaps</strong> project. Their work has faced criticism, including accusations of <strong>professional negligence, unethical practice, and “AI slop.”</strong> Field does not argue that AI is harmless or that cartographic expertise is obsolete. His central position is that <strong>AI is not a cartographer</strong> and can cause harm unless it is directed carefully, deliberately, and critically.</p>
+<details class="note-fg-color" open="open">
+<summary>Kenneth Field — keynote and context</summary>
+<p class="button_array" style="justify-content:flex-start;"><a class="md-button md-button--primary button_smaller" href="https://www.youtube.com/watch?v=-O0eC5cv6vc" target="_blank">Watch the keynote <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m10 15 5.19-3L10 9zm11.56-7.83c.13.47.22 1.1.28 1.9.07.8.1 1.49.1 2.09L22 12c0 2.19-.16 3.8-.44 4.83-.25.9-.83 1.48-1.73 1.73-.47.13-1.33.22-2.65.28-1.3.07-2.49.1-3.59.1L12 19c-4.19 0-6.8-.16-7.83-.44-.9-.25-1.48-.83-1.73-1.73-.13-.47-.22-1.1-.28-1.9-.07-.8-.1-1.49-.1-2.09L2 12c0-2.19.16-3.8.44-4.83.25-.9.83-1.48 1.73-1.73.47-.13 1.33-.22 2.65-.28 1.3-.07 2.49-.1 3.59-.1L12 5c4.19 0 6.8.16 7.83.44.9.25 1.48.83 1.73 1.73"></path></svg></span></a>
+<a class="md-button md-button--primary button_smaller" href="https://eurocarto2026.org/keynotes/" target="_blank">Official keynote abstract <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M5 3c-1.11 0-2 .89-2 2v14c0 1.11.89 2 2 2h14c1.11 0 2-.89 2-2V5c0-1.11-.89-2-2-2zm0 2h14v14H5zm2 2v2h10V7zm0 4v2h10v-2zm0 4v2h7v-2z"></path></svg></span></a>
+<a class="md-button md-button--primary button_smaller" href="https://mapdesign.icaci.org/" target="_blank">#365DaysOfMaps <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m15 19-6-2.11V5l6 2.11M20.5 3h-.16L15 5.1 9 3 3.36 4.9c-.21.07-.36.25-.36.48V20.5a.5.5 0 0 0 .5.5c.05 0 .11 0 .16-.03L9 18.9l6 2.1 5.64-1.9c.21-.1.36-.25.36-.48V3.5a.5.5 0 0 0-.5-.5"></path></svg></span></a></p>
+</details>
+<p>Discuss these concerns before generating the first map:</p>
+<table>
+<thead>
+<tr>
+<th>Concern</th>
+<th>Question for the cartographer</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Accuracy and misleading maps</strong></td>
+<td>Who verifies geographic positions, symbols, sources, and claims?</td>
+</tr>
+<tr>
+<td><strong>Authorship and creative work</strong></td>
+<td>How should AI assistance, human decisions, and reused work be acknowledged?</td>
+</tr>
+<tr>
+<td><strong>Professional expertise</strong></td>
+<td>Which cartographic decisions must remain under human control?</td>
+</tr>
+<tr>
+<td><strong>Environmental and social costs</strong></td>
+<td>When is generative AI justified, and when might another tool be more appropriate?</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition question">
+<p class="admonition-title">Discussion — five minutes</p>
+<p>Is a map acceptable merely because an LLM has produced a working, convincing-looking application?</p>
+<p>Identify <strong>one risk</strong> and <strong>one safeguard</strong> that you think should apply to today's work.</p>
+</div>
+<p>The keynote offers a perspective on technological change, <strong>not a resolution of every ethical concern</strong>. Questions about training data, authorship, labour, and environmental impacts remain relevant and deserve independent assessment.</p>
+<hr>
+<h1 id="our-task-recreate-a-familiar-web-map">Our task: recreate a familiar web map</h1>
+<p>We already know what the map should contain, because we designed it earlier in ArcGIS Online.</p>
+<div class="admonition abstract">
+<p class="admonition-title">Task — Natural Hazard Events web map</p>
+<p>Create a working <strong>global interactive point map</strong> with three NOAA HazEL event layers:</p>
+<ul>
+<li><strong>Earthquake Events</strong> — orange squares;</li>
+<li><strong>Tsunami Events</strong> — blue circles;</li>
+<li><strong>Volcano Events</strong> — black upward-pointing triangles.</li>
+</ul>
+<p>Your map must include:</p>
+<ul>
+<li>a <strong>justified, subdued basemap</strong> with helpful geographic context;</li>
+<li>the <strong>three real NOAA event layers</strong>;</li>
+<li>a clear <strong>legend</strong> matching the actual map symbols;</li>
+<li>informative <strong>pop-ups</strong> showing event date, intensity, and reported human impact;</li>
+<li>basic pan, zoom, and independent layer visibility controls.</li>
+</ul>
+<p>The result should reproduce the <strong>information content</strong>, not necessarily every pixel, of your earlier ArcGIS Online map.</p>
+</div>
+<h2 id="think-before-prompting">Think before prompting</h2>
+<p>Briefly decide and record:</p>
+<ol>
+<li><strong>Audience and purpose:</strong> Who is the map for, and what should users learn from it?</li>
+<li><strong>Basemap:</strong> Why do muted terrain, hydrography, and country or major-city labels support this topic? What should be omitted?</li>
+<li><strong>Visual hierarchy:</strong> Why represent the three hazard types using both <strong>shape and colour</strong>?</li>
+<li><strong>Pop-ups:</strong> Which details belong in a pop-up rather than in the map symbols themselves?</li>
+</ol>
+<details class="question" open="open">
+<summary>Cartographic decision</summary>
+<p>Our original map distinguishes <strong>event types</strong>, not event intensity. Therefore, keep symbol size consistent within the three categories. Magnitude, maximum wave height, and VEI belong in the pop-ups, unless you explicitly decide to change the map's purpose.</p>
+</details>
+<hr>
+<h1 id="use-existing-arcgis-online-data">Use existing ArcGIS Online data</h1>
+<p>The layers from the earlier practical are already published as <strong>Hosted Feature Layers</strong>. We can reuse them in a new application without downloading the CSV files again.</p>
+<h2 id="find-the-arcgis-rest-url">Find the ArcGIS REST URL</h2>
+<ol>
+<li>Sign in to <strong>ArcGIS Online</strong>.</li>
+<li>Open <strong>Content</strong> and select one of your published Hosted Feature Layers (or a suitable public, read-only View).</li>
+<li>On the item's <strong>Overview</strong> page, find its <strong>URL</strong> / <strong>View service</strong> / <strong>ArcGIS REST Services Directory</strong> link (the exact label may differ).</li>
+<li>Open the service and identify the <strong>Feature Layer</strong> within it.</li>
+<li>Copy the <strong>layer REST endpoint</strong>, normally ending in <code>/FeatureServer/0</code>. The final number is the layer ID and must be checked rather than assumed.</li>
+<li>Test the endpoint in your browser by appending <code>?f=pjson</code>. Its metadata should include the actual <strong>field names</strong> and types.</li>
+</ol>
+<p><strong>Do not confuse these two URLs:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>ArcGIS Online item page (for people)
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>https://www.arcgis.com/home/item.html?id=...
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>ArcGIS REST Feature Layer (for web applications)
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>https://.../FeatureServer/0
+</code></pre></div>
+<h3 id="verified-datasets-for-this-practical">Verified datasets for this practical</h3>
+<table>
+<thead>
+<tr>
+<th>Layer</th>
+<th>Public ArcGIS REST endpoint</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Earthquake Events</td>
+<td><a href="https://services2.arcgis.com/LlQJoYHf9cwrM7NJ/arcgis/rest/services/earthquakes/FeatureServer/0">FeatureServer/0</a></td>
+</tr>
+<tr>
+<td>Tsunami Events</td>
+<td><a href="https://services2.arcgis.com/LlQJoYHf9cwrM7NJ/arcgis/rest/services/tsunamis/FeatureServer/0">FeatureServer/0</a></td>
+</tr>
+<tr>
+<td>Volcano Events</td>
+<td><a href="https://services2.arcgis.com/LlQJoYHf9cwrM7NJ/arcgis/rest/services/eruptions/FeatureServer/0">FeatureServer/0</a></td>
+</tr>
+</tbody>
+</table>
+<p>These services are publicly shared. If you use your <strong>own</strong> layers instead, check that they are accessible to the web application without your ArcGIS Online login. Never place credentials or private tokens in client-side code.</p>
+<h2 id="know-your-fields">Know your fields</h2>
+<p>Use the <strong>internal field names</strong> from the REST service metadata, not only their display labels:</p>
+<table>
+<thead>
+<tr>
+<th>Information</th>
+<th>Earthquakes</th>
+<th>Tsunamis</th>
+<th>Volcanoes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Title / location</td>
+<td><code>Location_Name</code></td>
+<td><code>Location_Name</code></td>
+<td><code>Name</code> (fallback: <code>Location</code>)</td>
+</tr>
+<tr>
+<td>Country</td>
+<td><em>Not available</em></td>
+<td><code>Country</code></td>
+<td><code>Country</code></td>
+</tr>
+<tr>
+<td>Date</td>
+<td><code>Year</code>, <code>Mo</code>, <code>Dy</code></td>
+<td><code>Year</code>, <code>Mo</code>, <code>Dy</code></td>
+<td><code>Year</code>, <code>Mo</code>, <code>Dy</code></td>
+</tr>
+<tr>
+<td>Intensity</td>
+<td><code>Mag</code></td>
+<td><code>Maximum_Water_Height__m_</code></td>
+<td><code>VEI</code></td>
+</tr>
+<tr>
+<td>Human impact</td>
+<td><code>Deaths</code>, <code>Missing</code>, <code>Injuries</code></td>
+<td><code>Deaths</code>, <code>Missing</code>, <code>Injuries</code></td>
+<td><code>Deaths</code>, <code>Missing</code>, <code>Injuries</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Pop-up requirements:</strong> Combine location and country in the title <strong>only when both fields exist</strong>. Compose the date from available parts, without inventing a missing month or day. In the <strong>Human Impact</strong> section, display reported deaths, missing persons, and injuries; distinguish <code>0</code> from <code>null</code>. If all fields are missing, display <strong>“Human impact data unavailable”</strong> instead of asserting that no one was affected.</p>
+<details class="warning" open="open">
+<summary>Avoid a common data error</summary>
+<p>The services also contain some <code>Total_*</code> human-impact fields. For this exercise, use <strong>only</strong> <code>Deaths</code>, <code>Missing</code>, and <code>Injuries</code>; do not add these values together or mix them with <code>Total_Deaths</code>, <code>Total_Missing</code>, or <code>Total_Injuries</code>.</p>
+<p>A Feature Service may limit the number of features returned in one request. Our datasets advertise a <strong>2,000-record query limit</strong> and support pagination. The generated application must load the features correctly rather than quietly show only the first 2,000.</p>
+</details>
+<details class="note-fg-color" open="open">
+<summary>Alternative: start from raw data</summary>
+<p>The <a href="https://www.webmapgpt.com/">WebMapGPT tool suite</a> offers specialist mapping assistants and data-preparation guidance, including tools such as a <strong>Dataset Cleaner / Dataset Doctor</strong>. These specialist GPT tools are accessed through <strong>ChatGPT</strong>, not as built-in Claude features.</p>
+<p>If you were starting from a new dataset, you could use such a tool to review field types, missing values, coordinates, and inconsistencies. <strong>We do not need this step today</strong>, because the NOAA data are already prepared and published.</p>
+</details>
+<hr>
+<h1 id="first-prototype-one-shot-interactive-web-map">First prototype: One-Shot Interactive Web Map</h1>
+<p>We will begin with the <strong>One-Shot Interactive Web Map</strong> template from Ian Muehlenhaus's Prompt Cartography library.</p>
+<ol>
+<li>Open <a href="https://www.promptcartography.com/prompts/">Prompt Cartography — Prompts</a>.</li>
+<li>Find <strong>One-Shot Interactive Web Map</strong>.</li>
+<li>Copy the template into a text editor or a new Claude chat.</li>
+<li>Replace its placeholder sections with your <strong>own cartographic decisions</strong> and the REST URLs above.</li>
+<li>Keep the template's output requirement: <strong>one complete, runnable HTML file</strong> with HTML, CSS, and JavaScript.</li>
+<li>Submit the prompt in a <strong>new standard chat</strong> and save the first result without editing it yet.</li>
+</ol>
+<p>Use this checklist while filling the template:</p>
+<table>
+<thead>
+<tr>
+<th>Template section</th>
+<th>What to specify</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>My map idea</strong></td>
+<td>Global distribution of three NOAA natural hazard event types</td>
+</tr>
+<tr>
+<td><strong>Audience and purpose</strong></td>
+<td>Explain what users should explore or compare</td>
+</tr>
+<tr>
+<td><strong>Geographic area</strong></td>
+<td>World; suitable initial extent</td>
+</tr>
+<tr>
+<td><strong>Data</strong></td>
+<td>The three real ArcGIS Feature Layer REST URLs and exact field mappings</td>
+</tr>
+<tr>
+<td><strong>Mapped variable / Map type</strong></td>
+<td>Event type; categorical point map</td>
+</tr>
+<tr>
+<td><strong>Cartographic design</strong></td>
+<td>Muted basemap, three distinct symbol shapes/colours, clear legend</td>
+</tr>
+<tr>
+<td><strong>Interaction</strong></td>
+<td>Pan, zoom, pop-ups, and layer on/off controls</td>
+</tr>
+<tr>
+<td><strong>Accuracy and uncertainty</strong></td>
+<td>No invented data; missing values handled correctly; clear source note</td>
+</tr>
+<tr>
+<td><strong>Output requirements</strong></td>
+<td>Complete <code>index.html</code>; explain how to run it</td>
+</tr>
+</tbody>
+</table>
+<details class="note-fg-color" open="open">
+<summary>One-shot does not mean one attempt forever</summary>
+<p>A <strong>one-shot prompt</strong> asks the LLM to create the <strong>first complete application</strong> from one specification. It is a useful baseline, not the end of the design process.</p>
+<p>Save the first version as <strong><code>index_v1.html</code></strong> or keep a copy of the original output. Later revisions should not erase the baseline.</p>
+</details>
+<h2 id="test-your-first-result">Test your first result</h2>
+<p>Open the generated app in Claude's preview / Artifact, if available. Check the map as a cartographer, not just as a software user.</p>
+<ul>
+<li>Are all <strong>three actual datasets</strong> loaded?</li>
+<li>Do the <strong>triangle, square, and circle</strong> match the requested categories and legend?</li>
+<li>Is the basemap appropriately subdued, with terrain and meaningful labels but no distracting roads?</li>
+<li>Do the pop-ups show the correct <strong>location, date, intensity, and human-impact values</strong>?</li>
+<li>Are partial dates and missing human-impact data handled correctly?</li>
+<li>Do layer toggles and navigation work?</li>
+<li>Is there a visible <strong>data attribution and uncertainty note</strong>?</li>
+</ul>
+<p>If a layer is empty, do not accept an attractive but incomplete map. Investigate whether the cause is an inaccessible service, an incorrect URL, a field-name error, a loading limit, or a runtime problem.</p>
+<hr>
+<h1 id="improve-the-map-through-targeted-revision-prompts">Improve the map through targeted revision prompts</h1>
+<p>This is the next part of the Prompt Cartography workflow: <strong>generate → critique → revise → test again</strong>. Muehlenhaus's <em>Make</em> stage explicitly includes critique and <strong>targeted revision prompts</strong>.</p>
+<p>Unlike the comparison exercise in Practical 5, <strong>continue in the same chat</strong>. We now want the LLM to work with the existing app and preserve what already functions.</p>
+<h2 id="revision-prompt">Revision prompt</h2>
+<p>Inspect the current map and identify <strong>two or three specific problems</strong>. Do not ask vaguely to "make it better".</p>
+<p>A good revision prompt can be concise:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>Please change the following in the existing web map:
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>1. [Describe a specific cartographic or functional problem and
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>   the desired result.]
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>2. [Describe another concrete change.]
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>3. [Optional: one more change.]
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>Keep the existing data sources, field mappings, and all working
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>features unchanged unless the requested changes require otherwise.
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>Update the existing application, then briefly explain what changed.
+</code></pre></div>
+<p>For example, you might request a more restrained basemap, a more legible legend, better label hierarchy, or clearer human-impact formatting. <strong>Test each change</strong> rather than accumulating many unverified revisions.</p>
+<details class="note-fg-color" open="open">
+<summary>When something breaks</summary>
+<p>Report <strong>what you expected, what actually happened, and how to reproduce it</strong>. Include the exact error message from the browser console if one appears.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>Expected: all three event layers are visible.
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>Actual: the Tsunami Events layer remains empty.
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>Reproduction: load the page, enable Tsunami Events,
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>and zoom to Japan.
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>Console error: [paste the exact error, if any].
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>Please identify the likely cause and propose a focused fix.
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>Preserve the parts of the application that already work.
+</code></pre></div>
+</details>
+<h2 id="optional-extension-filter-by-year">Optional extension — filter by year</h2>
+<p>If your initial map is already working, add a <strong>Year range control</strong> that filters the three event layers using their numeric <code>Year</code> attribute.</p>
+<p>Before requesting the code, decide how the control should behave: initial range, inclusive limits, missing-year records, reset, and what happens when no events match. Then write a targeted prompt to implement those decisions.</p>
+<p>This is <strong>optional today</strong>; we will explore richer interactions and application behaviour in the next practical.</p>
+<hr>
+<h1 id="run-the-generated-web-map-locally">Run the generated web map locally</h1>
+<p>A web map can run in your browser from a local <strong><code>index.html</code></strong> file. The HTML is the application; map tiles and event data may still load from <strong>external online services</strong>.</p>
+<ol>
+<li>Save or export the generated source code as <code>index.html</code>.</li>
+<li>Place it in its own folder.</li>
+<li><strong>Double-click</strong> <code>index.html</code> to open it in a web browser.</li>
+<li>If the browser blocks requests or the application behaves differently under <code>file://</code>, serve the folder over local HTTP instead.</li>
+</ol>
+<p>Open a terminal in that folder and run:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>python<span class="w"> </span>-m<span class="w"> </span>http.server<span class="w"> </span><span class="m">8000</span>
+</code></pre></div>
+<p>On some Windows installations you may need:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>py<span class="w"> </span>-m<span class="w"> </span>http.server<span class="w"> </span><span class="m">8000</span>
+</code></pre></div>
+<p>Open <a href="http://localhost:8000">http://localhost:8000</a> in your browser.</p>
+<details class="note-fg-color" open="open">
+<summary>What localhost means</summary>
+<p><code>localhost</code> refers to <strong>your own computer</strong>. This creates a temporary local web server; it does not publish the map to the internet. It also does <strong>not</strong> host the NOAA datasets: those remain on the ArcGIS Feature Services.</p>
+<p>A local HTTP server may solve <code>file://</code> restrictions, but it cannot fix incorrect REST URLs, unavailable services, missing permissions, or server-side CORS restrictions.</p>
+</details>
+<hr>
+<h1 id="optional-publish-on-github-pages">Optional: publish on GitHub Pages</h1>
+<p>Once your map works locally, it can be published as a static website. This can also be completed later.</p>
+<ol>
+<li>Create a new <strong>public GitHub repository</strong>.</li>
+<li>Upload <code>index.html</code> to the root of the <code>main</code> branch.</li>
+<li>Open <strong>Settings → Pages</strong>.</li>
+<li>Under <strong>Build and deployment</strong>, choose <strong>Deploy from a branch</strong>.</li>
+<li>Select <strong><code>main</code></strong> and <strong><code>/ (root)</code></strong>, then <strong>Save</strong>.</li>
+<li>Wait for the Pages build and check the website at:</li>
+</ol>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>https://YOUR-USERNAME.github.io/YOUR-REPOSITORY/
+</code></pre></div>
+<p>The first deployment or subsequent updates may take several minutes (GitHub advises allowing <strong>up to 10 minutes</strong>). Consult <a href="https://docs.github.com/en/pages/getting-started-with-github-pages/creating-a-github-pages-site">GitHub Pages documentation</a> if the site does not appear.</p>
+<details class="warning" open="open">
+<summary>Public web app = public source</summary>
+<p>GitHub Pages is suitable for a static HTML/CSS/JavaScript web map, but it does not run a Python backend. Never commit credentials, private access tokens, or datasets you are not allowed to share. Before publishing, verify the attribution and usage conditions for basemap tiles and other external services.</p>
+</details>
+<hr>
+<h1 id="final-checklist-and-reflection">Final checklist and reflection</h1>
+<div class="admonition abstract">
+<p class="admonition-title">Expected output</p>
+<p>A working <strong>interactive web map</strong>, produced with LLM assistance, containing:</p>
+<ul>
+<li>all three genuine NOAA event layers;</li>
+<li>the requested categorical point symbols;</li>
+<li>a <strong>justified basemap</strong> and clear visual hierarchy;</li>
+<li>a correct <strong>legend</strong>;</li>
+<li>informative <strong>pop-ups</strong> with date, intensity, and human impact;</li>
+<li>functional navigation and layer visibility controls;</li>
+<li>visible source attribution and an honest limitations note.</li>
+</ul>
+<p><strong>Keep:</strong> the original one-shot prompt, a copy or screenshot of <strong>Web Map v1</strong>, the revision prompts, and the latest <code>index.html</code>. A public GitHub Pages link is optional at this stage.</p>
+</div>
+<h2 id="reflect">Reflect</h2>
+<p>Compare the first version with your revised version:</p>
+<ul>
+<li>Which cartographic choices were already satisfactory in the one-shot result?</li>
+<li>Which aspects required <strong>human critique</strong> and a follow-up prompt?</li>
+<li>Did any revision unintentionally break a previously working component?</li>
+<li>Which claims, data values, or interface behaviours did you verify yourself?</li>
+<li>What remains <strong>your responsibility</strong> before sharing the application publicly?</li>
+</ul>
+<details class="question" open="open">
+<summary>Takeaway</summary>
+<p>A working web map is a <strong>prototype</strong>, not automatic proof of cartographic quality.</p>
+<p><strong>The LLM can implement and revise the design; the cartographer remains responsible for directing, testing, and accepting it.</strong></p>
+</details>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"></path></svg>
+  Zpět na začátek
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      <a href="https://geomatics.fsv.cvut.cz" target="_blank">Katedra geomatiky</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;2023-2026
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://twitter.com/CTUGeomatics" target="_blank" rel="noopener" title="twitter.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M459.4 151.7c.3 4.5.3 9.1.3 13.6 0 138.7-105.6 298.6-298.6 298.6-59.5 0-114.7-17.2-161.1-47.1 8.4 1 16.6 1.3 25.3 1.3 49.1 0 94.2-16.6 130.3-44.8-46.1-1-84.8-31.2-98.1-72.8 6.5 1 13 1.6 19.8 1.6 9.4 0 18.8-1.3 27.6-3.6-48.1-9.7-84.1-52-84.1-103v-1.3c14 7.8 30.2 12.7 47.4 13.3-28.3-18.8-46.8-51-46.8-87.4 0-19.5 5.2-37.4 14.3-53C87.4 130.8 165 172.4 252.1 176.9c-1.6-7.8-2.6-15.9-2.6-24C249.5 95.1 296.3 48 354.4 48c30.2 0 57.5 12.7 76.7 33.1 23.7-4.5 46.5-13.3 66.6-25.3-7.8 24.4-24.4 44.8-46.1 57.8 21.1-2.3 41.6-8.1 60.4-16.2-14.3 20.8-32.2 39.3-52.6 54.3"></path></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://www.facebook.com/geomatics.ctu" target="_blank" rel="noopener" title="www.facebook.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M512 256C512 114.6 397.4 0 256 0S0 114.6 0 256c0 120 82.7 220.8 194.2 248.5V334.2h-52.8V256h52.8v-33.7c0-87.1 39.4-127.5 125-127.5 16.2 0 44.2 3.2 55.7 6.4V172c-6-.6-16.5-1-29.6-1-42 0-58.2 15.9-58.2 57.2V256h83.6l-14.4 78.2H287v175.9C413.8 494.8 512 386.9 512 256"></path></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://www.instagram.com/geomatics.ctu" target="_blank" rel="noopener" title="www.instagram.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M224.3 141a115 115 0 1 0-.6 230 115 115 0 1 0 .6-230m-.6 40.4a74.6 74.6 0 1 1 .6 149.2 74.6 74.6 0 1 1-.6-149.2m93.4-45.1a26.8 26.8 0 1 1 53.6 0 26.8 26.8 0 1 1-53.6 0m129.7 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8M399 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1"></path></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.sections", "toc.integrate", "navigation.top", "search.suggest", "search.highlight", "content.tabs.link", "content.code.annotation", "content.code.copy", "content.tooltips"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Zkop\u00edrov\u00e1no do schr\u00e1nky", "clipboard.copy": "Kop\u00edrovat do schr\u00e1nky", "search.result.more.one": "1 dal\u0161\u00ed na t\u00e9to str\u00e1nce", "search.result.more.other": "# v\u00edce na t\u00e9to str\u00e1nce", "search.result.none": "Nenalezeny \u017e\u00e1dn\u00e9 dokumenty", "search.result.one": "Nalezen\u00fd dokument: 1", "search.result.other": "Nalezen\u00e9 dokumenty: #", "search.result.placeholder": "Pi\u0161te co se m\u00e1 vyhledat", "search.result.term.missing": "Chyb\u011bj\u00edc\u00ed", "select.version": "Vyberte verzi"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  
+<script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(()=>{ lightbox.reload(); });
+</script></body></html>
