@@ -69,18 +69,6 @@ Open **Live view** or Preview and verify that:
 - pop-ups work,
 - **Home** returns to the expected initial extent.
 
-At this stage, the application should still be intentionally simple:
-
-```text
-┌───────────────────────────────────────────────┐
-│                                               │
-│                                               │
-│                    MAP                        │
-│                                               │
-│                                               │
-└───────────────────────────────────────────────┘
-```
-
 ## Filter widget
 
 The **Filter** widget limits the features visible in a data source according to one or more attribute expressions. Because the filter changes the shared data source, other widgets using the same layer are filtered as well.
