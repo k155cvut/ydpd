@@ -130,31 +130,31 @@ Výuka je vedena formou workshopu, přičemž přednášky bezprostředně před
     <tr style="border-top:2px solid #aaa;">
       <td style="text-align:center; font-weight:bold; padding:8px 12px;">8</td>
       <td style="text-align:center; padding:8px 12px;">11.11.2026</td>
-      <td style="padding:8px 12px;">Pokročilejší modelování, textury, rozšíření pro SketchUp.</td>
+      <td style="padding:8px 12px;">Pokročilejší modelování textury, rozšíření pro SketchUp. Práce s terénem.</td>
       <td style="text-align:center; padding:8px 12px;">František Mužík</td>
     </tr>
     <tr style="border-top:2px solid #aaa;">
       <td style="text-align:center; font-weight:bold; padding:8px 12px;">9</td>
       <td style="text-align:center; padding:8px 12px;">18.11.2026</td>
-      <td style="padding:8px 12px;">Základy HTML a vizualizace na webu. Ukázky JS knihoven a nástrojů pro vizualizaci 3D dat.</td>
+      <td style="padding:8px 12px;">Umělá inteligence v modelování. Automatizace modelování na základě skriptů.</td>
       <td style="text-align:center; padding:8px 12px;">František Mužík</td>
     </tr>
     <tr style="border-top:2px solid #aaa;">
       <td style="text-align:center; font-weight:bold; padding:8px 12px;">10</td>
       <td style="text-align:center; padding:8px 12px;">25.11.2026</td>
-      <td style="padding:8px 12px;">Pokročilejší vizualizace na webu, virtuální prohlídky.</td>
+      <td style="padding:8px 12px;">Úvod do Blenderu. Práce s prostorovými daty pomocí BlenderGIS.</td>
       <td style="text-align:center; padding:8px 12px;">František Mužík</td>
     </tr>
     <tr style="border-top:2px solid #aaa;">
       <td style="text-align:center; font-weight:bold; padding:8px 12px;">11</td>
       <td style="text-align:center; padding:8px 12px;">02.12.2026</td>
-      <td style="padding:8px 12px;">Úvod do Blenderu. Práce s prostorovými daty pomocí BlenderGIS.</td>
+      <td style="padding:8px 12px;">Základy HTML a vizualizace na webu. Ukázky JS knihoven a nástrojů pro vizualizaci 3D dat.</td>
       <td style="text-align:center; padding:8px 12px;">František Mužík</td>
     </tr>
     <tr style="border-top:2px solid #aaa;">
       <td style="text-align:center; font-weight:bold; padding:8px 12px;">12</td>
       <td style="text-align:center; padding:8px 12px;">9.12.2026</td>
-      <td style="padding:8px 12px;">AI v modelování.</td>
+      <td style="padding:8px 12px;">Pokročilejší vizualizace na webu, virtuální prohlídky.</td>
       <td style="text-align:center; padding:8px 12px;">František Mužík</td>
     </tr>
     <tr style="border-top:2px solid #aaa; border-bottom:2px solid #aaa;">
