@@ -190,7 +190,7 @@ Všechny uvedené pluginy jsou zdarma. **Sandbox Tools** jsou součástí Sketch
 
 #### CleanUp³
 
-Model po importech a&nbsp;úpravách obsahuje nepoužité materiály, osamocené hrany a&nbsp;zbytečně rozdělené plochy. CleanUp³ je odstraní najednou.
+Model po importech a&nbsp;úpravách obsahuje nepoužité materiály, osamocené hrany a&nbsp;zbytečně rozdělené plochy. CleanUp³ je odstraní najednou. Pro fungování pluginu je třeba doinstalovat také **TT_Lib²**.
 
 1. **Extensions → CleanUp³ → Clean…**
 2. V&nbsp;dialogu nechme zapnuté zejména **Purge unused** (nepoužité materiály, komponenty, tagy), **Erase stray edges** (osamocené hrany) a&nbsp;**Merge coplanar faces** (sloučení ploch ležících v&nbsp;jedné rovině).
@@ -250,9 +250,9 @@ Vestavěný nástroj **Tools → 3D Text** vytvoří text, který už nejde upra
 3. V&nbsp;dialogu napíšeme text, zvolíme písmo, výšku písmen a&nbsp;hloubku vytažení.
 4. Pro úpravu text vybereme a&nbsp;spustíme nástroj znovu.
 
-#### Curic Face Array – rozmístění po ploše
+#### Curic Face Array
 
-Rozmístí komponent v&nbsp;pravidelném vzoru po celé ploše a&nbsp;ořízne ji podle jejího obrysu.
+Rozmístí komponent v&nbsp;pravidelném vzoru po celé ploše a&nbsp;ořízne ji podle jejího obrysu. Plugin není součástí oficiálního repozitáře, tudíž je potřeba jej stáhnout z&nbsp;[těchto stránek](https://curic.gumroad.com/l/face_array).
 
 1. Připravíme komponent nebo skupinu (např. střešní tašku) a&nbsp;plochu (fasáda).
 2. **Tools →  Curic** a&nbsp;klikneme na komponentu a&nbsp;potom na plochu.
