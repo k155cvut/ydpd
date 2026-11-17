@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="cs">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Kaple – 3D model (model-viewer)</title>
+  <!-- model-viewer: jeden skript, vše ostatní je HTML -->
+  <script type="module" src="https://cdn.jsdelivr.net/npm/@google/model-viewer@4.3.1/dist/model-viewer.min.js"></script>
+  <style>
+    :root { --modra: #074173; --oranzova: #f1af34; --pozadi: #f7f6f2; }
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: system-ui, sans-serif; background: var(--pozadi); color: #1d2733; }
+    header { padding: 16px 24px; background: var(--modra); color: #fff; }
+    header h1 { margin: 0; font-size: 1.4rem; }
+    main { display: grid; grid-template-columns: 1fr 320px; gap: 16px; padding: 16px; }
+    @media (max-width: 800px) { main { grid-template-columns: 1fr; } }
+    model-viewer { width: 100%; height: 72vh; background: linear-gradient(#dfe8f1, #f7f6f2); border-radius: 12px; }
+    /* anotace (hotspoty) */
+    .hotspot { width: 26px; height: 26px; border-radius: 50%; border: 2px solid #fff; background: var(--oranzova);
+               box-shadow: 0 2px 6px rgba(0,0,0,.35); cursor: pointer; padding: 0; }
+    .hotspot[data-visible] .popis { opacity: 1; }
+    .popis { position: absolute; left: 32px; top: -4px; white-space: nowrap; background: #fff; color: #1d2733;
+             padding: 4px 8px; border-radius: 6px; font-size: 13px; opacity: 0; transition: opacity .3s; pointer-events: none; }
+    aside { background: #fff; border-radius: 12px; padding: 16px; }
+    aside button { display: block; width: 100%; margin: 6px 0; padding: 10px; border: 1px solid var(--modra);
+                   background: #fff; color: var(--modra); border-radius: 8px; cursor: pointer; font-size: 15px; }
+    aside button:hover { background: var(--modra); color: #fff; }
+    #ar-tlacitko { position: absolute; bottom: 16px; right: 16px; background: var(--oranzova); border: 0;
+                   border-radius: 20px; padding: 10px 16px; font-weight: 600; }
+  </style>
+</head>
+<body>
+  <header><h1>Kaple sv. Jana – cvičný 3D model</h1></header>
+  <main>
+    <model-viewer id="model"
+        src="kaple.glb"
+        alt="3D model kaple se sanktusníkem a polygonální apsidou"
+        camera-controls
+        touch-action="pan-y"
+        auto-rotate auto-rotate-delay="3000"
+        shadow-intensity="1"
+        exposure="1"
+        environment-image="neutral"
+        camera-orbit="-30deg 75deg 32m"
+        min-camera-orbit="auto auto 12m"
+        max-camera-orbit="auto 90deg 60m"
+        ar ar-modes="webxr scene-viewer quick-look">
+
+      <!-- hotspoty: data-position je v souřadnicích modelu (glTF: Y nahoru, metry) -->
+      <button class="hotspot" slot="hotspot-vchod" data-position="0 2 4.6" data-normal="0 0 1">
+        <span class="popis">Vstupní portál (jih)</span></button>
+      <button class="hotspot" slot="hotspot-vez" data-position="0 11 3.2" data-normal="0 0 1">
+        <span class="popis">Sanktusník se zvoncem</span></button>
+      <button class="hotspot" slot="hotspot-apsida" data-position="0 3 -7.6" data-normal="0 0 -1">
+        <span class="popis">Polygonální apsida (sever)</span></button>
+
+      <button id="ar-tlacitko" slot="ar-button">Zobrazit v AR</button>
+    </model-viewer>
+
+    <aside>
+      <h2>Pohledy</h2>
+      <!-- data-orbit = azimut, sklon, vzdálenost; data-target = bod, kam se kamera dívá -->
+      <button data-orbit="0deg 80deg 26m" data-target="0m 4m 0m">Průčelí</button>
+      <button data-orbit="90deg 75deg 28m" data-target="0m 4m 0m">Boční pohled</button>
+      <button data-orbit="180deg 70deg 26m" data-target="0m 4m -2m">Apsida</button>
+      <button data-orbit="-30deg 20deg 40m" data-target="0m 3m 0m">Shora</button>
+      <h2>O objektu</h2>
+      <p>Barokní kaple obdélného půdorysu s polygonálním závěrem. Cvičný model vytvořený pro výuku – nejde o skutečnou stavbu.</p>
+      <p id="info"></p>
+    </aside>
+  </main>
+
+  <script>
+    const mv = document.querySelector('#model');
+    document.querySelectorAll('aside button').forEach((b) => {
+      b.addEventListener('click', () => {
+        mv.cameraOrbit = b.dataset.orbit;
+        mv.cameraTarget = b.dataset.target;
+        mv.autoRotate = false;
+      });
+    });
+    // informace o modelu po načtení
+    mv.addEventListener('load', () => {
+      const d = mv.getDimensions();
+      document.querySelector('#info').textContent =
+        `Rozměry modelu: ${d.x.toFixed(1)} × ${d.z.toFixed(1)} m, výška ${d.y.toFixed(1)} m.`;
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="cs">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Virtuální prohlídka – kaple sv. Jana</title>
+
+  <!-- styly prohlížeče a pluginů -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@photo-sphere-viewer/core@5.15.1/index.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@photo-sphere-viewer/markers-plugin@5.15.1/index.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@photo-sphere-viewer/virtual-tour-plugin@5.15.1/index.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@photo-sphere-viewer/map-plugin@5.15.1/index.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@photo-sphere-viewer/gallery-plugin@5.15.1/index.min.css">
+
+  <!-- import map: Photo Sphere Viewer stojí na knihovně Three.js -->
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "https://cdn.jsdelivr.net/npm/three@0.185.1/build/three.module.js",
+      "@photo-sphere-viewer/core": "https://cdn.jsdelivr.net/npm/@photo-sphere-viewer/core@5.15.1/index.module.js",
+      "@photo-sphere-viewer/markers-plugin": "https://cdn.jsdelivr.net/npm/@photo-sphere-viewer/markers-plugin@5.15.1/index.module.js",
+      "@photo-sphere-viewer/virtual-tour-plugin": "https://cdn.jsdelivr.net/npm/@photo-sphere-viewer/virtual-tour-plugin@5.15.1/index.module.js",
+      "@photo-sphere-viewer/map-plugin": "https://cdn.jsdelivr.net/npm/@photo-sphere-viewer/map-plugin@5.15.1/index.module.js",
+      "@photo-sphere-viewer/gallery-plugin": "https://cdn.jsdelivr.net/npm/@photo-sphere-viewer/gallery-plugin@5.15.1/index.module.js"
+    }
+  }
+  </script>
+
+  <style>
+    html, body, #viewer { margin: 0; width: 100%; height: 100%; }
+    .info { display: flex; align-items: center; justify-content: center; width: 34px; height: 34px;
+            border-radius: 50%; background: #f1af34; color: #14213d; font: bold 20px system-ui, sans-serif;
+            border: 3px solid #fff; box-shadow: 0 2px 8px rgba(0,0,0,.4); cursor: pointer; }
+    .psv-panel-content iframe { width: 100%; height: 420px; border: 0; border-radius: 8px; }
+  </style>
+</head>
+<body>
+  <div id="viewer"></div>
+
+  <script type="module">
+    import { Viewer } from '@photo-sphere-viewer/core';
+    import { MarkersPlugin } from '@photo-sphere-viewer/markers-plugin';
+    import { VirtualTourPlugin } from '@photo-sphere-viewer/virtual-tour-plugin';
+    import { MapPlugin } from '@photo-sphere-viewer/map-plugin';
+    import { GalleryPlugin } from '@photo-sphere-viewer/gallery-plugin';
+
+    // -------- obsah informačních bodů (markerů)
+    const infoKaple = {
+      id: 'info-kaple',
+      gps: [14.4, 50.0, 311.9],                 // [délka, šířka, výška] – marker se umístí sám
+      html: '<div class="info">i</div>',
+      anchor: 'center center',
+      tooltip: 'Kaple sv. Jana – klikněte pro detail',
+      content: `<h2>Kaple sv. Jana</h2>
+        <p>Barokní kaple s polygonální apsidou a sanktusníkem. Cvičný model pro výuku.</p>
+        <iframe src="../web3d/modelviewer.html" title="3D model kaple"></iframe>`,
+    };
+    const infoMuka = {
+      id: 'info-muka',
+      gps: [14.4003144, 49.9996156, 304.9],
+      html: '<div class="info">i</div>',
+      anchor: 'center center',
+      tooltip: 'Boží muka',
+      content: '<h2>Boží muka</h2><p>Kamenný sloup s kaplicí na křižovatce polních cest.</p>',
+    };
+
+    // -------- uzly prohlídky (jedno panorama = jeden uzel)
+    const nodes = [
+      {
+        id: 'A_1850', name: 'Před kaplí', caption: 'Před kaplí – rekonstrukce stavu kolem roku 1850',
+        panorama: 'pano_A_1850.jpg', thumbnail: 'nahled_A_1850.jpg',
+        gps: [14.4, 49.9998553, 306.4],
+        links: [{ nodeId: 'B' }],
+        markers: [infoKaple],
+      },
+      {
+        id: 'A_dnes', name: 'Před kaplí (dnes)', caption: 'Před kaplí – současný stav (ruina)',
+        panorama: 'pano_A_dnes.jpg', thumbnail: 'nahled_A_dnes.jpg',
+        gps: [14.4, 49.9998553, 306.4],
+        links: [{ nodeId: 'B' }],
+      },
+      {
+        id: 'B', name: 'Boží muka', caption: 'U božích muk',
+        panorama: 'pano_B.jpg', thumbnail: 'nahled_B.jpg',
+        gps: [14.4002725, 49.9996247, 303.47],
+        links: [{ nodeId: 'A_1850' }, { nodeId: 'C' }],
+        markers: [infoMuka],
+      },
+      {
+        id: 'C', name: 'Cesta', caption: 'Pohled od cesty ke kapli',
+        panorama: 'pano_C.jpg', thumbnail: 'nahled_C.jpg',
+        gps: [14.4008944, 49.9993534, 303.63],
+        links: [{ nodeId: 'B' }],
+      },
+    ];
+
+    // -------- prohlížeč
+    const viewer = new Viewer({
+      container: 'viewer',
+      lang: { zoom: 'Přiblížení', fullscreen: 'Celá obrazovka', loading: 'Načítání…' },
+      defaultYaw: 0,
+      navbar: [
+        'zoom', 'move',
+        {   // vlastní tlačítko: přepnutí mezi rekonstrukcí a dneškem
+          id: 'cas', title: 'Přepnout 1850 / dnes', content: '⟲ 1850 / dnes',
+          onClick: () => {
+            const tour = viewer.getPlugin(VirtualTourPlugin);
+            const id = tour.getCurrentNode().id;
+            if (id.startsWith('A_')) tour.setCurrentNode(id === 'A_1850' ? 'A_dnes' : 'A_1850');
+          },
+        },
+        'gallery', 'caption', 'fullscreen',
+      ],
+      plugins: [
+        MarkersPlugin,
+        GalleryPlugin.withConfig({ thumbnailSize: { width: 120, height: 80 } }),
+        MapPlugin.withConfig({ size: '220px', position: 'top right' }),
+        VirtualTourPlugin.withConfig({
+          positionMode: 'gps',     // šipky se dopočítají ze souřadnic uzlů
+          renderMode: '3d',
+          nodes,
+          startNodeId: 'A_1850',
+          map: {                   // mapa = ortofoto vyrenderované z modelu
+            imageUrl: 'mapa.jpg',
+            size: { width: 2048, height: 2048 },              // rozměr obrázku v px
+            extent: [14.398323, 50.0010852, 14.401677, 49.9989148], // [západ, sever, východ, jih]
+          },
+        }),
+      ],
+    });
+  </script>
+</body>
+</html>

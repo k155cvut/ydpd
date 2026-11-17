@@ -1,0 +1,1717 @@
+<!DOCTYPE html><html lang="cs" class="no-js"><head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../cviceni8/">
+      
+      
+        <link rel="next" href="../cviceni10/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.8.1">
+    
+    
+      
+        <title>Automatizace 3D modelování na základě skriptů. Umělá inteligence v 3D modelování. - Vizualizace a distribuce prostorových dat (155YDPD)</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.57a0d79d.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.fb2fffe2.min.css">
+      
+      
+
+  
+  
+  
+  
+  <style>:root{--md-annotation-icon:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20d%3D%22M17%2013h-4v4h-2v-4H7v-2h4V7h2v4h4m-5-9A10%2010%200%200%200%202%2012a10%2010%200%200%200%2010%2010%2010%2010%200%200%200%2010-10A10%2010%200%200%200%2012%202%22/%3E%3C/svg%3E');}</style>
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+            .gscrollbar-fixer { padding-right: 15px; }
+            .gdesc-inner { font-size: 0.75rem; }
+            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color); }
+            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
+            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
+        </style></head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#prezentace" class="md-skip">
+          Přeskočit obsah
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Záhlaví">
+    <a href="../.." title="Vizualizace a distribuce prostorových dat (155YDPD)" class="md-header__button md-logo" aria-label="Vizualizace a distribuce prostorových dat (155YDPD)" data-md-component="logo">
+      
+  <img src="../../assets/favicon.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Vizualizace a distribuce prostorových dat (155YDPD)
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Automatizace 3D modelování na základě skriptů. Umělá inteligence v 3D modelování.
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom" aria-label="Switch to dark mode" type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6m0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4M7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3"></path></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="custom" data-md-color-accent="custom" aria-label="Switch to light mode" type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3"></path></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Hledat" placeholder="Hledat" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Vyhledávání">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Vyčistit" aria-label="Vyčistit" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializace vyhledávání
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Karty" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Charakteristika předmětu
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../cviceni1/" class="md-tabs__link">
+          
+  
+  
+  Cvičení
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../semestralni-prace/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Semestrální práce
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigace" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Vizualizace a distribuce prostorových dat (155YDPD)" class="md-nav__button md-logo" aria-label="Vizualizace a distribuce prostorových dat (155YDPD)" data-md-component="logo">
+      
+  <img src="../../assets/favicon.svg" alt="logo">
+
+    </a>
+    Vizualizace a distribuce prostorových dat (155YDPD)
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Charakteristika předmětu
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cvičení
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Cvičení
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cviceni1/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14 17h-2V9h-2V7h4m5-4H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2"></path></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Organizace předmětu, příprava dat a publikace do prostředí ArcGIS Online
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cviceni2/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15 11a2 2 0 0 1-2 2h-2v2h4v2H9v-4a2 2 0 0 1 2-2h2V9H9V7h4a2 2 0 0 1 2 2m4-6H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2"></path></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    VTSE, tvorba webové basemapy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cviceni3/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15 10.5a1.5 1.5 0 0 1-1.5 1.5c.84 0 1.5.67 1.5 1.5V15c0 1.11-.89 2-2 2H9v-2h4v-2h-2v-2h2V9H9V7h4c1.11 0 2 .89 2 2m4-6H5c-1.09 0-2 .9-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2"></path></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Advanced Pop-ups, Instan Apps, StoryMaps
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cviceni4/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15 17h-2v-4H9V7h2v4h2V7h2m4-4H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2"></path></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Experience builder
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cviceni5/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15 9h-4v2h2a2 2 0 0 1 2 2v2a2 2 0 0 1-2 2H9v-2h4v-2H9V7h6m4-4H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2"></path></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Úvod do prompt cartography
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cviceni6/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15 9h-4v2h2a2 2 0 0 1 2 2v2a2 2 0 0 1-2 2h-2a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2h4m4-4H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2m-8 12h2v-2h-2z"></path></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Využití LLM pro tvorbu webové mapy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cviceni7/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2zm-8 14 4-8V7H9v2h4l-4 8z"></path></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Využití LLM pro tvorbu webové mapové aplikace
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cviceni8/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2zm-8 14h2a2 2 0 0 0 2-2v-1.5a1.5 1.5 0 0 0-1.5-1.5 1.5 1.5 0 0 0 1.5-1.5V9a2 2 0 0 0-2-2h-2a2 2 0 0 0-2 2v1.5a1.5 1.5 0 0 0 1.5 1.5A1.5 1.5 0 0 0 9 13.5V15a2 2 0 0 0 2 2m0-4h2v2h-2zm0-4h2v2h-2z"></path></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    3D modelování v programu SketchUp
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2zm-6 8h-2V9h2zm0-4h-2a2 2 0 0 0-2 2v2a2 2 0 0 0 2 2h2v2H9v2h4a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2"></path></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Automatizace 3D modelování na základě skriptů
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2zm-6 8h-2V9h2zm0-4h-2a2 2 0 0 0-2 2v2a2 2 0 0 0 2 2h2v2H9v2h4a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2"></path></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Automatizace 3D modelování na základě skriptů
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Obsah">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Obsah
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#prezentace" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prezentace
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#doporucena-literatura" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Doporučená literatura
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-zaklady-ruby-ve-sketchupu" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1) Základy Ruby ve SketchUpu
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1) Základy Ruby ve SketchUpu">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-ruby-konzole" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1 Ruby konzole
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-model-entity-a-jednotky" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2 Model, entity a&nbsp;jednotky
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13-kresba-krychle-a-kvadru" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.3 Kresba krychle a kvádru
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#14-tvorba-metody-funkce" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.4 Tvorba metody (funkce)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#15-cyklus-rada-kvadru" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.5 Cyklus: řada kvádrů
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#16-skupiny-materialy-a-jeden-krok-undo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.6 Skupiny, materiály a&nbsp;jeden krok Undo
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#17-sedlova-strecha" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.7 Sedlová střecha
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#18-komponenta-okno" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.8 Komponenta: okno
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#19-vlozeni-a-otoceni-instanci" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.9 Vložení a&nbsp;otočení instancí
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#110-volani-skriptu-ze-souboru" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.10 Volání skriptu ze souboru
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1.10 Volání skriptu ze souboru">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#nejcastejsi-chyby" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Nejčastější chyby
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-modelovani-z-promptu" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2) Modelování z&nbsp;promptu
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2) Modelování z&nbsp;promptu">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-jak-napsat-dobry-prompt" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 Jak napsat dobrý prompt
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-krok-1-zakladni-prvky-domu" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 Krok 1: základní prvky domu
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-krok-2-uprava-parametru-a-tvaru" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3 Krok 2: úprava parametrů a&nbsp;tvaru
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24-krok-3-okna-a-dvere-jako-komponenty" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.4 Krok 3: okna a&nbsp;dveře jako komponenty
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#25-krok-4-detaily" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.5 Krok 4: detaily
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#28-kontrola-vysledneho-modelu" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.8 Kontrola výsledného modelu
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cviceni10/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14 9h2v6h-2zm7-4v14c0 1.11-.89 2-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2M10 7H6v2h2v8h2zm8 2a2 2 0 0 0-2-2h-2a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2c1.11 0 2-.89 2-2z"></path></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Úvod do Blenderu a práce s GIS daty
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cviceni11/" class="md-nav__link">
+        
+  
+  
+    <!--?xml version="1.0" encoding="UTF-8" standalone="no"?-->
+<svg viewBox="0 0 24 24" version="1.1" id="svg1" sodipodi:docname="numeric-10-box.svg" inkscape:version="1.3 (0e150ed6c4, 2023-07-21)" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
+  <defs id="defs1"></defs>
+  <sodipodi:namedview id="namedview1" pagecolor="#505050" bordercolor="#eeeeee" borderopacity="1" inkscape:showpageshadow="0" inkscape:pageopacity="0" inkscape:pagecheckerboard="0" inkscape:deskcolor="#d1d1d1" inkscape:current-layer="svg1"></sodipodi:namedview>
+  <path id="path2" d="M 5 3 A 2 2 0 0 0 3 5 L 3 19 A 2 2 0 0 0 5 21 L 19 21 C 20.109999 21 21 20.109999 21 19 L 21 5 C 21 3.9000011 20.109999 3 19 3 L 5 3 z M 7 7 L 11 7 L 11 17 L 9 17 L 9 9 L 7 9 L 7 7 z M 13 7 L 17 7 L 17 17 L 15 17 L 15 9 L 13 9 L 13 7 z "></path>
+</svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Základy HTML a vizualizace na webu
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cviceni12/" class="md-nav__link">
+        
+  
+  
+    <!--?xml version="1.0" encoding="UTF-8" standalone="no"?-->
+<svg viewBox="0 0 24 24" version="1.1" id="svg1" sodipodi:docname="numeric-12-box.svg" inkscape:version="1.3 (0e150ed6c4, 2023-07-21)" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
+  <defs id="defs1"></defs>
+  <sodipodi:namedview id="namedview1" pagecolor="#505050" bordercolor="#eeeeee" borderopacity="1" inkscape:showpageshadow="0" inkscape:pageopacity="0" inkscape:pagecheckerboard="0" inkscape:deskcolor="#d1d1d1" inkscape:current-layer="svg1"></sodipodi:namedview>
+  <path id="path2" d="M 5 3 A 2 2 0 0 0 3 5 L 3 19 A 2 2 0 0 0 5 21 L 19 21 C 20.109998 21 21 20.109998 21 19 L 21 5 C 21 3.9000022 20.109998 3 19 3 L 5 3 z M 6 7 L 10 7 L 10 17 L 8 17 L 8 9 L 6 9 L 6 7 z M 12 7 L 16 7 A 2 2 0 0 1 18 9 L 18 11 C 18 12.109998 17.099998 13 16 13 L 14 13 L 14 15 L 18 15 L 18 17 L 12 17 L 12 13 C 12 11.890002 12.900002 11 14 11 L 16 11 L 16 9 L 12 9 L 12 7 z "></path>
+</svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Pokročilejší vizualizace na webu
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../semestralni-prace/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.4 6H20v10h-7l-.4-2H7v7H5V4h9zm-.4 8h2v-2h2v-2h-2V8h-2v2l-1-2V6h-2v2H9V6H7v2h2v2H7v2h2v-2h2v2h2v-2l1 2zm-3-4V8h2v2zm3 0h2v2h-2z"></path></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Semestrální práce
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+  <h1>Automatizace 3D modelování na základě skriptů</h1>
+
+<h2 id="prezentace"><a href="https://drive.google.com/file/d/1HxFX59fEejS9Rxufiz-G-eG4pglopkq1/view?usp=sharing">Prezentace</a></h2>
+<h2 id="doporucena-literatura">Doporučená literatura</h2>
+<ul>
+<li>
+<p>SketchUp Ruby API: <a href="https://ruby.sketchup.com/">Dokumentace</a></p>
+</li>
+<li>
+<p>SketchUp Help Center: <a href="https://help.sketchup.com/en/ai-features">SketchUp AI</a></p>
+</li>
+<li>
+<p>TheSketchUpEssentials: <a href="https://youtu.be/ixYN2rCRGTM?si=SP8O9JRsMG49MZPO">ChatGPT-6 Astra - Real 3D Model or Just AI Slop?</a></p>
+</li>
+<li>
+<p>The AI Essentials: <a href="https://youtu.be/9DnrSvAYKsI?si=l3WbRSfnqgqjZ88o">How to Connect AI to SketchUp (Complete MCP Setup Tutorial)</a></p>
+</li>
+</ul>
+<hr>
+<div class="admonition warning">
+<p class="admonition-title">&nbsp;<span>Ochrana dat</span></p>
+<p>Do online AI nástrojů nenahráváme data, která nesmíme sdílet (projekty pro zadavatele, neveřejné plány, osobní údaje, fotografie lidí).</p>
+</div>
+<h2 id="1-zaklady-ruby-ve-sketchupu">1) Základy Ruby ve SketchUpu</h2>
+<p>SketchUp má zabudovaný jazyk <strong>Ruby</strong> a&nbsp;k&nbsp;němu <strong>Ruby API</strong> – sadu příkazů, kterými můžeme kreslit hrany a&nbsp;plochy, vytahovat je, vytvářet skupiny, komponenty, materiály a&nbsp;tagy. Skript se vyplatí zejména při <strong>opakovaných</strong> činnostech (řada oken, sloupy, budovy z&nbsp;tabulky) nebo kde chceme model snadno <strong>změnit parametrem</strong>.</p>
+<h3 id="11-ruby-konzole">1.1 Ruby konzole</h3>
+<p>Ruby konzoli otevřeme v&nbsp;menu <strong>Extensions → Developer → Ruby Console</strong> (ve starších verzích <strong>Window → Ruby Console</strong>). Okno má dvě části: nahoře se vypisují výsledky, dole je řádek, kam píšeme příkazy. Příkaz potvrdíme klávesou <kbd>Enter</kbd>.</p>
+<p>Vyzkoušíme první příkazy – každý napíšeme a&nbsp;potvrdíme zvlášť:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nb">puts</span><span class="w"> </span><span class="s2">"Ahoj, SketchUpe!"</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nb">puts</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">4</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="no">Sketchup</span><span class="o">.</span><span class="n">version</span>
+</code></pre></div>
+<figure>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../../assets/cviceni9/console1.png" data-desc-position="bottom"><img alt="" src="../../assets/cviceni9/console1.png" width="600"></a>
+    </p><figcaption>Výstup z konzole.</figcaption><p></p>
+</figure>
+<ul>
+<li><code>puts</code> vypíše text do konzole.</li>
+<li>Konzole funguje i&nbsp;jako kalkulačka – vrátí <code>14</code>.</li>
+<li><code>Sketchup.version</code> vypíše verzi SketchUpu.</li>
+</ul>
+<div class="admonition tip">
+<p class="admonition-title">&nbsp;<span>Delší kód v&nbsp;konzoli</span></p>
+<p>Do spodního řádku konzole můžeme vložit i&nbsp;<strong>více řádků najednou</strong> (zkopírujeme celý blok kódu z&nbsp;tohoto návodu a&nbsp;vložíme ho <kbd>Ctrl</kbd> + <kbd>V</kbd>). Delší skripty ale budeme ukládat do souboru – viz krok <a href="#110-skript-v-souboru-domek-z-komponent">1.10</a>.</p>
+</div>
+<p>Výstupy konzole můžeme <strong>smazat</strong> příkazem <code>SKETCHUP_CONSOLE.clear</code>.</p>
+<h3 id="12-model-entity-a-jednotky">1.2 Model, entity a&nbsp;jednotky</h3>
+<p>Všechno, co je v&nbsp;modelu, je dostupné přes objekt <code>Sketchup.active_model</code> – aktuálně otevřený model. Geometrie (hrany, plochy či skupiny) leží v&nbsp;kolekci <strong>entities</strong>.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">model</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="no">Sketchup</span><span class="o">.</span><span class="n">active_model</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="n">ents</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">model</span><span class="o">.</span><span class="n">active_entities</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="n">ents</span><span class="o">.</span><span class="n">length</span>
+</code></pre></div>
+<figure>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../../assets/cviceni9/console2.png" data-desc-position="bottom"><img alt="" src="../../assets/cviceni9/console2.png" width="800"></a>
+    </p><figcaption>Výstup z konzole.</figcaption><p></p>
+</figure>
+<ul>
+<li><code>model = …</code> uloží model do <strong>proměnné</strong> <code>model</code>, abychom ho nemuseli pokaždé vypisovat celý.</li>
+<li><code>active_entities</code> jsou entity v&nbsp;<strong>aktuálně otevřeném kontextu</strong> – v&nbsp;modelu nebo uvnitř skupiny, kterou máme otevřenou k&nbsp;editaci.</li>
+<li><code>ents.length</code> vypíše, kolik entit model obsahuje.</li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">&nbsp;<span>Jednotky: vždy <code>.m</code></span></p>
+<p>SketchUp interně počítá v&nbsp;<strong>palcích</strong>, a&nbsp;to bez ohledu na šablonu modelu. Číslo <code>2</code> je pro Ruby API 2 palce (5,08 cm)! Metry zapíšeme příponou <code>.m</code> – například <code>2.m</code>, <code>0.4.m</code> nebo <code>(sirka / 2).m</code>. Desetinná čísla píšeme v&nbsp;Ruby vždy s&nbsp;<strong>tečkou</strong>.</p>
+</div>
+<h3 id="13-kresba-krychle-a-kvadru">1.3 Kresba krychle a kvádru</h3>
+<p>Kostku vytvoříme stejně jako myší: nakreslíme čtverec a&nbsp;vytáhneme ho do výšky.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="n">model</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="no">Sketchup</span><span class="o">.</span><span class="n">active_model</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="n">ents</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">model</span><span class="o">.</span><span class="n">active_entities</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="n">face</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ents</span><span class="o">.</span><span class="n">add_face</span><span class="p">(</span><span class="o">[</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="o">]</span><span class="p">,</span><span class="w"> </span><span class="o">[</span><span class="mi">2</span><span class="o">.</span><span class="n">m</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="o">]</span><span class="p">,</span><span class="w"> </span><span class="o">[</span><span class="mi">2</span><span class="o">.</span><span class="n">m</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="o">.</span><span class="n">m</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="o">]</span><span class="p">,</span><span class="w"> </span><span class="o">[</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="o">.</span><span class="n">m</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="o">]</span><span class="p">)</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="n">face</span><span class="o">.</span><span class="n">reverse!</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">face</span><span class="o">.</span><span class="n">normal</span><span class="o">.</span><span class="n">z</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">0</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="n">face</span><span class="o">.</span><span class="n">pushpull</span><span class="p">(</span><span class="mi">2</span><span class="o">.</span><span class="n">m</span><span class="p">)</span>
+</code></pre></div>
+<p>Co který řádek dělá:</p>
+<ol>
+<li><code>add_face</code> vytvoří plochu ze čtyř bodů. Každý bod je trojice <code>[x, y, z]</code>. Hrany se dokreslí automaticky.</li>
+<li>Plocha ležící na zemi má ve SketchUpu líc otočený <strong>dolů</strong>. <code>face.normal</code> je normála plochy (směr líce); pokud míří dolů (<code>z &lt; 0</code>), plochu otočíme <code>reverse!</code>.</li>
+<li><code>pushpull(2.m)</code> vytáhne plochu o&nbsp;2 m <strong>ve směru normály</strong> – tedy nahoru.</li>
+</ol>
+<p>Kostku si prohlédněte, zkuste ji vybrat a&nbsp;podívejte se do <strong>Entity Info</strong>. Pak ji smažte (nebo vraťte <kbd>Ctrl</kbd> + <kbd>Z</kbd>).</p>
+<div class="admonition question">
+<p class="admonition-title">&nbsp;<span>Vyzkoušejte</span></p>
+<ol>
+<li>Co se stane, když vynecháte řádek s&nbsp;<code>reverse!</code>?</li>
+<li>Upravte kód tak, aby vznikl kvádr 3 × 1 × 5 m.</li>
+<li>Co se stane, když v&nbsp;souřadnicích zapomenete <code>.m</code>?</li>
+</ol>
+</div>
+<h3 id="14-tvorba-metody-funkce">1.4 Tvorba metody (funkce)</h3>
+<p>Abychom stejný kód nepsali stále dokola, zabalíme ho do <strong>metody</strong> (funkce). Metoda má jméno a&nbsp;<strong>parametry</strong> – hodnoty, které jí při zavolání předáme.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">kvadr</span><span class="p">(</span><span class="n">ents</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="n">sirka</span><span class="p">,</span><span class="w"> </span><span class="n">hloubka</span><span class="p">,</span><span class="w"> </span><span class="n">vyska</span><span class="p">)</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">  </span><span class="n">f</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ents</span><span class="o">.</span><span class="n">add_face</span><span class="p">(</span><span class="o">[</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="o">]</span><span class="p">,</span><span class="w"> </span><span class="o">[</span><span class="n">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">sirka</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="o">]</span><span class="p">,</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">                    </span><span class="o">[</span><span class="n">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">sirka</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">hloubka</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="o">]</span><span class="p">,</span><span class="w"> </span><span class="o">[</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">hloubka</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="o">]</span><span class="p">)</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">  </span><span class="n">f</span><span class="o">.</span><span class="n">reverse!</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">f</span><span class="o">.</span><span class="n">normal</span><span class="o">.</span><span class="n">z</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">0</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">  </span><span class="n">f</span><span class="o">.</span><span class="n">pushpull</span><span class="p">(</span><span class="n">vyska</span><span class="p">)</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="k">end</span>
+</code></pre></div>
+<p>Metodu nejdřív vložíme do konzole (tím ji SketchUp „pozná“) a&nbsp;pak ji voláme:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="n">ents</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="no">Sketchup</span><span class="o">.</span><span class="n">active_model</span><span class="o">.</span><span class="n">active_entities</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="n">kvadr</span><span class="p">(</span><span class="n">ents</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="o">.</span><span class="n">m</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="o">.</span><span class="n">m</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="o">.</span><span class="n">m</span><span class="p">)</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="n">kvadr</span><span class="p">(</span><span class="n">ents</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="o">.</span><span class="n">m</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="o">.</span><span class="n">m</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="o">.</span><span class="n">m</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="o">.</span><span class="n">m</span><span class="p">)</span>
+</code></pre></div>
+<ul>
+<li><code>def … end</code> ohraničuje metodu.</li>
+<li>Parametry <code>x, y</code> určují levý přední roh, <code>sirka, hloubka, vyska</code> rozměry.</li>
+</ul>
+<h3 id="15-cyklus-rada-kvadru">1.5 Cyklus: řada kvádrů</h3>
+<p>Opakování zapíšeme <strong>cyklem</strong>. <code>5.times do |i| … end</code> provede blok pětkrát a&nbsp;v&nbsp;proměnné <code>i</code> postupně dostane hodnoty 0, 1, 2, 3, 4.</p>
+<p></p><div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="n">ents</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="no">Sketchup</span><span class="o">.</span><span class="n">active_model</span><span class="o">.</span><span class="n">active_entities</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="mi">5</span><span class="o">.</span><span class="n">times</span><span class="w"> </span><span class="k">do</span><span class="w"> </span><span class="o">|</span><span class="n">i</span><span class="o">|</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="w">  </span><span class="n">kvadr</span><span class="p">(</span><span class="n">ents</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">m</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="o">.</span><span class="n">m</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="o">.</span><span class="n">m</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="o">.</span><span class="n">m</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">m</span><span class="p">)</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="k">end</span>
+</code></pre></div>
+Vznikne pět sloupků vzdálených 2 m, vysokých 1 až 5 m. Stejným principem můžeme rozmístit okna, sloupy nebo stromy.<p></p>
+<figure>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../../assets/cviceni9/console3.png" data-desc-position="bottom"><img alt="" src="../../assets/cviceni9/console3.png" width="800"></a>
+    </p><figcaption>Vykreslení kvádrů.</figcaption><p></p>
+</figure>
+<div class="admonition question">
+<p class="admonition-title">&nbsp;<span>Vyzkoušejte</span></p>
+<p>Upravte cyklus tak, aby vzniklo 10 sloupků 0,4 × 0,4 × 3 m po 2,5 m.</p>
+</div>
+<h3 id="16-skupiny-materialy-a-jeden-krok-undo">1.6 Skupiny, materiály a&nbsp;jeden krok Undo</h3>
+<p>Zkusíme nakreslit tři kvádry těsně vedle sebe: <code>kvadr(ents, 0, 10.m, 1.5.m, 1.5.m, 1.m)</code> a&nbsp;totéž pro <code>x = 1.5.m</code> a&nbsp;<code>x = 3.m</code>. Kvádry <strong>splynou</strong> – sdílejí stěny a&nbsp;SketchUp je spojí do jednoho tvaru. Stejně jako při ruční práci proto geometrii spojíme do <strong>skupin</strong>.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="n">model</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="no">Sketchup</span><span class="o">.</span><span class="n">active_model</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="n">model</span><span class="o">.</span><span class="n">start_operation</span><span class="p">(</span><span class="s1">'Kvádry ve skupinách'</span><span class="p">,</span><span class="w"> </span><span class="kp">true</span><span class="p">)</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="n">cervena</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">model</span><span class="o">.</span><span class="n">materials</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s1">'Cervena'</span><span class="p">)</span>
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="n">cervena</span><span class="o">.</span><span class="n">color</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'red'</span>
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="mi">3</span><span class="o">.</span><span class="n">times</span><span class="w"> </span><span class="k">do</span><span class="w"> </span><span class="o">|</span><span class="n">i</span><span class="o">|</span>
+<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="w">  </span><span class="n">g</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">model</span><span class="o">.</span><span class="n">active_entities</span><span class="o">.</span><span class="n">add_group</span>
+<a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a><span class="w">  </span><span class="n">kvadr</span><span class="p">(</span><span class="n">g</span><span class="o">.</span><span class="n">entities</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">1</span><span class="o">.</span><span class="mi">5</span><span class="p">)</span><span class="o">.</span><span class="n">m</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="o">.</span><span class="n">m</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="o">.</span><span class="mi">5</span><span class="o">.</span><span class="n">m</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="o">.</span><span class="mi">5</span><span class="o">.</span><span class="n">m</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="o">.</span><span class="n">m</span><span class="p">)</span>
+<a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a><span class="w">  </span><span class="n">g</span><span class="o">.</span><span class="n">material</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">cervena</span>
+<a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a><span class="w">  </span><span class="n">g</span><span class="o">.</span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"Kvadr </span><span class="si">#{</span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="si">}</span><span class="s2">"</span>
+<a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a><span class="k">end</span>
+<a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a>
+<a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a><span class="n">model</span><span class="o">.</span><span class="n">commit_operation</span>
+</code></pre></div>
+<ul>
+<li><code>add_group</code> vytvoří prázdnou skupinu, kvádr pak kreslíme do <strong>jejích</strong> entit (<code>g.entities</code>).</li>
+<li><code>g.material</code> obarví celou skupinu, <code>g.name</code> ji pojmenuje (viz <strong>Outliner</strong>).</li>
+<li><code>"Kvadr #{i + 1}"</code> – výraz ve složených závorkách se do textu dosadí.</li>
+<li><code>start_operation</code> a&nbsp;<code>commit_operation</code> sbalí celý skript do <strong>jednoho kroku Undo</strong> – jedním <kbd>Ctrl</kbd> + <kbd>Z</kbd> vrátíme vše.</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">&nbsp;<span>Poznámka</span></p>
+<p><code>materials.add('Cervena')</code> při druhém spuštění vytvoří nový materiál <em>Cervena1</em>. Ve skriptech proto nejdřív zkusíme materiál najít: <code>model.materials['Cervena'] || model.materials.add('Cervena')</code>. Stejně to platí pro tagy (<code>model.layers</code>).</p>
+</div>
+<h3 id="17-sedlova-strecha">1.7 Sedlová střecha</h3>
+<p>Střechu vytvoříme jako <strong>trojúhelník (štít)</strong>, který vytáhneme po celé délce domu. Postavíme si nejdřív stěny domku 8 × 6 × 3 m a&nbsp;pak střechu s&nbsp;hřebenem ve výšce 5,5 m:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="n">model</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="no">Sketchup</span><span class="o">.</span><span class="n">active_model</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="n">model</span><span class="o">.</span><span class="n">start_operation</span><span class="p">(</span><span class="s1">'Stěny a střecha'</span><span class="p">,</span><span class="w"> </span><span class="kp">true</span><span class="p">)</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="n">steny</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">model</span><span class="o">.</span><span class="n">active_entities</span><span class="o">.</span><span class="n">add_group</span>
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="n">kvadr</span><span class="p">(</span><span class="n">steny</span><span class="o">.</span><span class="n">entities</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">8</span><span class="o">.</span><span class="n">m</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="o">.</span><span class="n">m</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="o">.</span><span class="n">m</span><span class="p">)</span>
+<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>
+<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="n">strecha</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">model</span><span class="o">.</span><span class="n">active_entities</span><span class="o">.</span><span class="n">add_group</span>
+<a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a><span class="n">stit</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">strecha</span><span class="o">.</span><span class="n">entities</span><span class="o">.</span><span class="n">add_face</span><span class="p">(</span><span class="o">[</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="o">.</span><span class="n">m</span><span class="o">]</span><span class="p">,</span><span class="w"> </span><span class="o">[</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="o">.</span><span class="n">m</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="o">.</span><span class="n">m</span><span class="o">]</span><span class="p">,</span><span class="w"> </span><span class="o">[</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="o">.</span><span class="n">m</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="o">.</span><span class="mi">5</span><span class="o">.</span><span class="n">m</span><span class="o">]</span><span class="p">)</span>
+<a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a><span class="n">stit</span><span class="o">.</span><span class="n">reverse!</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">stit</span><span class="o">.</span><span class="n">normal</span><span class="o">.</span><span class="n">x</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">0</span>
+<a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a><span class="n">stit</span><span class="o">.</span><span class="n">pushpull</span><span class="p">(</span><span class="mi">8</span><span class="o">.</span><span class="n">m</span><span class="p">)</span>
+<a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a>
+<a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a><span class="n">model</span><span class="o">.</span><span class="n">commit_operation</span>
+</code></pre></div>
+<figure>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../../assets/cviceni9/console4.png" data-desc-position="bottom"><img alt="" src="../../assets/cviceni9/console4.png" width="800"></a>
+    </p><figcaption>Vytvoření jednoduchého domu se sedlovou střechou.</figcaption><p></p>
+</figure>
+<ul>
+<li>Trojúhelník leží ve svislé rovině <code>x = 0</code> (štítová stěna), vrchol je uprostřed hloubky domu.</li>
+<li>Normála štítu má mířit ve směru osy <strong>X</strong> (do domu), proto kontrolujeme <code>normal.x</code>.</li>
+<li><code>pushpull(8.m)</code> vytáhne štít přes celou šířku domu – vznikne hranol střechy.</li>
+</ul>
+<h3 id="18-komponenta-okno">1.8 Komponenta: okno</h3>
+<p>Okno na domě bude několikrát. Každé okno jako samostatná skupina by zbytečně zvětšovalo soubor a&nbsp;při změně bychom museli upravovat každé zvlášť. Proto použijeme <strong>komponentu</strong>: geometrie je v&nbsp;modelu uložená jednou (<strong>definice</strong>) a&nbsp;v&nbsp;modelu se objevuje jako <strong>instance</strong>.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="n">model</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="no">Sketchup</span><span class="o">.</span><span class="n">active_model</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="n">defn</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">model</span><span class="o">.</span><span class="n">definitions</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s1">'Okno'</span><span class="p">)</span>
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="n">e</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">defn</span><span class="o">.</span><span class="n">entities</span>
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="n">ram</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="n">e</span><span class="o">.</span><span class="n">add_face</span><span class="p">(</span><span class="o">[</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="o">]</span><span class="p">,</span><span class="w"> </span><span class="o">[</span><span class="mi">1</span><span class="o">.</span><span class="n">m</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="o">]</span><span class="p">,</span><span class="w"> </span><span class="o">[</span><span class="mi">1</span><span class="o">.</span><span class="n">m</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="o">.</span><span class="mi">2</span><span class="o">.</span><span class="n">m</span><span class="o">]</span><span class="p">,</span><span class="w"> </span><span class="o">[</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="o">.</span><span class="mi">2</span><span class="o">.</span><span class="n">m</span><span class="o">]</span><span class="p">)</span>
+<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="n">sklo</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">e</span><span class="o">.</span><span class="n">add_face</span><span class="p">(</span><span class="o">[</span><span class="mi">0</span><span class="o">.</span><span class="mi">08</span><span class="o">.</span><span class="n">m</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="o">.</span><span class="mi">08</span><span class="o">.</span><span class="n">m</span><span class="o">]</span><span class="p">,</span><span class="w"> </span><span class="o">[</span><span class="mi">0</span><span class="o">.</span><span class="mi">92</span><span class="o">.</span><span class="n">m</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="o">.</span><span class="mi">08</span><span class="o">.</span><span class="n">m</span><span class="o">]</span><span class="p">,</span>
+<a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a><span class="w">                  </span><span class="o">[</span><span class="mi">0</span><span class="o">.</span><span class="mi">92</span><span class="o">.</span><span class="n">m</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="o">.</span><span class="mi">12</span><span class="o">.</span><span class="n">m</span><span class="o">]</span><span class="p">,</span><span class="w"> </span><span class="o">[</span><span class="mi">0</span><span class="o">.</span><span class="mi">08</span><span class="o">.</span><span class="n">m</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="o">.</span><span class="mi">12</span><span class="o">.</span><span class="n">m</span><span class="o">]</span><span class="p">)</span>
+<a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a><span class="n">ram</span><span class="o">.</span><span class="n">reverse!</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">ram</span><span class="o">.</span><span class="n">normal</span><span class="o">.</span><span class="n">y</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span>
+<a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a><span class="n">ram</span><span class="o">.</span><span class="n">pushpull</span><span class="p">(</span><span class="mi">0</span><span class="o">.</span><span class="mi">08</span><span class="o">.</span><span class="n">m</span><span class="p">)</span>
+<a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a>
+<a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a><span class="n">sklo_mat</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">model</span><span class="o">.</span><span class="n">materials</span><span class="o">[</span><span class="s1">'Sklo'</span><span class="o">]</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">model</span><span class="o">.</span><span class="n">materials</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s1">'Sklo'</span><span class="p">)</span>
+<a id="__codelineno-8-12" name="__codelineno-8-12" href="#__codelineno-8-12"></a><span class="n">sklo_mat</span><span class="o">.</span><span class="n">color</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="no">Sketchup</span><span class="o">::</span><span class="no">Color</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="mi">150</span><span class="p">,</span><span class="w"> </span><span class="mi">190</span><span class="p">,</span><span class="w"> </span><span class="mi">220</span><span class="p">)</span>
+<a id="__codelineno-8-13" name="__codelineno-8-13" href="#__codelineno-8-13"></a><span class="n">sklo_mat</span><span class="o">.</span><span class="n">alpha</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="o">.</span><span class="mi">4</span>
+<a id="__codelineno-8-14" name="__codelineno-8-14" href="#__codelineno-8-14"></a><span class="n">sklo</span><span class="o">.</span><span class="n">material</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sklo_mat</span>
+</code></pre></div>
+<ul>
+<li><code>definitions.add('Okno')</code> vytvoří definici komponenty. Zatím ji v&nbsp;modelu <strong>nevidíme</strong> – najdeme ji v&nbsp;panelu <strong>Components → In Model</strong>.</li>
+<li>Okno kreslíme ve svislé rovině <code>y = 0</code> (stejně jako přední fasáda) s&nbsp;počátkem v&nbsp;levém dolním rohu.</li>
+<li>Druhá plocha (<code>sklo</code>) uvnitř první z&nbsp;ní „vykrojí“ otvor: z&nbsp;první plochy zůstane rám.</li>
+<li>Rám vytáhneme o&nbsp;8 cm <strong>ven</strong> z&nbsp;fasády (proti ose Y), sklo zůstane zapuštěné.</li>
+<li><code>alpha = 0.4</code> nastaví průhlednost materiálu.</li>
+</ul>
+<h3 id="19-vlozeni-a-otoceni-instanci">1.9 Vložení a&nbsp;otočení instancí</h3>
+<p>Instanci vložíme metodou <code>add_instance</code>. Kromě definice potřebuje <strong>transformaci</strong> – kam a&nbsp;jak natočenou instanci umístit.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="n">model</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="no">Sketchup</span><span class="o">.</span><span class="n">active_model</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="n">defn</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">model</span><span class="o">.</span><span class="n">definitions</span><span class="o">[</span><span class="s1">'Okno'</span><span class="o">]</span>
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="mi">3</span><span class="o">.</span><span class="n">times</span><span class="w"> </span><span class="k">do</span><span class="w"> </span><span class="o">|</span><span class="n">i</span><span class="o">|</span>
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="w">  </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="o">.</span><span class="mi">0</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">2</span><span class="o">.</span><span class="mi">5</span><span class="p">)</span><span class="o">.</span><span class="n">m</span>
+<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="w">  </span><span class="n">posun</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="no">Geom</span><span class="o">::</span><span class="no">Transformation</span><span class="o">.</span><span class="n">translation</span><span class="p">(</span><span class="o">[</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="o">.</span><span class="n">m</span><span class="o">]</span><span class="p">)</span>
+<a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a><span class="w">  </span><span class="n">model</span><span class="o">.</span><span class="n">active_entities</span><span class="o">.</span><span class="n">add_instance</span><span class="p">(</span><span class="n">defn</span><span class="p">,</span><span class="w"> </span><span class="n">posun</span><span class="p">)</span>
+<a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a><span class="k">end</span>
+</code></pre></div>
+<p>Na přední fasádě vzniknou tři okna s&nbsp;parapetem ve výšce 1 m. Na bok domu (fasáda <code>x = 8 m</code>) musíme okno nejdřív <strong>otočit</strong> o&nbsp;90° kolem svislé osy a&nbsp;pak posunout:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="n">otoceni</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="no">Geom</span><span class="o">::</span><span class="no">Transformation</span><span class="o">.</span><span class="n">rotation</span><span class="p">(</span><span class="no">ORIGIN</span><span class="p">,</span><span class="w"> </span><span class="no">Z_AXIS</span><span class="p">,</span><span class="w"> </span><span class="mi">90</span><span class="o">.</span><span class="n">degrees</span><span class="p">)</span>
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="n">posun</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="no">Geom</span><span class="o">::</span><span class="no">Transformation</span><span class="o">.</span><span class="n">translation</span><span class="p">(</span><span class="o">[</span><span class="mi">8</span><span class="o">.</span><span class="n">m</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="o">.</span><span class="mi">5</span><span class="o">.</span><span class="n">m</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="o">.</span><span class="n">m</span><span class="o">]</span><span class="p">)</span>
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="n">model</span><span class="o">.</span><span class="n">active_entities</span><span class="o">.</span><span class="n">add_instance</span><span class="p">(</span><span class="n">defn</span><span class="p">,</span><span class="w"> </span><span class="n">posun</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">otoceni</span><span class="p">)</span>
+</code></pre></div>
+<figure>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../../assets/cviceni9/console5.png" data-desc-position="bottom"><img alt="" src="../../assets/cviceni9/console5.png" width="800"></a>
+    </p><figcaption>Přidání oken na stěnu domu.</figcaption><p></p>
+</figure>
+<ul>
+<li><code>ORIGIN</code> je počátek a&nbsp;<code>Z_AXIS</code> svislá osa – konstanty Ruby API.</li>
+<li><code>90.degrees</code> převede stupně na radiány.</li>
+<li><code>posun * otoceni</code> – transformace se skládají <strong>zprava doleva</strong>: nejdřív otočit, potom posunout.</li>
+</ul>
+<h3 id="110-volani-skriptu-ze-souboru">1.10 Volání skriptu ze souboru</h3>
+<p>Delší skript už nebudeme vkládat do konzole, ale uložíme ho do souboru s&nbsp;příponou <strong>.rb</strong> a&nbsp;načteme příkazem <code>load</code>. Výhody: skript můžeme upravovat v&nbsp;editoru, uložit, spustit znovu a&nbsp;sdílet.</p>
+<p>Stáhněte si vzorový skript <a href="../../assets/cviceni9/domek.rb">domek.rb</a>, uložte ho například do <code>C:/skripty/</code> a&nbsp;spusťte v&nbsp;konzoli:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="nb">load</span><span class="w"> </span><span class="s2">"C:/skripty/domek.rb"</span>
+</code></pre></div>
+<figure>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../../assets/cviceni9/console_dum.png" data-desc-position="bottom"><img alt="" src="../../assets/cviceni9/console_dum.png" width="800"></a>
+    </p><figcaption>Vykreslení domu ze skriptu.</figcaption><p></p>
+</figure>
+<div class="admonition warning">
+<p class="admonition-title">&nbsp;<span>Cesta k&nbsp;souboru</span></p>
+<p>V&nbsp;cestě používáme <strong>obyčejná lomítka</strong> <code>/</code>, ne zpětná <code>\</code> jako ve Windows. Cesta nesmí obsahovat překlep – při chybě vypíše konzole <code>cannot load such file</code>.</p>
+</div>
+<p>Skript skládá vše, co jsme si vyzkoušeli:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="k">module</span><span class="w"> </span><span class="nn">YDPD</span>
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="w">  </span><span class="k">module</span><span class="w"> </span><span class="nn">Domek</span>
+<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>
+<a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="w">    </span><span class="c1"># ---- parametry domku (metry) ----</span>
+<a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a><span class="w">    </span><span class="no">SIRKA</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="mi">8</span><span class="o">.</span><span class="mi">0</span><span class="w">   </span><span class="c1"># délka podél osy X (přední fasáda)</span>
+<a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a><span class="w">    </span><span class="no">HLOUBKA</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">6</span><span class="o">.</span><span class="mi">0</span><span class="w">   </span><span class="c1"># délka podél osy Y</span>
+<a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a><span class="w">    </span><span class="no">VYSKA</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="o">.</span><span class="mi">0</span><span class="w">   </span><span class="c1"># výška stěn</span>
+<a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a><span class="w">    </span><span class="no">STRECHA</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="o">.</span><span class="mi">5</span><span class="w">   </span><span class="c1"># výška hřebene nad stěnami</span>
+<a id="__codelineno-12-9" name="__codelineno-12-9" href="#__codelineno-12-9"></a><span class="w">    </span><span class="no">PRESAH</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="o">.</span><span class="mi">4</span><span class="w">   </span><span class="c1"># přesah střechy na všech stranách</span>
+<a id="__codelineno-12-10" name="__codelineno-12-10" href="#__codelineno-12-10"></a><span class="w">    </span><span class="no">OKNA</span><span class="w">    </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="w">     </span><span class="c1"># počet oken na přední fasádě</span>
+<a id="__codelineno-12-11" name="__codelineno-12-11" href="#__codelineno-12-11"></a><span class="w">    </span><span class="no">PARAPET</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="o">.</span><span class="mi">0</span><span class="w">   </span><span class="c1"># výška spodní hrany okna nad zemí</span>
+</code></pre></div>
+<ul>
+<li><code>module YDPD</code> a&nbsp;<code>module Domek</code> jsou „jmenné prostory“ – oddělí naše metody od metod jiných skriptů a&nbsp;pluginů, aby se jména nepletla.</li>
+<li><strong>Konstanty</strong> (psané velkými písmeny) na začátku souboru jsou <strong>parametry</strong> domku. Změníme je, soubor uložíme a&nbsp;skript spustíme znovu.</li>
+</ul>
+<p>Dále skript obsahuje pomocné metody <code>material</code> a&nbsp;<code>tag</code> (najdou existující materiál či tag, nebo vytvoří nový) a&nbsp;metody pro jednotlivé části domu:</p>
+<table>
+<thead>
+<tr>
+<th>Metoda</th>
+<th>Co vytvoří</th>
+<th>Typ</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>steny(model)</code></td>
+<td>kvádr stěn</td>
+<td>skupina, tag <em>Budova</em></td>
+</tr>
+<tr>
+<td><code>strecha(model)</code></td>
+<td>sedlová střecha s&nbsp;přesahem</td>
+<td>skupina, tag <em>Budova</em></td>
+</tr>
+<tr>
+<td><code>okno(model)</code></td>
+<td>rám se sklem</td>
+<td>definice komponenty <em>YDPD_Okno</em></td>
+</tr>
+<tr>
+<td><code>dvere(model)</code></td>
+<td>dřevěné dveře</td>
+<td>definice komponenty <em>YDPD_Dvere</em></td>
+</tr>
+<tr>
+<td><code>run</code></td>
+<td>vše složí, rozmístí okna a&nbsp;dveře</td>
+<td>jeden krok Undo</td>
+</tr>
+</tbody>
+</table>
+<p>Hlavní metoda <code>run</code> rozmístí okna rovnoměrně po přední fasádě a&nbsp;dveře otočí na bok domu:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="no">OKNA</span><span class="o">.</span><span class="n">times</span><span class="w"> </span><span class="k">do</span><span class="w"> </span><span class="o">|</span><span class="n">i</span><span class="o">|</span>
+<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="w">  </span><span class="n">stred</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="no">SIRKA</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">0</span><span class="o">.</span><span class="mi">5</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="no">OKNA</span>
+<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="w">  </span><span class="n">poloha</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="no">Geom</span><span class="o">::</span><span class="no">Transformation</span><span class="o">.</span><span class="n">translation</span><span class="p">(</span><span class="o">[</span><span class="p">(</span><span class="n">stred</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">0</span><span class="o">.</span><span class="mi">5</span><span class="p">)</span><span class="o">.</span><span class="n">m</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="no">PARAPET</span><span class="o">.</span><span class="n">m</span><span class="o">]</span><span class="p">)</span>
+<a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a><span class="w">  </span><span class="n">inst</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">model</span><span class="o">.</span><span class="n">active_entities</span><span class="o">.</span><span class="n">add_instance</span><span class="p">(</span><span class="n">d_okno</span><span class="p">,</span><span class="w"> </span><span class="n">poloha</span><span class="p">)</span>
+<a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a><span class="w">  </span><span class="n">inst</span><span class="o">.</span><span class="n">layer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">tag_okna</span>
+<a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a><span class="k">end</span>
+</code></pre></div>
+<ul>
+<li>Fasádu rozdělíme na <code>OKNA</code> stejných dílů a&nbsp;okno (široké 1 m) postavíme doprostřed každého dílu.</li>
+<li><code>inst.layer = tag_okna</code> přiřadí instanci tag <em>Okna</em> – okna pak můžeme jedním klikem skrýt.</li>
+</ul>
+<p>Celý skript je ošetřen proti chybám: pokud něco selže, <code>rescue</code> zruší rozpracovanou operaci (<code>abort_operation</code>) a&nbsp;vypíše chybu do okna.</p>
+<h4 id="nejcastejsi-chyby">Nejčastější chyby</h4>
+<table>
+<thead>
+<tr>
+<th>Hláška nebo projev</th>
+<th>Příčina</th>
+<th>Řešení</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>undefined local variable or method</code></td>
+<td>překlep v&nbsp;názvu, nebo metoda nebyla vložena do konzole</td>
+<td>zkontrolovat název, vložit nejdřív <code>def … end</code></td>
+</tr>
+<tr>
+<td><code>undefined method … for nil</code></td>
+<td><code>add_face</code> vrátil <code>nil</code> – body leží na přímce nebo se opakují</td>
+<td>zkontrolovat souřadnice bodů</td>
+</tr>
+<tr>
+<td>model je miniaturní</td>
+<td>chybí <code>.m</code>, SketchUp počítá v&nbsp;palcích</td>
+<td>doplnit <code>.m</code> ke všem rozměrům</td>
+</tr>
+<tr>
+<td>Push/Pull táhne dolů nebo dovnitř</td>
+<td>obrácená normála plochy</td>
+<td><code>reverse!</code> podle směru normály</td>
+</tr>
+<tr>
+<td>tvary se slévají</td>
+<td>geometrie není ve skupině</td>
+<td>kreslit do <code>add_group</code></td>
+</tr>
+<tr>
+<td><code>cannot load such file</code></td>
+<td>chybná cesta v&nbsp;<code>load</code></td>
+<td>lomítka <code>/</code>, správný název souboru</td>
+</tr>
+</tbody>
+</table>
+<h2 id="2-modelovani-z-promptu">2) Modelování z&nbsp;promptu</h2>
+<p>Ve druhé části necháme Ruby skripty psát <strong>jazykový model (LLM)</strong> – Claude, ChatGPT, Gemini nebo jiný. Každý krok je <strong>jeden prompt</strong>, výsledný skript spustíme ve SketchUpu a&nbsp;<strong>zkontrolujeme</strong>.</p>
+<h3 id="21-jak-napsat-dobry-prompt">2.1 Jak napsat dobrý prompt</h3>
+<p>Jazykový model nevidí náš model ani SketchUp. Ví jen to, co mu napíšeme. Dobrý prompt byměl obsahovat:</p>
+<table>
+<thead>
+<tr>
+<th>Část</th>
+<th>Co napsat</th>
+<th>Příklad</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Kontext</strong></td>
+<td>program, verze, jazyk, jednotky</td>
+<td>SketchUp 2026, Ruby API, rozměry v&nbsp;metrech (<code>.m</code>)</td>
+</tr>
+<tr>
+<td><strong>Úloha</strong></td>
+<td>co přesně má skript vytvořit</td>
+<td>dům s&nbsp;obdélníkovým půdorysem a&nbsp;sedlovou střechou</td>
+</tr>
+<tr>
+<td><strong>Vstupy</strong></td>
+<td>rozměry, počty, data</td>
+<td>10 × 7 m, výška stěn 6 m, sklon střechy 35°</td>
+</tr>
+<tr>
+<td><strong>Omezení</strong></td>
+<td>jak má být model uspořádaný</td>
+<td>části jako skupiny, tagy</td>
+</tr>
+<tr>
+<td><strong>Výstup</strong></td>
+<td>v&nbsp;jaké podobě chceme odpověď</td>
+<td>celý skript s&nbsp;českými komentáři, spustitelný přes <code>load</code></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition tip">
+<p class="admonition-title">&nbsp;<span>Pravidla stylu do každého promptu</span></p>
+<p>Aby AI modelovala konzistentně, připravíme si krátký blok <strong>pravidel</strong>, který vložíme na začátek každého promptu:
+</p><div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>Pravidla pro skripty:
+<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>- SketchUp 2026, Ruby API, všechny rozměry v metrech s příponou .m
+<a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>- kód v modulu YDPD::Dum, parametry jako konstanty na začátku souboru
+<a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a>- každá část budovy je skupina, opakované prvky (okna, dveře) jsou komponenty
+<a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a>- tagy: Budova, Strecha, Okna, Dvere
+<a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a>- celý skript je jedna operace (start_operation / commit_operation)
+<a id="__codelineno-14-7" name="__codelineno-14-7" href="#__codelineno-14-7"></a>- při chybě abort_operation a UI.messagebox s popisem chyby
+<a id="__codelineno-14-8" name="__codelineno-14-8" href="#__codelineno-14-8"></a>- české komentáře, žádné pluginy ani externí knihovny
+</code></pre></div><p></p>
+</div>
+<h3 id="22-krok-1-zakladni-prvky-domu">2.2 Krok 1: základní prvky domu</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>[pravidla pro skripty]
+<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>
+<a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a>Napiš Ruby skript, který vytvoří hmotu rodinného domu:
+<a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a>- obdélníkový půdorys 10 × 7 m, delší strana podél osy X, levý přední roh v počátku
+<a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a>- výška stěn 6 m (dvě podlaží)
+<a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a>- sedlová střecha se sklonem 35°, hřeben rovnoběžný s delší stranou,
+<a id="__codelineno-15-7" name="__codelineno-15-7" href="#__codelineno-15-7"></a>  přesah 0,5 m na všech stranách
+<a id="__codelineno-15-8" name="__codelineno-15-8" href="#__codelineno-15-8"></a>- výšku hřebene dopočítej ze sklonu a hloubky domu
+<a id="__codelineno-15-9" name="__codelineno-15-9" href="#__codelineno-15-9"></a>Na konci vypiš do konzole výšku hřebene.
+</code></pre></div>
+<figure>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../../assets/cviceni9/ai1.png" data-desc-position="bottom"><img alt="" src="../../assets/cviceni9/ai1.png" width="800"></a>
+    </p><figcaption>Výsledek prvního promptu.</figcaption><p></p>
+</figure>
+<p><strong>Kontrola:</strong> změříme rozměry nástrojem <strong>Tape Measure</strong>, ověříme sklon střechy nástrojem <strong>Protractor</strong> a&nbsp;výšku hřebene porovnáme s&nbsp;výpočtem (pro hloubku 7 m a&nbsp;sklon 35° je hřeben zhruba 2,45 m nad stěnami). Skupiny a&nbsp;tagy zkontrolujeme v&nbsp;<strong>Outlineru</strong> a&nbsp;panelu <strong>Tags</strong>.</p>
+<div class="admonition tip">
+<p class="admonition-title">&nbsp;<span>Když skript nefunguje</span></p>
+<p>Zkopírujeme <strong>celou</strong> chybovou hlášku z&nbsp;Ruby konzole a&nbsp;pošleme ji zpět s&nbsp;prosbou: <em>„Oprav jen tuto chybu a&nbsp;vysvětli, co bylo špatně.“</em> Nenecháváme AI psát celý skript znovu – mohla by změnit i&nbsp;to, co fungovalo.</p>
+</div>
+<h3 id="23-krok-2-uprava-parametru-a-tvaru">2.3 Krok 2: úprava parametrů a&nbsp;tvaru</h3>
+<p>Druhý prompt navazuje ve <strong>stejné konverzaci</strong>, takže AI zná předchozí skript a kontext konverzace.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>Uprav skript:
+<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>- místo sedlové střechy udělej valbovou se stejným sklonem 35° na všech stranách
+<a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a>- přidej sokl: 0,4 m vysoký pás kolem domu, předsazený o 5 cm, tmavě šedý
+<a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a>- ostatní části skriptu neměň
+<a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a>Na konci vypiš, které metody jsi změnil.
+</code></pre></div>
+<figure>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../../assets/cviceni9/ai2.png" data-desc-position="bottom"><img alt="" src="../../assets/cviceni9/ai2.png" width="800"></a>
+    </p><figcaption>Úprava domu dle druhého promptu.</figcaption><p></p>
+</figure>
+<h3 id="24-krok-3-okna-a-dvere-jako-komponenty">2.4 Krok 3: okna a&nbsp;dveře jako komponenty</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>Přidej do skriptu okna a dveře:
+<a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>- okno jako komponenta: 1,2 × 1,5 m, rám 8 cm, sklo poloprůhledné
+<a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a>- dveře jako komponenta: 1,0 × 2,2 m
+<a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a>- přední fasáda (y = 0): v přízemí 2 okna a dveře uprostřed,
+<a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a>  v patře 3 okna nad sebou v osách
+<a id="__codelineno-17-6" name="__codelineno-17-6" href="#__codelineno-17-6"></a>- parapet v přízemí 0,9 m, v patře 3,9 m
+<a id="__codelineno-17-7" name="__codelineno-17-7" href="#__codelineno-17-7"></a>- zadní fasáda: 3 + 3 okna ve stejných osách
+<a id="__codelineno-17-8" name="__codelineno-17-8" href="#__codelineno-17-8"></a>- okna jsou předsazená z fasády, otvory do stěn nevyřezávej
+<a id="__codelineno-17-9" name="__codelineno-17-9" href="#__codelineno-17-9"></a>Rozmístění oken spočítej z parametrů (počet oken, šířka fasády), ne pevnými čísly.
+</code></pre></div>
+<figure>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../../assets/cviceni9/ai3.png" data-desc-position="bottom"><img alt="" src="../../assets/cviceni9/ai3.png" width="800"></a>
+    </p><figcaption>Přidání oken a dveří.</figcaption><p></p>
+</figure>
+<p><strong>Kontrola:</strong> ověříme, že okna jsou <strong>instance jedné komponenty</strong>.</p>
+<h3 id="25-krok-4-detaily">2.5 Krok 4: detaily</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>Přidej detaily:
+<a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a>- komín 0,6 × 0,6 m, 1 m nad hřebenem, v pravé třetině domu
+<a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a>- korunní římsu pod střechou: profil 20 × 15 cm po obvodu domu (Follow Me)
+<a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a>- vstupní schod před dveřmi 1,6 × 0,8 × 0,15 m
+<a id="__codelineno-18-5" name="__codelineno-18-5" href="#__codelineno-18-5"></a>Každý detail jako samostatnou metodu a skupinu s tagem Detaily.
+</code></pre></div>
+<figure>
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="../../assets/cviceni9/ai4.png" data-desc-position="bottom"><img alt="" src="../../assets/cviceni9/ai4.png" width="800"></a>
+    </p><figcaption>Přidání detailů.</figcaption><p></p>
+</figure>
+<h3 id="28-kontrola-vysledneho-modelu">2.8 Kontrola výsledného modelu</h3>
+<p>Model vytvořený s&nbsp;pomocí AI je potřeba důkladě zkontrolovat, přičemž typ kontroly závisí na výsledném využití modelu.</p>
+<table>
+<thead>
+<tr>
+<th>Co kontrolujeme</th>
+<th>Jak</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Rozměry a&nbsp;měřítko</strong></td>
+<td>Tape Measure, porovnání s&nbsp;mapou a&nbsp;fotografií</td>
+</tr>
+<tr>
+<td><strong>Geometrie</strong></td>
+<td>Solid Inspector², styl Monochrome (normály), CleanUp³</td>
+</tr>
+<tr>
+<td><strong>Struktura</strong></td>
+<td>Outliner: skupiny, komponenty, názvy; panel Tags</td>
+</tr>
+<tr>
+<td><strong>Poloha</strong></td>
+<td>lokální počátek, orientace k&nbsp;severu, výška na terénu</td>
+</tr>
+<tr>
+<td><strong>Věrohodnost</strong></td>
+<td>každý prvek má oporu v&nbsp;podkladech – nic vymyšleného</td>
+</tr>
+<tr>
+<td><strong>Kód</strong></td>
+<td>rozumíme mu, běží jako jedna operace, nemaže nic mimo model</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"></path></svg>
+  Zpět na začátek
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      <a href="https://geomatics.fsv.cvut.cz" target="_blank">Katedra geomatiky</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;2023-2026
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://twitter.com/CTUGeomatics" target="_blank" rel="noopener" title="twitter.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M459.4 151.7c.3 4.5.3 9.1.3 13.6 0 138.7-105.6 298.6-298.6 298.6-59.5 0-114.7-17.2-161.1-47.1 8.4 1 16.6 1.3 25.3 1.3 49.1 0 94.2-16.6 130.3-44.8-46.1-1-84.8-31.2-98.1-72.8 6.5 1 13 1.6 19.8 1.6 9.4 0 18.8-1.3 27.6-3.6-48.1-9.7-84.1-52-84.1-103v-1.3c14 7.8 30.2 12.7 47.4 13.3-28.3-18.8-46.8-51-46.8-87.4 0-19.5 5.2-37.4 14.3-53C87.4 130.8 165 172.4 252.1 176.9c-1.6-7.8-2.6-15.9-2.6-24C249.5 95.1 296.3 48 354.4 48c30.2 0 57.5 12.7 76.7 33.1 23.7-4.5 46.5-13.3 66.6-25.3-7.8 24.4-24.4 44.8-46.1 57.8 21.1-2.3 41.6-8.1 60.4-16.2-14.3 20.8-32.2 39.3-52.6 54.3"></path></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://www.facebook.com/geomatics.ctu" target="_blank" rel="noopener" title="www.facebook.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M512 256C512 114.6 397.4 0 256 0S0 114.6 0 256c0 120 82.7 220.8 194.2 248.5V334.2h-52.8V256h52.8v-33.7c0-87.1 39.4-127.5 125-127.5 16.2 0 44.2 3.2 55.7 6.4V172c-6-.6-16.5-1-29.6-1-42 0-58.2 15.9-58.2 57.2V256h83.6l-14.4 78.2H287v175.9C413.8 494.8 512 386.9 512 256"></path></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://www.instagram.com/geomatics.ctu" target="_blank" rel="noopener" title="www.instagram.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M224.3 141a115 115 0 1 0-.6 230 115 115 0 1 0 .6-230m-.6 40.4a74.6 74.6 0 1 1 .6 149.2 74.6 74.6 0 1 1-.6-149.2m93.4-45.1a26.8 26.8 0 1 1 53.6 0 26.8 26.8 0 1 1-53.6 0m129.7 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8M399 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1"></path></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.sections", "toc.integrate", "navigation.top", "search.suggest", "search.highlight", "content.tabs.link", "content.code.annotation", "content.code.copy", "content.tooltips"], "search": "../../assets/javascripts/workers/search.a7633da7.min.js", "tags": null, "translations": {"clipboard.copied": "Zkop\u00edrov\u00e1no do schr\u00e1nky", "clipboard.copy": "Kop\u00edrovat do schr\u00e1nky", "search.result.more.one": "1 dal\u0161\u00ed na t\u00e9to str\u00e1nce", "search.result.more.other": "# v\u00edce na t\u00e9to str\u00e1nce", "search.result.none": "Nenalezeny \u017e\u00e1dn\u00e9 dokumenty", "search.result.one": "Nalezen\u00fd dokument: 1", "search.result.other": "Nalezen\u00e9 dokumenty: #", "search.result.placeholder": "Pi\u0161te co se m\u00e1 vyhledat", "search.result.term.missing": "Chyb\u011bj\u00edc\u00ed", "select.version": "Vyberte verzi"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.a5f9d56c.min.js"></script>
+      
+    
+  
+<script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(()=>{ lightbox.reload(); });
+</script></body></html>
