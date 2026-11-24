@@ -333,6 +333,8 @@ Celý skript je ošetřen proti chybám: pokud něco selže, `rescue` zruší ro
 
 ## 2) Modelování z&nbsp;promptu
 
+**PŘIDAT VÝSLEDNÉ PROMPTY**
+
 Ve druhé části necháme Ruby skripty psát **jazykový model (LLM)** – Claude, ChatGPT, Gemini nebo jiný. Každý krok je **jeden prompt**, výsledný skript spustíme ve SketchUpu a&nbsp;**zkontrolujeme**.
 
 ### 2.1 Jak napsat dobrý prompt
